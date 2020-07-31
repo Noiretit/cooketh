@@ -15,11 +15,28 @@
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "express-session": "^1.17.1",
-    "hbs": "~4.0.4",
+    "hbs": "^4.1.1",
     "http-errors": "~1.6.3",
     "mongoose": "^5.9.4",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "description": "![cook](https://media.giphy.com/media/LVBH3rg1BUROw/giphy.gif)",
+  "main": "app.js",
+  "bin": {
+    "cooketh": "seed.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Noiretit/cooketh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Noiretit/cooketh/issues"
+  },
+  "homepage": "https://github.com/Noiretit/cooketh#readme"
 }
