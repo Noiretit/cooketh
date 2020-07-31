@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const chefSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -22,23 +22,34 @@ const userSchema = new Schema({
         type: Number,
         required: true
     },
-    diet: {
+    mainCookSpecialty: {
         type: String,
         required: true
     },
-    allergies: [{
+    workingDays: [{
         type: String,
         required: true
     }],
+    workingCity: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
     picture: String,
-    description: String,
     facebook: String,
     instagram: String,
     twitter: String,
+    recipes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Recipe'
+    }],
     bookings: [{
         type: Schema.Types.ObjectId,
         ref: 'Booking'
@@ -47,5 +58,6 @@ const userSchema = new Schema({
     timestamps: true
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Chef = mongoose.model('Chef', chefSchema);
+
+module.exports = Chef;

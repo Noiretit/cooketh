@@ -1,6 +1,6 @@
 {
-  "name": "express-generator-test",
-  "version": "0.0.0",
+  "name": "cooketh",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",

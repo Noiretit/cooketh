@@ -12,7 +12,7 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/uber-for-laundry', {
+  .connect('mongodb://localhost/cooketh', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -36,7 +36,9 @@ app.set('view engine', 'hbs');
 // Middleware Setup
 
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -46,12 +48,12 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -1,25 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-    name: {
+const recipeSchema = new Schema({
+    title: {
         type: String,
         required: true
     },
-    email: {
+    typeOfFood: {
         type: String,
-        required: true
-    },
-    phoneNumber: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String,
-        required: true
-    },
-    age: {
-        type: Number,
         required: true
     },
     diet: {
@@ -30,22 +18,33 @@ const userSchema = new Schema({
         type: String,
         required: true
     }],
-    password: {
+    serves: {
         type: String,
         required: true
     },
-    picture: String,
-    description: String,
-    facebook: String,
-    instagram: String,
-    twitter: String,
-    bookings: [{
+    price: {
+        type: Number,
+        required: true
+    },
+    ingredients: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    pictures: {
+        type: String,
+        required: true
+    },
+    chef: {
         type: Schema.Types.ObjectId,
-        ref: 'Booking'
-    }],
+        ref: 'Chef'
+    }
 }, {
     timestamps: true
 });
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Recipe = mongoose.model('Recipe', recipeSchema);
+module.exports = Recipe;
