@@ -1,0 +1,79 @@
+<h2> Sign up as a user </h2>
+
+{{#if errorMessage}}
+<p class="error-message">
+    {{ errorMessage }}
+</p>
+{{/if}}
+
+<form action="/signup-user" method="post">
+    {{> signup}}
+    <section class="radio-buttons">
+        <span>Diet:</span>
+        <input type="radio" id="all" name="diet" value="All" checked>
+        <label for="all">All</label>
+
+        <input type="radio" id="vegetarian" name="diet" value="Vegetarian">
+        <label for="vegetarian">Vegetarian</label>
+
+        <input type="radio" id="vegan" name="diet" value="Vegan">
+        <label for="vegan">Vegan</label>
+    </section>
+
+    <section>
+        <span>Allergies:</span>
+        <input type="checkbox" value="Eggs" name="allergies">
+        <label for="eggs">Eggs</label>
+
+        <input type="checkbox" value="Dairy" name="allergies">
+        <label for="dairy">Dairy</label>
+
+        <input type="checkbox" value="Peanuts" name="allergies">
+        <label for="peanuts">Peanuts</label>
+
+        <input type="checkbox" value="Tree nuts" name="allergies">
+        <label for="treenuts">Tree nuts</label>
+
+        <input type="checkbox" value="Fish" name="allergies">
+        <label for="fish">Fish</label>
+
+        <input type="checkbox" value="Shellfish" name="allergies">
+        <label for="shellfish">Shellfish</label>
+
+        <input type="checkbox" value="Wheat" name="allergies">
+        <label for="wheat">Wheat</label>
+
+        <input type="checkbox" value="Soy" name="allergies">
+        <label for="soy">Soy</label>
+
+        <input type="checkbox" value="Legumes" name="allergies">
+        <label for="legumes">Legumes</label>
+
+        <input type="checkbox" value="Gluten" name="allergies">
+        <label for="gluten">Gluten</label>
+
+        <input type="checkbox" value="Vegetables" name="allergies">
+        <label for="vegetables">Vegetables</label>
+
+        <input type="checkbox" value="Fruits" name="allergies">
+        <label for="fruits">Fruits</label>
+    </section>
+
+    <div>
+        <label for="password-input"> Password:</label>
+        <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
+    </div>
+    <div>
+        <label for="repeat-password-input">Repeat your password:</label>
+        <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+    </div>
+    <br>
+    <button>Create a new account</button>
+</form>
+
+<p>
+    Already have an account?
+    <a href="/login">Log in.</a>
+</p>
+
+<a href="/">Go back</a>

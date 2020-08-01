@@ -28,7 +28,7 @@ mongoose
     console.error('Error connecting to mongo', err);
   });
 
-const indexRouter = require('./routes/index');
+const homeRouter = require('./routes/homepage');
 const authRouter = require('./routes/auth');
 const bookingsRouter = require('./routes/bookings');
 const chefRouter = require('./routes/chef');
@@ -66,7 +66,7 @@ app.use(session({
 
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-app.use('/', indexRouter);
+app.use('/', homeRouter);
 app.use('/', authRouter);
 app.use('/', bookingsRouter);
 app.use('/', chefRouter);

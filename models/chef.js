@@ -19,7 +19,7 @@ const chefSchema = new Schema({
         required: true
     },
     age: {
-        type: Number,
+        type: String,
         required: true
     },
     mainCookSpecialty: {
@@ -34,10 +34,7 @@ const chefSchema = new Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
+    description: String,
     picture: String,
     facebook: String,
     instagram: String,
