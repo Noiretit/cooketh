@@ -133,4 +133,11 @@ router.post('/signup-user', (req, res, next) => {
         .catch((err) => console.log('Error by finding user (auth.js line 38'));
 })
 
+router.get('/login', (req, res, next) => {
+    res.render('auth/login', {
+        errorMessage: ''
+    });
+    return
+});
+
 module.exports = router;
