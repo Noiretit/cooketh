@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('./../models/user');
@@ -36,10 +38,10 @@ router.post('/signup-chef', (req, res, next) => {
     Chef.findOne({
             email
         })
-        .then((foundUser) => {
-            if (foundUser) {
-                res.render('auth/signup', {
-                    errorMessage: `There's already an account with this email: ${email}`
+        .then((foundChef) => {
+            if (foundChef) {
+                res.render('auth/signup-chef', {
+                    errorMessage: `There's already a chef account with this email: ${email}`
                 });
                 return
             };
@@ -58,7 +60,7 @@ router.post('/signup-chef', (req, res, next) => {
                     password: hashedPassword
                 })
                 .then(() => {
-                    res.redirect('/homepage.hbs')
+                    res.redirect('/')
                 })
                 .catch((err) => {
                     res.render('auth/signup-chef', {
@@ -79,7 +81,7 @@ router.post('/signup-user', (req, res, next) => {
     const {
         name,
         email,
-        phone,
+        phoneNumber,
         address,
         age,
         diet,
@@ -88,7 +90,47 @@ router.post('/signup-user', (req, res, next) => {
         repeatPassword
     } = req.body;
 
-    console.log(req.body)
+    if (email === "" || password === "") {
+        res.render('auth/signup-user.hbs', {
+            errorMessage: "Enter both email and password"
+        });
+        return;
+    };
+
+    User.findOne({
+            email
+        })
+        .then((foundUser) => {
+            if (foundUser) {
+                res.render('auth/signup-user', {
+                    errorMessage: `There's already a user account with this email: ${email}`
+                });
+                return
+            };
+
+            const salt = bcrypt.genSaltSync(bcryptSalt);
+            const hashedPassword = bcrypt.hashSync(password, salt);
+
+            User.create({
+                    name,
+                    email,
+                    phoneNumber,
+                    address,
+                    age,
+                    diet,
+                    allergies,
+                    password: hashedPassword
+                })
+                .then(() => {
+                    res.redirect('/')
+                })
+                .catch((err) => {
+                    res.render('auth/signup-user', {
+                        errorMessage: "Error while creating a user account, please try again"
+                    })
+                })
+        })
+        .catch((err) => console.log('Error by finding user (auth.js line 38'));
 })
 
 module.exports = router;
