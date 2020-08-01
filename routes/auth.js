@@ -196,8 +196,23 @@ router.post('/login', (req, res, next) => {
             res.redirect('/');
         });
     }
+});
 
+router.get('/logout', (req, res, next) => {
+    if (!req.session.currentUser) {
+        res.redirect('/');
+        return;
+    }
 
+    req.session.destroy((err) => {
+        if (err) {
+            next(err);
+            return;
+        }
+
+        res.redirect('/');
+        console.log('disconnected')
+    });
 });
 
 module.exports = router;
