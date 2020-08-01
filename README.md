@@ -61,7 +61,7 @@ Everybody wins.
 | `GET`      | `/signup-user`              | Renders `signup` USER form view.                             |                                                              |
 | `POST`     | `/signup-user`              | Sends sign-up USER info to the server and creates user in the DB.<br />Redirects the user to the home page (automatic login). | { name, email, phone-number, address, age, diet, allergies, password }<br />{<u>not mandatory</u>: description, profile picture, social media} |
 | `GET`      | `/signup-chef`              | Renders `signup` CHEF form view.                             |                                                              |
-| `POST`     | `/signup-chef`              | Sends sign-up USER info to the server and creates user in the DB.<br />Redirects the chef to the home page (automatic login). | { name, email, phone-number, address, age, main-specialty, working-days, working-city, password, description }<br />{<u>not mandatory</u>: profile picture, social media} |
+| `POST`     | `/signup-chef`              | Sends sign-up USER info to the server and creates user in the DB.<br />Redirects the chef to the home page (automatic login). | { name, email, phone-number, address, age, main-specialty, working-days, password, description }<br />{<u>not mandatory</u>: profile picture, social media} |
 | `GET`      | `/logout`                   |                                                              |                                                              |
 | --------   | ----routes/index.js----     | --------                                                     | --------                                                     |
 | `GET`      | `/`                         | Main page route. Renders index view                          |                                                              |
@@ -86,7 +86,7 @@ Everybody wins.
 | `GET`      | `profile-user/:id/bookings` | Renders user's bookings (pending & accepted) view            |                                                              |
 | --------   | ----routes/chef.js----      | --------                                                     | --------                                                     |
 | `GET`      | `profile-chef/:id/edit`     | Renders edit chef profile view                               |                                                              |
-| `POST`     | `profile-chef/:id/edit`     | Sends edit-profile info to server and updates user in DB.<br />Redirects to chef profile view with a success/error message | { name, email, phone-number, address, age, main-specialty, working-days, working-city, password, description, profile picture, social media} |
+| `POST`     | `profile-chef/:id/edit`     | Sends edit-profile info to server and updates user in DB.<br />Redirects to chef profile view with a success/error message | { name, email, phone-number, address, age, main-specialty, working-days, password, description, profile picture, social media} |
 | `GET`      | `profile-chef/:id`          | Renders chef profile view                                    |                                                              |
 | `GET`      | `profile-chef/:id/bookings` | Renders chef's bookings (pending & accepted) view            |                                                              |
 
@@ -126,7 +126,6 @@ Chef model
     address: { type: String, required: true },
     mainCookSpecialty: { type: String, required: true },
     workingDays: [{ type: String, required: true }],
-    workingCity: { type: String, required: true },
     password: { type: String, required: true },
     description: { type: String, required: true },
     picture: String,

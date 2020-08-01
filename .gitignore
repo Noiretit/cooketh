@@ -1,4 +1,4 @@
-.DS_store
+.DS_Store
 # Dependency directory
 node_modules   
 # Debug log from npm

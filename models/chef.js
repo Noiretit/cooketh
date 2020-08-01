@@ -30,10 +30,6 @@ const chefSchema = new Schema({
         type: String,
         required: true
     }],
-    workingCity: {
-        type: String,
-        required: true
-    },
     password: {
         type: String,
         required: true

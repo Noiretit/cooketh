@@ -1,4 +1,13 @@
 <h2> Sign Up </h2>
+<section class="radio-buttons">
+    <p>You are signin up as </p>
+
+    <input type="radio" id="user" name="userType" value="User" checked>
+    <label for="user">User</label>
+
+    <input type="radio" id="chef" name="userType" value="Chef">
+    <label for="chef">Chef</label>
+</section><br>
 
 {{#if errorMessage}}
 <p class="error-message">
@@ -7,21 +16,17 @@
 {{/if}}
 
 <form action="/signup" method="post">
+    {{> signup}}
+    {{> user}}
     <div>
-        <label for="name-input"> Name </label>
-        <input type="text" name="name" id="name-input" placeholder="e.g., Diana Prince">
-    </div>
-
-    <div>
-        <label for="email-input"> Email </label>
-        <input type="email" name="email" id="email-input" placeholder="e.g., diana@themyscira.agency">
-    </div>
-
-    <div>
-        <label for="password-input"> Password </label>
+        <label for="password-input"> Password1 </label>
         <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
     </div>
-
+    <div>
+        <label for="repeat-password-input"> Repeat Password </label>
+        <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+    </div>
+    <br>
     <button> Create New Account </button>
 </form>
 
