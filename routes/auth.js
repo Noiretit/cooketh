@@ -28,9 +28,9 @@ router.post('/signup-chef', (req, res, next) => {
         repeatPassword
     } = req.body;
 
-    if (email === "" || password === "") {
+    if (name === "" || email === "" || phoneNumber === "" || address === "" || age === "" || mainCookSpecialty === "" || workingDays === "" || password === "") {
         res.render('auth/signup-chef.hbs', {
-            errorMessage: "Enter both email and password"
+            errorMessage: "Fill up all the form, please"
         });
         return;
     };
@@ -90,9 +90,9 @@ router.post('/signup-user', (req, res, next) => {
         repeatPassword
     } = req.body;
 
-    if (email === "" || password === "") {
+    if (name === "" || email === "" || phoneNumber === "" || address === "" || age === "" || diet === "" || allergies === "" || password === "") {
         res.render('auth/signup-user.hbs', {
-            errorMessage: "Enter both email and password"
+            errorMessage: "Fill up all the form, please"
         });
         return;
     };
