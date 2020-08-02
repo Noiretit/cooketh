@@ -7,6 +7,11 @@
 {{/if}}
 
 <!--on change également le menu-->
+{{#if currentUserInfo}}
+<li><a href="#">My bookings</a></li>
+<li><a href="#">My profile</a></li>
+{{/if}}
+
 {{#if currentUserInfo.isAChef}}
 <li><a href="/recipe/new">create a new recipe</a></li>
 <li> <a href="/logout"> Log Out </a> </li>
