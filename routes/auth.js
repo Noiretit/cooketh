@@ -59,7 +59,8 @@ router.post('/signup-chef', (req, res, next) => {
                     workingDays,
                     password: hashedPassword
                 })
-                .then(() => {
+                .then(newChefObj => {
+                    req.session.currentUser = newChefObj;
                     res.redirect('/')
                 })
                 .catch((err) => {
@@ -121,7 +122,8 @@ router.post('/signup-user', (req, res, next) => {
                     allergies,
                     password: hashedPassword
                 })
-                .then(() => {
+                .then(newUserObj => {
+                    req.session.currentUser = newUserObj;
                     res.redirect('/')
                 })
                 .catch((err) => {
