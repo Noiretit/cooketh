@@ -15,7 +15,7 @@ router.get('/recipe/new', (req, res, next) => {
 router.post('/recipe/new', (req, res, next) => {
     const {
         title,
-        typoOfFood,
+        typeOfFood,
         diet,
         allergies,
         serves,
@@ -26,36 +26,34 @@ router.post('/recipe/new', (req, res, next) => {
         chef
     } = req.body;
 
-    if (title === "" || typoOfFood === "" || diet === "" || allergies === "" || serves === "" || price === "" || ingredients === "" || description === "") {
+    if (title === "" || typeOfFood === "" || diet === "" || allergies === "" || serves === "" || price === "" || ingredients === "" || description === "") {
         res.render('recipe/createRecipe.hbs', {
             errorMessage: "Fill up all the form, please"
         });
         return;
     };
 
-    console.log(req.body)
-
-    Recipe.create({
-            title,
-            typoOfFood,
-            diet,
-            allergies,
-            serves,
-            price,
-            ingredients,
-            description,
-            pictures,
-            chef
-        })
-        .then(() => {
-            console.log('new recipe created')
-            //Tenemos que cambiar la redirection al perfil del chef
+    const newRecipe = new Recipe({
+        title,
+        typeOfFood,
+        diet,
+        allergies,
+        serves,
+        price,
+        ingredients,
+        description,
+        pictures,
+        chef
+    })
+    newRecipe
+        .save()
+        .then((newRecipeDB) => {
+            console.log('New recipe created')
             res.redirect('/')
         })
         .catch((err) => {
-            res.render('recipe/createRecipe', {
-                errorMessage: "Error while creating a new recipe, please try again"
-            })
+            console.log('Error while creating recipe', err)
+            res.render('recipe/createRecipe')
         })
 
 
