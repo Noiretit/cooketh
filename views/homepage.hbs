@@ -3,13 +3,13 @@
 
 <!--Si le user est co, on affiche son nom-->
 {{#if userIsLoggedIn}}
-<p>Hello, {{currentUserInfo.name}}</p>
+<p>Hello, {{currentUserInfo.name}} </p>
 {{/if}}
 
 <!--on change également le menu-->
 {{#if currentUserInfo}}
 <li><a href="#">My bookings</a></li>
-<li><a href="#">My profile</a></li>
+<li><a href="#">My profile </a></li>
 {{/if}}
 
 {{#if currentUserInfo.isAChef}}
@@ -18,7 +18,7 @@
 {{else if currentUserInfo.isAUser}}
 <li> <a href="/logout"> Log Out </a> </li>
 {{else}}
+<li> <a href="/login"> Log In </a> </li>
 <li> <a href="/signup-chef"> Sign Up as a chef </a> </li>
 <li> <a href="/signup-user"> Sign Up as a user </a> </li>
-<li> <a href="/login"> Log In </a> </li>
 {{/if}}

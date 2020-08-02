@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const Recipe = require('../models/recipe');
+const Chef = require('../models/chef');
 
 router.get('/recipe/new', (req, res, next) => {
     res.render('recipe/createRecipe', {
@@ -11,7 +12,7 @@ router.get('/recipe/new', (req, res, next) => {
     return
 });
 
-router.post('/createRecipe', (req, res, next) => {
+router.post('/recipe/new', (req, res, next) => {
     const {
         title,
         typoOfFood,
@@ -32,6 +33,8 @@ router.post('/createRecipe', (req, res, next) => {
         return;
     };
 
+    console.log(req.body)
+
     Recipe.create({
             title,
             typoOfFood,
@@ -41,6 +44,7 @@ router.post('/createRecipe', (req, res, next) => {
             price,
             ingredients,
             description,
+            pictures,
             chef
         })
         .then(() => {
@@ -53,6 +57,8 @@ router.post('/createRecipe', (req, res, next) => {
                 errorMessage: "Error while creating a new recipe, please try again"
             })
         })
+
+
 })
 
 module.exports = router;

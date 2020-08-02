@@ -211,7 +211,7 @@ router.get('/logout', (req, res, next) => {
         }
 
         res.redirect('/');
-        console.log('disconnected')
+        console.log('You are now disconnected')
     });
 });
 

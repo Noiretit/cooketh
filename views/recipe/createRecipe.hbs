@@ -6,7 +6,7 @@
 </p>
 {{/if}}
 
-<form action="/createRecipe" method="post">
+<form action="/recipe/new" method="post">
     <div>
         <label for="title">Recipe title:</label>
         <input type="text" name="title" placeholder="Spanish Tortilla">
@@ -111,7 +111,12 @@
         <label for="description">Description:</label>
         <textarea name="description"></textarea>
     </div>
-    <button type="button"><a href="/">Create a great recipe!</a></button>
+
+    <div>
+        <label for="pictures">Pictures:</label>
+        <input type="text" name="pictures" placeholder="http://...">
+    </div>
+    <button>Create a great recipe!</button>
 </form>
 
 <a href="/">Go back</a>
