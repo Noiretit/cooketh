@@ -1,8 +1,20 @@
 <h2>All recipes</h2>
-<ul>
+
+<div class="container-recipes">
     {{#each recipes}}
-    <li>
+    <div class="recipes">
+
+        <p><img src="{{this.imgPath}}"> </p>
+        <p>{{this.price}}</p>
+        <p>{{this.typeOfFood}}</p>
         <p>{{this.title}}</p>
-    </li>
+        <p>{{this.description}}</p>
+        <p>{{this.chef}}</p>
+
+        <button type="button"><a href="/recipes/{{this.id}}">Book it!</a></button>
+
+    </div>
+    {{else}}
+    <p>There is no recipe yet</p>
     {{/each}}
-</ul>
+</div>

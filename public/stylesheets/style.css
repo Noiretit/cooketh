@@ -6,3 +6,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.container-recipes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipes {
+  width: 20%;
+  border: 1px solid;
+}
+
+.recipes img {
+  width: 100%;
+}

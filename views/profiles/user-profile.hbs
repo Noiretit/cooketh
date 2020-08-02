@@ -1,5 +1,9 @@
 <ul>
+    {{#if thisUser.picture}}
     <img src="{{thisUser.picture}}">
+    {{else}}
+    <img src="https://static.thenounproject.com/png/1244141-200.png" />
+    {{/if}}
     <li>Name: {{thisUser.name}}</li>
     <li>Diet: {{thisUser.diet}}</li>
     <li>Allergies: {{thisUser.allergies}}</li>

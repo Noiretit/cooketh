@@ -4,11 +4,43 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('./../models/user');
 const Chef = require('./../models/chef');
+const Recipe = require('./../models/recipe');
 const uploadCloud = require('../config/cloudinary.js');
 
 const router = express.Router();
 const bcryptSalt = 10;
 
+//ROUTE RECIPES
+router.get('/recipes', (req, res, next) => {
+    Recipe.find()
+        .then((allRecipes) => {
+            console.log(allRecipes);
+            res.render('recipe/list-recipes', {
+                recipes: allRecipes
+            });
+        })
+        .catch((err) => {
+            console.log('Failed loading the recipes');
+            res.render('/');
+        })
+})
+
+//ROUTE RECIPE DETAILS PAGE
+router.get('/recipes/:id', (req, res, next) => {
+    const recipeId = req.params.id;
+    Recipe.findById(recipeId)
+        .then(allRecipes => {
+            console.log(allRecipes)
+            res.render('recipe/info-recipe', {
+                recipeinfo: allRecipes
+            });
+        })
+        .catch(error => {
+            console.log('Error getting the recipes info from the DB', error);
+        });
+})
+
+//ROUTER SIGNUP CHEF
 router.get('/signup-chef', (req, res, next) => {
     res.render('auth/signup-chef', {
         errorMessage: ''
@@ -76,6 +108,7 @@ router.post('/signup-chef', uploadCloud.single('photo'), (req, res, next) => {
         .catch((err) => console.log('Error by finding chef (auth.js line 38'));
 })
 
+//ROUTE SIGNUP USER
 router.get('/signup-user', (req, res, next) => {
     res.render('auth/signup-user', {
         errorMessage: ''
@@ -142,6 +175,7 @@ router.post('/signup-user', uploadCloud.single('photo'), (req, res, next) => {
         .catch((err) => console.log('Error by finding user (auth.js line 38'));
 })
 
+//ROUTE LOGIN
 router.get('/login', (req, res, next) => {
     res.render('auth/login', {
         errorMessage: ''
@@ -207,6 +241,7 @@ router.post('/login', (req, res, next) => {
     }
 });
 
+//LOGOUT
 router.get('/logout', (req, res, next) => {
     if (!req.session.currentUser) {
         res.redirect('/');
