@@ -34,6 +34,10 @@ const chefSchema = new Schema({
         type: String,
         required: true
     },
+    isAChef: {
+        type: Boolean,
+        default: true
+    },
     description: String,
     picture: String,
     facebook: String,

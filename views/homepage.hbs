@@ -7,8 +7,10 @@
 {{/if}}
 
 <!--on change également le menu-->
-{{#if userIsLoggedIn}}
-<li><a href="/createRecipe">create a new recipe</a></li>
+{{#if currentUserInfo.isAChef}}
+<li><a href="/recipe/new">create a new recipe</a></li>
+<li> <a href="/logout"> Log Out </a> </li>
+{{else if currentUserInfo.isAUser}}
 <li> <a href="/logout"> Log Out </a> </li>
 {{else}}
 <li> <a href="/signup-chef"> Sign Up as a chef </a> </li>

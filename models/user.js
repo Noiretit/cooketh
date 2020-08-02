@@ -34,6 +34,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    isAUser: {
+        type: Boolean,
+        default: true
+    },
     picture: String,
     description: String,
     facebook: String,
