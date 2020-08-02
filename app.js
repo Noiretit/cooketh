@@ -64,6 +64,20 @@ app.use(session({
   })
 }));
 
+//Para verificar el estado de la session, este middleware nos permite personalisar la homepage facilmente en auth/homepage.hbs
+app.use((req, res, next) => {
+  if (req.session.currentUser) {
+    //La información del usuario de la sesión (solo disponible si ha iniciado sesión).
+    res.locals.currentUserInfo = req.session.currentUser;
+    //Un booleano que indica si hay un usuario conectado o no.
+    res.locals.userIsLoggedIn = true;
+  } else {
+    res.locals.userIsLoggedIn = false;
+  }
+
+  next();
+})
+
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 app.use('/', homeRouter);

@@ -1,7 +1,17 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<a href="/login">Login</a><br>
+<!--Si le user est co, on affiche son nom-->
+{{#if userIsLoggedIn}}
+<p>Hello, {{currentUserInfo.name}}</p>
+{{/if}}
 
-<a href="/signup-user">Sign up as a user</a><br>
-<a href="/signup-chef">Sign up as a chef</a>
+<!--on change également le menu-->
+{{#if userIsLoggedIn}}
+<li><a href="/createRecipe">create a new recipe</a></li>
+<li> <a href="/logout"> Log Out </a> </li>
+{{else}}
+<li> <a href="/signup-chef"> Sign Up as a chef </a> </li>
+<li> <a href="/signup-user"> Sign Up as a user </a> </li>
+<li> <a href="/login"> Log In </a> </li>
+{{/if}}
