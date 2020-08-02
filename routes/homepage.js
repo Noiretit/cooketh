@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('homepage.hbs', {
     title: 'cooketh'
-  });
+  })
 });
 
 module.exports = router;
