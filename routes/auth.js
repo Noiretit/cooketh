@@ -4,6 +4,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('./../models/user');
 const Chef = require('./../models/chef');
+const uploadCloud = require('../config/cloudinary.js');
 
 const router = express.Router();
 const bcryptSalt = 10;
@@ -15,7 +16,7 @@ router.get('/signup-chef', (req, res, next) => {
     return
 });
 
-router.post('/signup-chef', (req, res, next) => {
+router.post('/signup-chef', uploadCloud.single('photo'), (req, res, next) => {
     const {
         name,
         email,
@@ -48,6 +49,8 @@ router.post('/signup-chef', (req, res, next) => {
 
             const salt = bcrypt.genSaltSync(bcryptSalt);
             const hashedPassword = bcrypt.hashSync(password, salt);
+            const imgPath = req.file.path;
+            const imgName = req.file.originalname;
 
             Chef.create({
                     name,
@@ -57,7 +60,8 @@ router.post('/signup-chef', (req, res, next) => {
                     age,
                     mainCookSpecialty,
                     workingDays,
-                    password: hashedPassword
+                    password: hashedPassword,
+                    picture: imgPath
                 })
                 .then(newChefObj => {
                     req.session.currentUser = newChefObj;
@@ -78,7 +82,7 @@ router.get('/signup-user', (req, res, next) => {
     });
 });
 
-router.post('/signup-user', (req, res, next) => {
+router.post('/signup-user', uploadCloud.single('photo'), (req, res, next) => {
     const {
         name,
         email,
@@ -111,6 +115,8 @@ router.post('/signup-user', (req, res, next) => {
 
             const salt = bcrypt.genSaltSync(bcryptSalt);
             const hashedPassword = bcrypt.hashSync(password, salt);
+            const imgPath = req.file.path;
+            const imgName = req.file.originalname;
 
             User.create({
                     name,
@@ -120,7 +126,8 @@ router.post('/signup-user', (req, res, next) => {
                     age,
                     diet,
                     allergies,
-                    password: hashedPassword
+                    password: hashedPassword,
+                    picture: imgPath
                 })
                 .then(newUserObj => {
                     req.session.currentUser = newUserObj;

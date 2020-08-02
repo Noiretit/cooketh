@@ -1,6 +1,8 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
+const uploadCloud = require('../config/cloudinary.js');
+var multer = require('multer');
 
 const Recipe = require('../models/recipe');
 const Chef = require('../models/chef');
@@ -12,7 +14,7 @@ router.get('/recipe/new', (req, res, next) => {
     return
 });
 
-router.post('/recipe/new', (req, res, next) => {
+router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
     const {
         title,
         typeOfFood,
@@ -33,6 +35,11 @@ router.post('/recipe/new', (req, res, next) => {
         return;
     };
 
+    const imgPath = req.file.path;
+    const imgName = req.file.originalname;
+
+    console.log(req.file);
+
     const newRecipe = new Recipe({
         title,
         typeOfFood,
@@ -42,7 +49,7 @@ router.post('/recipe/new', (req, res, next) => {
         price,
         ingredients,
         description,
-        pictures,
+        imgPath,
         chef
     })
     newRecipe
@@ -55,8 +62,6 @@ router.post('/recipe/new', (req, res, next) => {
             console.log('Error while creating recipe', err)
             res.render('recipe/createRecipe')
         })
-
-
 })
 
 module.exports = router;
