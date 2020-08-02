@@ -30,5 +30,18 @@ router.get('/profile-user', (req, res, next) => {
         })
 });
 
+router.get('/profile-user/:id/edit', (req, res, next) => {
+    User.findById(req.params.id)
+        .then(thisUserDB => {
+            res.render('profiles/edit-user-profile.hbs', {
+                thisUser: thisUserDB
+            })
+        })
+        .catch((err) => {
+            console.log('Error while displaying EDIT user profile', err)
+            next(err)
+        })
+})
+
 
 module.exports = router;

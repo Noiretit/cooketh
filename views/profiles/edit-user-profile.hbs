@@ -1,0 +1,109 @@
+<h1>Edit your user profile</h1>
+
+<form action="/profile-user/:id/edit" method="post">
+    <div>
+        <label for="name-input"> Name </label>
+        <input type="text" name="name" id="name-input" value="{{thisUser.name}}">
+    </div>
+
+    <div>
+        <label for="email-input"> Email </label>
+        <input type="email" name="email" id="email-input" value="{{thisUser.email}}">
+    </div>
+
+    <div>
+        <label for="phone-input"> Phone number </label>
+        <input type="text" name="phoneNumber" id="phone-input" value="{{thisUser.phoneNumber}}">
+    </div>
+
+    <div>
+        <label for="address-input"> Address </label>
+        <input type="text" name="address" id="address-input" value="{{thisUser.address}}">
+    </div>
+
+    <!--Add comment for +18 y/o-->
+    <div>
+        <label for="age-input"> Age </label>
+        <input type="text" name="age" id="age-input" value="{{thisUser.age}}">
+    </div>
+
+    <section class="radio-buttons">
+        <span>Diet:</span>
+        <input type="radio" id="all" name="diet" value="{{thisUser.allergies}}">
+        <label for="all">All</label>
+
+        <input type="radio" id="vegetarian" name="diet" value="{{thisUser.allergies}}">
+        <label for="vegetarian">Vegetarian</label>
+
+        <input type="radio" id="vegan" name="diet" value="{{thisUser.allergies}}">
+        <label for="vegan">Vegan</label>
+    </section>
+
+    <section>
+        <span>Allergies:</span>
+        <input type="checkbox" value="Eggs" name="allergies">
+        <label for="eggs">Eggs</label>
+
+        <input type="checkbox" value="Dairy" name="allergies">
+        <label for="dairy">Dairy</label>
+
+        <input type="checkbox" value="Peanuts" name="allergies">
+        <label for="peanuts">Peanuts</label>
+
+        <input type="checkbox" value="Tree nuts" name="allergies">
+        <label for="treenuts">Tree nuts</label>
+
+        <input type="checkbox" value="Fish" name="allergies">
+        <label for="fish">Fish</label>
+
+        <input type="checkbox" value="Shellfish" name="allergies">
+        <label for="shellfish">Shellfish</label>
+
+        <input type="checkbox" value="Wheat" name="allergies">
+        <label for="wheat">Wheat</label>
+
+        <input type="checkbox" value="Soy" name="allergies">
+        <label for="soy">Soy</label>
+
+        <input type="checkbox" value="Legumes" name="allergies">
+        <label for="legumes">Legumes</label>
+
+        <input type="checkbox" value="Gluten" name="allergies">
+        <label for="gluten">Gluten</label>
+
+        <input type="checkbox" value="Vegetables" name="allergies">
+        <label for="vegetables">Vegetables</label>
+
+        <input type="checkbox" value="Fruits" name="allergies">
+        <label for="fruits">Fruits</label>
+    </section>
+
+    <div>
+        <label for="password-input"> Password:</label>
+        <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
+    </div>
+    <div>
+        <label for="repeat-password-input">Repeat your password:</label>
+        <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+    </div>
+    <br>
+    <div>
+        <label for="description">Description:</label>
+        <textarea name="description" value="{{thisUser.description}}"></textarea>
+    </div>
+
+    <div>
+        <label for="pictures">Profile picture:</label>
+        <input type="text" name="pictures" placeholder="http://..." value="{{thisUser.picture}}">
+    </div>
+
+    <div>
+        <p>Social media:</p>
+        <ul>
+            <li>Facebook: <input type="text" name="facebook" value="{{thisUser.facebook}}"></li>
+            <li>Instagram: <input type="text" name="instagram" value="{{thisUser.instagram}}"></li>
+            <li>Twitter: <input type="text" name="twitter" value="{{thisUser.twitter}}"></li>
+        </ul>
+    </div>
+    <button type="submit">Save changes</button>
+</form>
