@@ -1,14 +1,18 @@
+<button type="button"><a href="/recipes">Back</a></button>
 <h1>{{recipeinfo.title}}</h1>
-<button type="button"><a href="/recipe">Back</a></button>
+
 <hr>
 
 <div class="container-recipe-info">
     <img src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
-    <p>{{recipeinfo.allergies}}</p>
-    <p>{{recipeinfo.title}}</p>
-    <p>{{recipeinfo.description}}</p>
-    <p>{{recipeinfo.ingredients}}</p>
+    <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
+    <h2>{{recipeinfo.title}}</h2>
+    <p><u>Description:</u> {{recipeinfo.description}}</p>
+    <p><u>Ingredients:</u> {{recipeinfo.ingredients}}</p>
 
+    <hr>
+
+    <h1>Book it!</h1>
     {{#if userIsLoggedIn}}
     <form action="/recipes/new" method="post">
         <div>
@@ -44,7 +48,7 @@
                 <option value="20">20</option>
             </select>
         </div>
-
+        <br>
         <button type="submit">Request your chef</button>
     </form>
     {{else}}

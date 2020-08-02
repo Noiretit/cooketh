@@ -3,6 +3,11 @@
     <img src="{{thisChef.picture}}">
     {{else}}
     <img src="https://static.thenounproject.com/png/1244141-200.png" />
+    <form action="/signup-chef" method="post" enctype="multipart/form-data">
+        <div>
+            <input type="file" name="photo">
+        </div>
+    </form>
     {{/if}}
     <li>Cook's name: {{thisChef.name}}</li>
     <li>Main specialty: {{thisChef.mainCookSpecialty}}</li>
