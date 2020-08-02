@@ -1,5 +1,9 @@
 <ul>
+    {{#if thisChef.picture}}
     <img src="{{thisChef.picture}}">
+    {{else}}
+    <img src="../" />
+    {{/if}}
     <li>Cook's name: {{thisChef.name}}</li>
     <li>Main specialty: {{thisChef.mainCookSpecialty}}</li>
     <li>Working days: {{thisChef.workingDays}}</li>
