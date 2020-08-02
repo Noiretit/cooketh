@@ -1,0 +1,53 @@
+<h1>{{recipeinfo.title}}</h1>
+<button type="button"><a href="/recipe">Back</a></button>
+<hr>
+
+<div class="container-recipe-info">
+    <img src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
+    <p>{{recipeinfo.allergies}}</p>
+    <p>{{recipeinfo.title}}</p>
+    <p>{{recipeinfo.description}}</p>
+    <p>{{recipeinfo.ingredients}}</p>
+
+    {{#if userIsLoggedIn}}
+    <form action="/recipes/new" method="post">
+        <div>
+            <label for="dateOfBooking">Select your date:</label>
+            <input type="date" name="dateOfBooking">
+        </div>
+        <div>
+            <label for="addressOfBooking">Your address:</label>
+            <input type="text" name="addressOfBooking">
+        </div>
+        <div>
+            <label for="serves">Number of serves:</label><br />
+            <select name="serves" id="serves">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+
+        <button type="submit">Request your chef</button>
+    </form>
+    {{else}}
+    <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
+    {{/if}}
+</div>

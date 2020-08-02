@@ -11,8 +11,9 @@
 {{#if currentUserInfo.isAChef}}
 <li><a href="/recipe/new">create a new recipe</a></li>
 {{else if currentUserInfo.isAUser}}
-<li> <a href="/list-recipes">Search some recipes</a> </li>
+<li> <a href="/recipes">Search some recipes</a> </li>
 {{else}}
+<li> <a href="/recipes">Find a chef</a></li>
 <li> <a href="/login"> Log In </a> </li>
 <li> <a href="/signup-chef"> Sign Up as a chef </a> </li>
 <li> <a href="/signup-user"> Sign Up as a user </a> </li>
