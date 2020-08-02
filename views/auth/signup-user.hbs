@@ -6,7 +6,7 @@
 </p>
 {{/if}}
 
-<form action="/signup-user" method="post">
+<form action="/signup-user" method="post" enctype="multipart/form-data">
     {{> signup}}
     <section class="radio-buttons">
         <span>Diet:</span>
@@ -58,6 +58,11 @@
         <input type="checkbox" value="Fruits" name="allergies">
         <label for="fruits">Fruits</label>
     </section>
+
+    <div>
+        <label>Profile Picture:</label>
+        <input type="file" name="photo">
+    </div>
 
     <div>
         <label for="password-input"> Password:</label>

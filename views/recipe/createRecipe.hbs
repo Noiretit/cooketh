@@ -6,7 +6,7 @@
 </p>
 {{/if}}
 
-<form action="/recipe/new" method="post">
+<form action="/recipe/new" method="post" enctype="multipart/form-data">
     <div>
         <label for="title">Recipe title:</label>
         <input type="text" name="title" placeholder="Spanish Tortilla">
@@ -113,9 +113,10 @@
     </div>
 
     <div>
-        <label for="pictures">Pictures:</label>
-        <input type="text" name="pictures" placeholder="http://...">
+        <label for="pictures">Picture:</label>
+        <input type="file" name="photo">
     </div>
+
     <button>Create a great recipe!</button>
 </form>
 
