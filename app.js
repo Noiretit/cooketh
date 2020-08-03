@@ -12,6 +12,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const favicon = require('serve-favicon');
 const hbs = require('hbs');
+const registerHelpers = require('./loaders/hbs')
 const mongoose = require('mongoose');
 
 mongoose
@@ -52,6 +53,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//HBS helpers
+registerHelpers(hbs);
 
 app.use(session({
   secret: "basic-auth-secret",

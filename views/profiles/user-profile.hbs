@@ -1,6 +1,6 @@
 <ul>
     {{#if thisUser.picture}}
-    <img src="{{thisUser.picture}}">
+    <img style="height: 400px" src="{{thisUser.picture}}">
     {{else}}
     <img src="https://static.thenounproject.com/png/1244141-200.png" />
     {{/if}}
@@ -14,4 +14,5 @@
         <a href="{{thisUser.instagram}}"><img src="../../images/instagram.png" /></a>
         <a href="{{thisUser.twitter}}"><img src="../../images/twitter.png" /></a>
     </li>
+    <button><a href="/profile-user/edit">Edit your profile</a></button>
 </ul>

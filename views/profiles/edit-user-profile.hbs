@@ -1,0 +1,64 @@
+<h2>Editing {{thisUser.name}} profile</h2>
+
+<form method="post" action="/profile-user/edit">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="{{thisUser.name}}"></input><br>
+    <label for="email">Email address:</label>
+    <input type="text" name="email" id="email" value="{{thisUser.email}}"></input><br>
+    <label for="phoneNumber">Phone number:</label>
+    <input type="text" name="phoneNumber" id="phoneNumber" value="{{thisUser.phoneNumber}}"></input>
+    <label for="">Address</label>
+    <input type="text" name="" id="" value=""></input>
+    <label for="">Age</label>
+    <input type="text" name="" id="" value=""></input>
+    <section class="radio-buttons">
+        <span>Diet:</span>
+        <input type="radio" id="all" name="diet" value="All" {{#ifeq diet "All"}} checked {{/ifeq}}>
+        <label for="all">All</label>
+
+        <input type="radio" id="vegetarian" name="diet" value="Vegetarian" {{#ifeq diet "Vegetarian"}} checked
+            {{/ifeq}}>
+        <label for="vegetarian">Vegetarian</label>
+
+        <input type="radio" id="vegan" name="diet" value="Vegan" {{#ifeq diet "Vegan"}} checked {{/ifeq}}>
+        <label for="vegan">Vegan</label>
+    </section>
+    <section>
+        <span>Allergies:</span>
+        <input type="checkbox" value="Eggs" name="allergies" {{#if allergies.Eggs}} checked {{/if}}>
+        <label for="eggs">Eggs</label>
+
+        <input type="checkbox" value="Dairy" name="allergies" {{#if allergies.Dairy}} checked {{/if}}>
+        <label for="dairy">Dairy</label>
+
+        <input type="checkbox" value="Peanuts" name="allergies" {{#if allergies.Peanuts}} checked {{/if}}>
+        <label for="peanuts">Peanuts</label>
+
+        <input type="checkbox" value="Tree nuts" name="allergies" {{#if allergies.[Tree nuts]}} checked {{/if}}>
+        <label for="treenuts">Tree nuts</label>
+
+        <input type="checkbox" value="Fish" name="allergies" {{#if allergies.Fish}} checked {{/if}}>
+        <label for="fish">Fish</label>
+
+        <input type="checkbox" value="Shellfish" name="allergies" {{#if allergies.Shellfish}} checked {{/if}}>
+        <label for="shellfish">Shellfish</label>
+
+        <input type="checkbox" value="Wheat" name="allergies" {{#if allergies.Wheat}} checked {{/if}}>
+        <label for="wheat">Wheat</label>
+
+        <input type="checkbox" value="Soy" name="allergies" {{#if allergies.Soy}} checked {{/if}}>
+        <label for="soy">Soy</label>
+
+        <input type="checkbox" value="Legumes" name="allergies" {{#if allergies.Legumes}} checked {{/if}}>
+        <label for="legumes">Legumes</label>
+
+        <input type="checkbox" value="Gluten" name="allergies" {{#if allergies.Gluten}} checked {{/if}}>
+        <label for="gluten">Gluten</label>
+
+        <input type="checkbox" value="Vegetables" name="allergies" {{#if allergies.Vegetables}} checked {{/if}}>
+        <label for="vegetables">Vegetables</label>
+
+        <input type="checkbox" value="Fruits" name="allergies" {{#if allergies.Fruits}} checked {{/if}}>
+        <label for="fruits">Fruits</label>
+    </section>
+</form>
