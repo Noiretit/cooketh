@@ -8,7 +8,7 @@ const Chef = require('./../models/chef');
 const Booking = require('./../models/booking');
 const Recipe = require('./../models/recipe');
 
-//ROUTER BOOKINGS CHEF
+//ROUTER BOOKINGS USER OR CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
 
@@ -56,6 +56,19 @@ router.post('/new-booking', (req, res, next) => {
         }
         res.redirect('/bookings');
     })
+})
+
+router.post('/delete-booking', (req, res, next) => {
+    const idOfBooking = req.body.idOfBooking;
+    console.log(idOfBooking)
+    // Booking.deleteOne('idOfBooking');
+
+    Booking.deleteOne({
+        _id: idOfBooking
+    }, function (err) {
+        if (err) console.log(err);
+        console.log("Successful deletion");
+    });
 })
 
 //TO delete one booking

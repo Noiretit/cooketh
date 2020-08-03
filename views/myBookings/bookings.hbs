@@ -17,11 +17,14 @@
     <p>Status: {{this.status}} </p>
     <p>Cooked by: {{this.chef.name}} </p>
 
-
-    <button id="confirm-button-bookings" value={{this.id}} type="button" style="cursor: pointer;">Confirm
-        booking</button>
-    <button id="cancel-button-bookings" value={{this.id}} type="button" style="cursor: pointer;">Cancel
-        booking</button>
+    <form action="/delete-booking" method="post">
+        <button id="confirm-button-bookings" value={{this.id}} type="submit" style="cursor: pointer;">Confirm
+            booking</button>
+        <!--Input to get the ID of the booking-->
+        <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+        <button id="cancel-button-bookings" value={{this.id}} type="submit" style="cursor: pointer;">Cancel
+            booking</button>
+    </form>
 
 </div>
 <br>
