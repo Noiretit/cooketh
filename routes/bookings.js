@@ -22,3 +22,24 @@ router.get('/bookings', (req, res, next) => {
         });
     });
 });
+
+router.post('/new-booking', (req, res, next) => {
+    const bookingInfo = {
+        hour: req.body.hour,
+        time: req.body.time,
+        address: req.body.address,
+        numberOfDishes: req.body.numberOfDishes,
+        customer: req.session.currentUser.id
+    }
+
+    const theBooking = new Booking(bookingInfo);
+
+    theBooking.save((err) => {
+        console.log(theBooking)
+        if (err) {
+            next(err);
+            return;
+        }
+        res.redirect('/bookings');
+    })
+})

@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
-    dateAndHour: {
+    hour: {
+        type: String,
+        required: true
+    },
+    hour: {
         type: String,
         required: true
     },
@@ -11,7 +15,7 @@ const bookingSchema = new Schema({
         required: true
     },
     numberOfDishes: {
-        type: Number,
+        type: String,
         required: true
     },
     status: {
