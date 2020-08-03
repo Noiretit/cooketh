@@ -14,6 +14,7 @@ const bcryptSalt = 10;
 router.get('/recipes', (req, res, next) => {
 
     Recipe.find()
+        .populate('chef')
         .then((allRecipes) => {
             console.log(allRecipes);
             res.render('recipe/list-recipes', {
@@ -30,10 +31,11 @@ router.get('/recipes', (req, res, next) => {
 router.get('/recipes/:id', (req, res, next) => {
     const recipeId = req.params.id;
     Recipe.findById(recipeId)
-        .then(allRecipes => {
-            console.log(allRecipes)
+        .populate('chef')
+        .then(oneRecipe => {
+            console.log(oneRecipe)
             res.render('recipe/info-recipe', {
-                recipeinfo: allRecipes
+                recipeinfo: oneRecipe
             });
         })
         .catch(error => {

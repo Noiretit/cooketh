@@ -23,18 +23,18 @@ const bookingSchema = new Schema({
         enum: ['pending', 'accepted'],
         default: 'pending'
     },
-    chef: [{
+    chef: {
         type: Schema.Types.ObjectId,
         ref: 'Chef'
-    }],
-    customer: [{
+    },
+    customer: {
         type: Schema.Types.ObjectId,
         ref: 'User'
-    }],
-    recipe: [{
+    },
+    recipe: {
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
-    }]
+    }
 }, {
     timestamps: true
 });

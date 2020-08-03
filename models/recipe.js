@@ -38,10 +38,10 @@ const recipeSchema = new Schema({
         type: String,
         required: true
     },
-    chef: [{
+    chef: {
         type: Schema.Types.ObjectId,
-        ref: 'chefs'
-    }]
+        ref: 'Chef'
+    }
 }, {
     timestamps: true
 });
