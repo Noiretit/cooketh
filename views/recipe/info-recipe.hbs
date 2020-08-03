@@ -6,7 +6,7 @@
 <div class="container-recipe-info">
 
     <div class="container-info-info-recipe">
-        <img src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
+        <img class="img-info-recipe" src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
         <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
         <h2>{{recipeinfo.title}}</h2>
         <p><u>Description:</u> {{recipeinfo.description}}</p>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="info-cooker-and-book-form">
-        <img class="pic-cooker-list-recipe" src={{recipeinfo.chef.picture}}>
+        <img class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
         <p>Cooker: {{recipeinfo.chef.name}}</p>
 
 
@@ -29,7 +29,7 @@
             </div>
             <div>
                 <label for="hour">Select your time:</label>
-                <input type="time" name="hour">
+                <input type="time" name="hour" value="13:30"><small>From 9am to 10pm</small>
             </div>
             <div>
                 <label for="address">Your address:</label>
@@ -62,7 +62,11 @@
             </div>
 
             <div style="display: none;">
-                <input type="text" name="nameOfCooker" value={{recipeinfo.chef._id}}>
+                <input type="text" name="idOfCooker" value={{recipeinfo.chef._id}}>
+            </div>
+
+            <div style="display: none;">
+                <input type="text" name="idOfRecipe" value={{recipeinfo._id}}>
             </div>
             <br>
             <button type="submit">Request your chef</button>

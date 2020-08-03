@@ -12,7 +12,6 @@ const bcryptSalt = 10;
 
 //ROUTE RECIPES
 router.get('/recipes', (req, res, next) => {
-
     Recipe.find()
         .populate('chef')
         .then((allRecipes) => {

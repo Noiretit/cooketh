@@ -33,7 +33,16 @@ a {
   width: 100%;
 }
 
-/*oNE RECIPE*/
+/*ONE RECIPE*/
 .container-recipe-info {
   display: flex;
+}
+
+.img-info-recipe {
+  width: 50%;
+}
+
+/*MY BOOKINGS*/
+.img-recipe-bookings {
+  width: 20%;
 }

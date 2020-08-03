@@ -11,13 +11,22 @@ const Recipe = require('./../models/recipe');
 //ROUTER BOOKINGS CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
+
     Booking.find()
         .populate('chef')
         .populate('customer')
+        .populate('recipe')
         .then((allBookings) => {
             console.log(allBookings)
+            let arrOfCorrespondingObj = [];
+            for (var i = 0; i < allBookings.length; i++) {
+                if (allBookings[i].customer._id.equals(userId) || allBookings[i].chef._id.equals(userId)) {
+                    arrOfCorrespondingObj.push(allBookings[i])
+                }
+            }
+
             res.render('myBookings/bookings.hbs', {
-                bookings: allBookings
+                bookings: arrOfCorrespondingObj
             });
         })
         .catch((err) => {
@@ -33,7 +42,8 @@ router.post('/new-booking', (req, res, next) => {
         address: req.body.address,
         numberOfDishes: req.body.numberOfDishes,
         customer: req.session.currentUser._id,
-        chef: req.body.nameOfCooker
+        chef: req.body.idOfCooker,
+        recipe: req.body.idOfRecipe
     }
 
     const theBooking = new Booking(bookingInfo);
@@ -47,3 +57,12 @@ router.post('/new-booking', (req, res, next) => {
         res.redirect('/bookings');
     })
 })
+
+//TO delete one booking
+// const deleteOneBooking = document.getElementById('cancel-button-bookings');
+// deleteOneBooking.addEventListener('click', function (e) {
+//     const idOfBooking = e.target.value;
+//     const bookingToRemove = Booking.findById(idOfBooking);
+//     Booking.remove(bookingToRemove);
+
+// })

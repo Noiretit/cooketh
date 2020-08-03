@@ -3,16 +3,27 @@
 
 {{#each bookings}}
 <div>
-    <h1>BOOKING</h1>
-    <p>Created at: {{this.createdAt}} </p>
-    <p>address: {{this.address}} </p>
-    <p>date: {{this.date}} </p>
-    <p>hour: {{this.hour}} </p>
-    <p>Number of dishes: {{this.numberOfDishes}} </p>
-    <p>status: {{this.status}} </p>
+    <h1><u>BOOKING:</u></h1>
+    <img class="img-recipe-bookings" src={{this.recipe.imgPath}} />
 
     <p>Booked by: {{this.customer.name}} </p>
+    <p>Created at: {{this.createdAt}} </p>
+    <p>Address: {{this.address}} </p>
+    <p>Phone number: {{this.customer.phoneNumber}} </p>
+    <p>Email: {{this.customer.email}} </p>
+    <p>Date: {{this.date}} </p>
+    <p>Hour: {{this.hour}} </p>
+    <p>Number of dishes: {{this.numberOfDishes}} </p>
+    <p>Status: {{this.status}} </p>
     <p>Cooked by: {{this.chef.name}} </p>
+
+
+    <button id="confirm-button-bookings" value={{this.id}} type="button" style="cursor: pointer;">Confirm
+        booking</button>
+    <button id="cancel-button-bookings" value={{this.id}} type="button" style="cursor: pointer;">Cancel
+        booking</button>
+
 </div>
 <br>
+
 {{/each}}
