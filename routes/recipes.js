@@ -37,10 +37,7 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
 
     const imgPath = req.file.path;
     const imgName = req.file.originalname;
-<<<<<<< HEAD
-=======
     const chefInfo = req.session.currentUser;
->>>>>>> tests
 
     const newRecipe = new Recipe({
         title,
