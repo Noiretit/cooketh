@@ -10,6 +10,7 @@ const Recipe = require('./../models/recipe');
 
 //ROUTER BOOKINGS CHEF
 router.get('/bookings', (req, res, next) => {
+
     const userId = req.params.id;
 
     Chef.findById(userId, (err, theChef) => {
