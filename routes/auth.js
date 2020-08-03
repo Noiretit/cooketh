@@ -12,6 +12,7 @@ const bcryptSalt = 10;
 
 //ROUTE RECIPES
 router.get('/recipes', (req, res, next) => {
+
     Recipe.find()
         .then((allRecipes) => {
             console.log(allRecipes);
@@ -38,6 +39,14 @@ router.get('/recipes/:id', (req, res, next) => {
         .catch(error => {
             console.log('Error getting the recipes info from the DB', error);
         });
+})
+
+//ROUTE F.A.Q
+router.get('/faq', (req, res, next) => {
+    res.render('faq.hbs', {
+        errorMessage: ''
+    });
+    return
 })
 
 //ROUTER SIGNUP CHEF

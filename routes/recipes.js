@@ -37,6 +37,10 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
 
     const imgPath = req.file.path;
     const imgName = req.file.originalname;
+<<<<<<< HEAD
+=======
+    const chefInfo = req.session.currentUser;
+>>>>>>> tests
 
     const newRecipe = new Recipe({
         title,
@@ -48,12 +52,14 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
         ingredients,
         description,
         imgPath,
-        chef
+        chef: chefInfo //Return chef object 
     })
     newRecipe
+        .populate('chefs', 'name')
         .save()
         .then((newRecipeDB) => {
-            console.log('New recipe created')
+            console.log(newRecipeDB)
+            //res.redirect('/')
             res.redirect('/')
         })
         .catch((err) => {

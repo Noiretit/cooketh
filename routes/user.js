@@ -43,5 +43,34 @@ router.get('/profile-user/:id/edit', (req, res, next) => {
         })
 })
 
+router.post('/profile-user/:id/edit', (req, res, next) => {
+    const userId = req.params.id;
+    const updatedUser = {
+        name,
+        email,
+        phoneNumber,
+        address,
+        age,
+        diet,
+        allergies,
+        password,
+        repeatPassword,
+        description,
+        pictures,
+        facebook,
+        instagram,
+        twitter
+    } = req.body;
+
+    User.findByIdAndUpdate(userId, updatedUser)
+        .then(() => {
+            res.redirect('/user-profile')
+        })
+        .catch((err) => {
+            console.log('Error while updating the user profile (user.js line 46)', err)
+            next(err)
+        })
+})
+
 
 module.exports = router;
