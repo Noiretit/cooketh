@@ -67,7 +67,10 @@ router.post('/signup-chef', uploadCloud.single('photo'), (req, res, next) => {
         mainCookSpecialty,
         workingDays,
         password,
-        repeatPassword
+        repeatPassword,
+        facebook,
+        instagram,
+        twitter
     } = req.body;
 
     if (name === "" || email === "" || phoneNumber === "" || address === "" || age === "" || mainCookSpecialty === "" || workingDays === "" || password === "") {
@@ -102,7 +105,10 @@ router.post('/signup-chef', uploadCloud.single('photo'), (req, res, next) => {
                     mainCookSpecialty,
                     workingDays,
                     password: hashedPassword,
-                    picture: imgPath
+                    picture: imgPath,
+                    facebook,
+                    instagram,
+                    twitter
                 })
                 .then(newChefObj => {
                     req.session.currentUser = newChefObj;
@@ -134,7 +140,10 @@ router.post('/signup-user', uploadCloud.single('photo'), (req, res, next) => {
         diet,
         allergies,
         password,
-        repeatPassword
+        repeatPassword,
+        facebook,
+        instagram,
+        twitter
     } = req.body;
 
     if (name === "" || email === "" || phoneNumber === "" || address === "" || age === "" || diet === "" || allergies === "" || password === "") {
@@ -169,7 +178,10 @@ router.post('/signup-user', uploadCloud.single('photo'), (req, res, next) => {
                     diet,
                     allergies,
                     password: hashedPassword,
-                    picture: imgPath
+                    picture: imgPath,
+                    facebook,
+                    instagram,
+                    twitter
                 })
                 .then(newUserObj => {
                     req.session.currentUser = newUserObj;

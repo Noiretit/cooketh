@@ -8,10 +8,17 @@ const Chef = require('./../models/chef');
 const Booking = require('./../models/booking');
 const Recipe = require('./../models/recipe');
 
-//ROUTER SIGNUP CHEF
+//ROUTER BOOKINGS CHEF
 router.get('/bookings', (req, res, next) => {
-    res.render('myBookings/bookings', {
-        errorMessage: ''
+    const userId = req.params.id;
+
+    Chef.findById(userId, (err, theChef) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.render('myBookings/bookings', {
+            theChefWeWant: theChef
+        });
     });
-    return
 });
