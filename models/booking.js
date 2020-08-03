@@ -27,10 +27,10 @@ const bookingSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
-    recipe: [{
+    recipe: {
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
-    }]
+    }
 }, {
     timestamps: true
 });
