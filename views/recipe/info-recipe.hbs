@@ -4,59 +4,71 @@
 <hr>
 
 <div class="container-recipe-info">
-    <img src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
-    <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
-    <h2>{{recipeinfo.title}}</h2>
-    <p><u>Description:</u> {{recipeinfo.description}}</p>
-    <p><u>Ingredients:</u> {{recipeinfo.ingredients}}</p>
+
+    <div class="container-info-info-recipe">
+        <img src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
+        <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
+        <h2>{{recipeinfo.title}}</h2>
+        <p><u>Description:</u> {{recipeinfo.description}}</p>
+        <p><u>Ingredients:</u> {{recipeinfo.ingredients}}</p>
+    </div>
+
+    <div class="info-cooker-and-book-form">
+        <img class="pic-cooker-list-recipe" src={{recipeinfo.chef.picture}}>
+        <p>Cooker: {{recipeinfo.chef.name}}</p>
 
 
-    <hr>
 
-    <h1>Book it!</h1>
-    {{#if userIsLoggedIn}}
-    <form action="/new-booking" method="post">
-        <div>
-            <label for="date">Select your date:</label>
-            <input type="date" name="date">
-        </div>
-        <div>
-            <label for="hour">Select your time:</label>
-            <input type="time" name="hour">
-        </div>
-        <div>
-            <label for="address">Your address:</label>
-            <input type="text" name="address">
-        </div>
-        <div>
-            <label for="numberOfDishes">Number of serves:</label><br />
-            <select name="numberOfDishes" id="serves">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-            </select>
-        </div>
-        <br>
-        <button type="submit">Request your chef</button>
-    </form>
-    {{else}}
-    <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
-    {{/if}}
+
+        <h1>Book it!</h1>
+        {{#if userIsLoggedIn}}
+        <form action="/new-booking" method="post">
+            <div>
+                <label for="date">Select your date:</label>
+                <input type="date" name="date">
+            </div>
+            <div>
+                <label for="hour">Select your time:</label>
+                <input type="time" name="hour">
+            </div>
+            <div>
+                <label for="address">Your address:</label>
+                <input type="text" name="address">
+            </div>
+            <div>
+                <label for="numberOfDishes">Number of serves:</label><br />
+                <select name="numberOfDishes" id="serves">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+
+            <div style="display: none;">
+                <input type="text" name="nameOfCooker" value={{recipeinfo.chef._id}}>
+            </div>
+            <br>
+            <button type="submit">Request your chef</button>
+        </form>
+        {{else}}
+        <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
+        {{/if}}
+    </div>
 </div>

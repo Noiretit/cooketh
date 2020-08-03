@@ -1,2 +1,18 @@
 <h1>My Bookings</h1>
 <hr>
+
+{{#each bookings}}
+<div>
+    <h1>BOOKING</h1>
+    <p>Created at: {{this.createdAt}} </p>
+    <p>address: {{this.address}} </p>
+    <p>date: {{this.date}} </p>
+    <p>hour: {{this.hour}} </p>
+    <p>Number of dishes: {{this.numberOfDishes}} </p>
+    <p>status: {{this.status}} </p>
+
+    <p>Booked by: {{this.customer.name}} </p>
+    <p>Cooked by: {{this.chef.name}} </p>
+</div>
+<br>
+{{/each}}

@@ -10,27 +10,30 @@ const Recipe = require('./../models/recipe');
 
 //ROUTER BOOKINGS CHEF
 router.get('/bookings', (req, res, next) => {
-
-    const userId = req.params.id;
-
-    Chef.findById(userId, (err, theChef) => {
-        if (err) {
-            next(err);
-            return;
-        }
-        res.render('myBookings/bookings', {
-            theChefWeWant: theChef
-        });
-    });
+    const userId = req.session.currentUser._id;
+    Booking.find()
+        .populate('chef')
+        .populate('customer')
+        .then((allBookings) => {
+            console.log(allBookings)
+            res.render('myBookings/bookings.hbs', {
+                bookings: allBookings
+            });
+        })
+        .catch((err) => {
+            console.log('Failed loading the bookings');
+            res.render('/');
+        })
 });
 
 router.post('/new-booking', (req, res, next) => {
     const bookingInfo = {
         hour: req.body.hour,
-        time: req.body.time,
+        date: req.body.date,
         address: req.body.address,
         numberOfDishes: req.body.numberOfDishes,
-        customer: req.session.currentUser.id
+        customer: req.session.currentUser._id,
+        chef: req.body.nameOfCooker
     }
 
     const theBooking = new Booking(bookingInfo);

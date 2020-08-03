@@ -5,14 +5,20 @@
     {{#each recipes}}
     <div class="recipes">
 
-        <p><img src="{{this.imgPath}}"> </p>
+        <img class="img-recipe" src="{{this.imgPath}}">
         <hr>
-        <p>{{this.price}}</p>
-        <p>{{this.typeOfFood}}</p>
-        <p>{{this.title}}</p>
-        <p>{{this.description}}</p>
-        <p>{{this.chef.name}}</p>
-        <p><img src={{this.chef.picture}}> </p>
+        <div class="container-info">
+            <div class="info-recipe">
+                <p>{{this.title}}</p>
+                <p>Price: {{this.price}}€/serve</p>
+                <p>Type of food: {{this.typeOfFood}}</p>
+                <p>Description: {{this.description}}</p>
+            </div>
+            <div class="info-cooker">
+                <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
+                <p>Cooker: {{this.chef.name}}</p>
+            </div>
+        </div>
 
         <button type="button"><a href="/recipes/{{this.id}}">Book it!</a></button>
 
