@@ -12,7 +12,7 @@ const uploadCloud = require('../config/cloudinary.js');
 router.get('/profile-chef/:id', (req, res, next) => {
     const chefId = req.params.id;
     Chef.findById(chefId)
-        .populate('recipes') //PREGUNTAR A CAPU SI SE PUEDE USAR CON UN EACH EN CHEF-PROFILE.HBS
+        .populate('recipes')
         .then(thisChefDB => {
             console.log(thisChefDB)
             res.render('profiles/chef-profile.hbs', {
@@ -35,8 +35,9 @@ router.use((req, res, next) => {
 });
 
 //ROUTE EDIT PROFILE CHEF
-router.get('/profile-chef/edit', (req, res, next) => {
-    Chef.findById(req.session.currentUser._id)
+router.get('/profile-chef/:id/edit', (req, res, next) => {
+    const chefId = req.params.id;
+    Chef.findById(chefId)
         .then(thisChefDB => {
             const daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thurday', 'Friday', 'Saturday', 'Sunday'];
             const daysObj = {};
@@ -60,7 +61,8 @@ router.get('/profile-chef/edit', (req, res, next) => {
         })
 })
 
-router.post('/profile-chef/edit', uploadCloud.single('photo'), (req, res, next) => {
+router.post('/profile-chef/:id', uploadCloud.single('photo'), (req, res, next) => {
+    const chefId = req.params.id;
     const body = req.body;
     const updatedChef = {
         name: body.name,
@@ -78,13 +80,12 @@ router.post('/profile-chef/edit', uploadCloud.single('photo'), (req, res, next) 
 
     Chef.findByIdAndUpdate(req.session.currentUser._id, updatedChef)
         .then(() => {
-            res.redirect('/profile-chef')
+            res.redirect(`/profile-chef/${chefId}`)
         })
         .catch((err) => {
             console.log('Error while updating the chef DB, line 59 chef.js', err)
             next(err)
         })
 })
-
 
 module.exports = router;
