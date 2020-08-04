@@ -38,7 +38,10 @@
             <p class="card-text">Description: {{this.description}}</p>
         </div>
     </div>
-    <!--<button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>-->
+    {{#if ../currentUserInfo.isAChef}}
+    <button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
+    <br>
+    {{/if}}
 
     {{/each}}
 </div>

@@ -19,6 +19,7 @@
     <div class="info-cooker-and-book-form">
         <img style="height: 400px" class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
         <p>Cooker: {{recipeinfo.chef.name}}</p>
+        <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
 
         <h1>Book it!</h1>
         {{#if userIsLoggedIn}}

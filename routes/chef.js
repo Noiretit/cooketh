@@ -8,18 +8,10 @@ const Recipe = require('../models/recipe');
 const Booking = require('../models/booking');
 const uploadCloud = require('../config/cloudinary.js');
 
-// MIDDLEWARE =>
-//If chef is connected, go to next routes
-router.use((req, res, next) => {
-    if (req.session.currentUser) {
-        next();
-        return;
-    }
-    res.redirect('/login');
-});
-
-router.get('/profile-chef', (req, res, next) => {
-    Chef.findById(req.session.currentUser._id)
+//ROUTE TO ACCESS CHEF'S PROFILE
+router.get('/profile-chef/:id', (req, res, next) => {
+    const chefId = req.params.id;
+    Chef.findById(chefId)
         .populate('recipes') //PREGUNTAR A CAPU SI SE PUEDE USAR CON UN EACH EN CHEF-PROFILE.HBS
         .then(thisChefDB => {
             console.log(thisChefDB)
@@ -33,6 +25,16 @@ router.get('/profile-chef', (req, res, next) => {
         })
 });
 
+// MIDDLEWARE => If chef is connected, go to next routes
+router.use((req, res, next) => {
+    if (req.session.currentUser) {
+        next();
+        return;
+    }
+    res.redirect('/login');
+});
+
+//ROUTE EDIT PROFILE CHEF
 router.get('/profile-chef/edit', (req, res, next) => {
     Chef.findById(req.session.currentUser._id)
         .then(thisChefDB => {
