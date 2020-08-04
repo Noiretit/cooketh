@@ -29,6 +29,9 @@
 </ul>
 
 <div>
-    {{#each thisChef}}
+    {{#each thisChef.recipes}}
+    Name: {{this.title}}
+    <button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
+    <br>
     {{/each}}
 </div>

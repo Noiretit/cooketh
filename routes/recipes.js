@@ -37,7 +37,7 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
 
     const imgPath = req.file.path;
     const imgName = req.file.originalname;
-    const chefInfo = req.session.currentUser;
+    const chefId = req.session.currentUser._id;
 
     const newRecipe = new Recipe({
         title,
@@ -49,21 +49,75 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
         ingredients,
         description,
         imgPath,
-        chef: chefInfo //Return chef object 
+        chef: chefId //Return chef object 
     })
     newRecipe
-        .populate('chef', 'name')
         .save()
-        .then((newRecipeDB) => {
-            console.log(newRecipeDB)
-            console.log('The creator is %s', newRecipeDB.chef.name)
-            //res.redirect('/')
+        .then((newRecipeDB) => { //Guarda el ID de la receta en el chef
+            console.log('The creator is %s', newRecipeDB.chef)
+            return Chef.findByIdAndUpdate(chefId, {
+                $push: {
+                    recipes: newRecipeDB._id
+                }
+            })
+        })
+        .then(() => {
             res.redirect('/')
         })
         .catch((err) => {
             console.log('Error while creating recipe', err)
             res.render('recipe/createRecipe')
         })
-})
+});
+
+router.get('/recipes/:id/edit', (req, res, next) => {
+    Recipe.findById(req.params.id)
+        .then(thisRecipeDB => {
+            const allergiesArray = ['Eggs', 'Dairy', 'Peanuts', 'Tree nuts', 'Fish', 'Shellfish', 'Wheat', 'Soy', 'Legumes', 'Gluten', 'Vegetables', 'Fruits'];
+            const allergiesObj = {};
+            thisRecipeDB.allergies.forEach(allergy => {
+                allergiesObj[allergy] = true;
+            });
+            allergiesArray.forEach(allergyName => {
+                if (!allergiesObj[allergyName]) {
+                    allergiesObj[allergyName] = false
+                }
+            });
+            console.log(allergiesObj);
+            res.render('recipe/edit-recipe.hbs', {
+                thisRecipe: thisRecipeDB,
+                allergies: allergiesObj,
+            })
+        })
+        .catch((err) => {
+            console.log('Error while displaying EDIT recipe', err)
+            next(err)
+        })
+});
+
+router.post('/recipes/:id/edit', (req, res, next) => {
+    const recipeId = req.params.id;
+    const body = req.body;
+    const updatedRecipe = {
+        title: body.title,
+        typeOfFood: body.typeOfFood,
+        diet: body.diet,
+        allergies: body.allergies,
+        serves: body.serves,
+        price: body.price,
+        ingredients: body.ingredients,
+        description: body.description,
+        photo: body.photo,
+    };
+
+    Recipe.findByIdAndUpdate(recipeId, updatedRecipe)
+        .then(() => {
+            res.redirect('/profile-chef')
+        })
+        .catch((err) => {
+            console.log('Error while updating a recipe (recipes.js line 98)')
+            next(err)
+        })
+});
 
 module.exports = router;

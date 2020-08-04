@@ -20,9 +20,9 @@ router.use((req, res, next) => {
 
 router.get('/profile-chef', (req, res, next) => {
     Chef.findById(req.session.currentUser._id)
-        .populate('recipe') //PREGUNTAR A CAPU SI SE PUEDE USAR CON UN EACH EN CHEF-PROFILE.HBS
+        .populate('recipes') //PREGUNTAR A CAPU SI SE PUEDE USAR CON UN EACH EN CHEF-PROFILE.HBS
         .then(thisChefDB => {
-            console.log(thisChefDB.bookings.recipe)
+            console.log(thisChefDB)
             res.render('profiles/chef-profile.hbs', {
                 thisChef: thisChefDB
             })
