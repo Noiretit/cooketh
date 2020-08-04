@@ -6,6 +6,10 @@ a {
   color: #00B7FF;
 }
 
+#logo {
+  width: 9%;
+}
+
 /*HOME PAGE*/
 #main-video {
   width: 100%;
