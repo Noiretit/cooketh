@@ -11,6 +11,7 @@ const Recipe = require('./../models/recipe');
 //ROUTER BOOKINGS USER OR CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
+    res.locals.currentUserInfo = req.session.currentUser;
 
     Booking.find()
         .populate('chef')
@@ -59,9 +60,9 @@ router.post('/new-booking', (req, res, next) => {
     })
 })
 
+//TO CONFIRM ON BOOKING
 router.post('/confirm-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
-    console.log(idOfBooking)
 
     Booking.findByIdAndUpdate(idOfBooking, {
         status: 'accepted'
@@ -79,7 +80,6 @@ router.post('/confirm-booking', (req, res, next) => {
 //TO DELETE ONE BOOKING
 router.post('/delete-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
-    console.log(idOfBooking)
 
     Booking.deleteOne({
             _id: idOfBooking

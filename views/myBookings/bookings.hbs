@@ -16,14 +16,16 @@
     <p>Number of dishes: {{this.numberOfDishes}} </p>
     <p>Status: {{this.status}} </p>
     <p>Cooked by: {{this.chef.name}} </p>
+    <P> {{currentUserInfo.isAChef}} </P>
 
-
+    {{#if this.chef.isAChef}}
     <form action="/delete-booking" method="post">
         <!--Input to get the ID of the booking-->
         <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
         <button id="cancel-button-bookings" type="submit" style="cursor: pointer;">Cancel
             booking</button>
     </form>
+    {{/if}}
 
     <form action="/confirm-booking" method="post">
         <!--Input to get the ID of the booking-->
