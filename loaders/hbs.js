@@ -42,6 +42,12 @@ function registerHelpers(hbsModule) {
         index++;
         return index;
     });
+    hbsModule.registerHelper('isTrue', function (a, options) {
+        if (a === true) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    })
 
     //Date time format
     hbsModule.registerHelper('dateFormat', require('handlebars-dateformat'));
