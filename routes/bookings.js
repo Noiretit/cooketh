@@ -11,6 +11,7 @@ const Recipe = require('./../models/recipe');
 //ROUTER BOOKINGS USER OR CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
+    res.locals.currentUserInfo = req.session.currentUser;
 
     Booking.find()
         .populate('chef')
@@ -59,11 +60,26 @@ router.post('/new-booking', (req, res, next) => {
     })
 })
 
+//TO CONFIRM ON BOOKING
+router.post('/confirm-booking', (req, res, next) => {
+    const idOfBooking = req.body.idOfBooking;
+
+    Booking.findByIdAndUpdate(idOfBooking, {
+        status: 'accepted'
+    }, {
+        new: true
+    }, (err, theBooking) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.redirect('/bookings')
+    });
+});
+
 //TO DELETE ONE BOOKING
 router.post('/delete-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
-    console.log(idOfBooking)
-    // Booking.deleteOne('idOfBooking');
 
     Booking.deleteOne({
             _id: idOfBooking
@@ -73,12 +89,3 @@ router.post('/delete-booking', (req, res, next) => {
         })
         .then(res.redirect('/bookings'))
 })
-
-//TO delete one booking
-// const deleteOneBooking = document.getElementById('cancel-button-bookings');
-// deleteOneBooking.addEventListener('click', function (e) {
-//     const idOfBooking = e.target.value;
-//     const bookingToRemove = Booking.findById(idOfBooking);
-//     Booking.remove(bookingToRemove);
-
-// })

@@ -10,9 +10,15 @@
     <li>Age: {{thisUser.age}}</li>
     <li>Description: {{thisUser.description}}</li>
     <li>Social media:<br>
-        <a href="{{thisUser.facebook}}"><img src="../../images/facebook.png" /></a>
-        <a href="{{thisUser.instagram}}"><img src="../../images/instagram.png" /></a>
-        <a href="{{thisUser.twitter}}"><img src="../../images/twitter.png" /></a>
+        {{#if thisUser.facebook}}
+        <a href="{{thisUser.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
+        {{/if}}
+        {{#if thisUser.instagram}}
+        <a href="{{thisUser.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
+        {{/if}}
+        {{#if thisUser.twitter}}
+        <a href="{{thisUser.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
+        {{/if}}
     </li>
     <button><a href="/profile-user/edit">Edit your profile</a></button>
 </ul>
