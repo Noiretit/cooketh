@@ -8,6 +8,7 @@ const Recipe = require('../models/recipe');
 const Booking = require('../models/booking');
 const uploadCloud = require('../config/cloudinary.js');
 
+//ROUTE TO ACCESS CHEF'S PROFILE
 router.get('/profile-chef/:id', (req, res, next) => {
     const chefId = req.params.id;
     Chef.findById(chefId)
@@ -24,8 +25,7 @@ router.get('/profile-chef/:id', (req, res, next) => {
         })
 });
 
-// MIDDLEWARE =>
-//If chef is connected, go to next routes
+// MIDDLEWARE => If chef is connected, go to next routes
 router.use((req, res, next) => {
     if (req.session.currentUser) {
         next();
@@ -34,6 +34,7 @@ router.use((req, res, next) => {
     res.redirect('/login');
 });
 
+//ROUTE EDIT PROFILE CHEF
 router.get('/profile-chef/edit', (req, res, next) => {
     Chef.findById(req.session.currentUser._id)
         .then(thisChefDB => {

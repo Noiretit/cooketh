@@ -30,8 +30,11 @@
 
 <div>
     {{#each thisChef.recipes}}
-    Name: {{this.title}}
+    Name: {{this.title}} <br>
+
+    {{#if ../currentUserInfo.isAChef}}
     <button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
     <br>
+    {{/if}}
     {{/each}}
 </div>
