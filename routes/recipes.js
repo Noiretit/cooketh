@@ -72,6 +72,7 @@ router.post('/recipe/new', uploadCloud.single('photo'), (req, res, next) => {
 
 router.get('/recipes/:id/edit', (req, res, next) => {
     Recipe.findById(req.params.id)
+        .populate('chef')
         .then(thisRecipeDB => {
             const allergiesArray = ['Eggs', 'Dairy', 'Peanuts', 'Tree nuts', 'Fish', 'Shellfish', 'Wheat', 'Soy', 'Legumes', 'Gluten', 'Vegetables', 'Fruits'];
             const allergiesObj = {};
@@ -108,11 +109,12 @@ router.post('/recipes/:id/edit', (req, res, next) => {
         ingredients: body.ingredients,
         description: body.description,
         photo: body.photo,
+        chefId: body.chefId
     };
 
     Recipe.findByIdAndUpdate(recipeId, updatedRecipe)
         .then(() => {
-            res.redirect('/profile-chef')
+            res.redirect(`/profile-chef/${updatedRecipe.chefId}`)
         })
         .catch((err) => {
             console.log('Error while updating a recipe (recipes.js line 98)')
