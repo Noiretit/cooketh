@@ -28,10 +28,17 @@
     <button><a href="/profile-chef/edit">Edit your profile</a></button>
 </ul>
 
-<div>
+<div class="card-deck">
     {{#each thisChef.recipes}}
-    Name: {{this.title}}
-    <button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
-    <br>
+    <div class="card">
+        <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
+        <div class="card-body">
+            <p class="card-text" {{this.typeOfFood}}></p>
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">Description: {{this.description}}</p>
+        </div>
+    </div>
+    <!--<button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>-->
+
     {{/each}}
 </div>
