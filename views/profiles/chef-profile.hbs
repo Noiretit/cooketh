@@ -1,6 +1,6 @@
 <ul>
     {{#if thisChef.picture}}
-    <img src="{{thisChef.picture}}">
+    <img style="height: 400px" src="{{thisChef.picture}}">
     {{else}}
     <img src="https://static.thenounproject.com/png/1244141-200.png" />
     <form action="/signup-chef" method="post" enctype="multipart/form-data">
@@ -20,3 +20,8 @@
     </li>
     <button><a href="/profile-chef/edit">Edit your profile</a></button>
 </ul>
+
+<div>
+    {{#each thisChef}}
+    {{/each}}
+</div>

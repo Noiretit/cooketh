@@ -1,5 +1,4 @@
 <button type="button"><a href="/recipes">Back</a></button>
-<h1>{{recipeinfo.title}}</h1>
 
 <hr>
 
@@ -7,18 +6,19 @@
 
     <div class="container-info-info-recipe">
         <img class="img-info-recipe" src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
+        <p><u>Diet:</u> {{recipeinfo.diet}}</p>
+        <p><u>Type of cuisine:</u> {{recipeinfo.typeOfFood}}</p>
         <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
+        <p><u>{{recipeinfo.price}}/serving</u></p>
+        <p><u>Serves {{recipeinfo.serves}} guests</u></p>
         <h2>{{recipeinfo.title}}</h2>
         <p><u>Description:</u> {{recipeinfo.description}}</p>
         <p><u>Ingredients:</u> {{recipeinfo.ingredients}}</p>
     </div>
 
     <div class="info-cooker-and-book-form">
-        <img class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
+        <img style="height: 400px" class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
         <p>Cooker: {{recipeinfo.chef.name}}</p>
-
-
-
 
         <h1>Book it!</h1>
         {{#if userIsLoggedIn}}
