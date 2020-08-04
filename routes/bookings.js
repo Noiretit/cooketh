@@ -35,6 +35,7 @@ router.get('/bookings', (req, res, next) => {
         })
 });
 
+//TO CREATE ONE NEW BOOKING
 router.post('/new-booking', (req, res, next) => {
     const bookingInfo = {
         hour: req.body.hour,
@@ -58,17 +59,19 @@ router.post('/new-booking', (req, res, next) => {
     })
 })
 
+//TO DELETE ONE BOOKING
 router.post('/delete-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
     console.log(idOfBooking)
     // Booking.deleteOne('idOfBooking');
 
     Booking.deleteOne({
-        _id: idOfBooking
-    }, function (err) {
-        if (err) console.log(err);
-        console.log("Successful deletion");
-    });
+            _id: idOfBooking
+        }, function (err) {
+            if (err) console.log(err);
+            console.log("Successful deletion");
+        })
+        .then(res.redirect('/bookings'))
 })
 
 //TO delete one booking
