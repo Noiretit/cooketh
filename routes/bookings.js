@@ -59,11 +59,17 @@ router.post('/new-booking', (req, res, next) => {
     })
 })
 
+router.post('/confirm-booking', (req, res, next) => {
+    const idOfBooking = req.body.idOfBooking;
+    console.log(idOfBooking)
+
+
+})
+
 //TO DELETE ONE BOOKING
 router.post('/delete-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
     console.log(idOfBooking)
-    // Booking.deleteOne('idOfBooking');
 
     Booking.deleteOne({
             _id: idOfBooking
@@ -73,12 +79,3 @@ router.post('/delete-booking', (req, res, next) => {
         })
         .then(res.redirect('/bookings'))
 })
-
-//TO delete one booking
-// const deleteOneBooking = document.getElementById('cancel-button-bookings');
-// deleteOneBooking.addEventListener('click', function (e) {
-//     const idOfBooking = e.target.value;
-//     const bookingToRemove = Booking.findById(idOfBooking);
-//     Booking.remove(bookingToRemove);
-
-// })
