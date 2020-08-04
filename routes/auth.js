@@ -121,7 +121,7 @@ router.post('/signup-chef', uploadCloud.single('photo'), (req, res, next) => {
                     })
                 })
         })
-        .catch((err) => console.log('Error by finding chef (auth.js line 38'));
+        .catch((err) => console.log('Error by finding chef (auth.js line 125'));
 })
 
 //ROUTE SIGNUP USER
