@@ -1,5 +1,5 @@
 <h2>Editing {{thisChef.name}} profile</h2>
-<form method="post" action="/profile-chef/edit">
+<form method="post" action="/profile-chef/{{thisChef._id}}">
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="{{thisChef.name}}"></input><br>
 
