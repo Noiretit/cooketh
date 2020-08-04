@@ -11,14 +11,13 @@ const Recipe = require('./../models/recipe');
 //ROUTER BOOKINGS USER OR CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
-    res.locals.currentUserInfo = req.session.currentUser;
 
     Booking.find()
         .populate('chef')
         .populate('customer')
         .populate('recipe')
         .then((allBookings) => {
-            console.log(allBookings)
+            console.log(allBookings[0].chef.isAChef)
             let arrOfCorrespondingObj = [];
             for (var i = 0; i < allBookings.length; i++) {
                 if (allBookings[i].customer._id.equals(userId) || allBookings[i].chef._id.equals(userId)) {
