@@ -63,8 +63,18 @@ router.post('/confirm-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
     console.log(idOfBooking)
 
-
-})
+    Booking.findByIdAndUpdate(idOfBooking, {
+        status: 'accepted'
+    }, {
+        new: true
+    }, (err, theBooking) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        res.redirect('/bookings')
+    });
+});
 
 //TO DELETE ONE BOOKING
 router.post('/delete-booking', (req, res, next) => {
