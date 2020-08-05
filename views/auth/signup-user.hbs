@@ -1,9 +1,9 @@
-<div class="container-login-signup">
-    <h2 class="login-signup-title"> Create a user account </h2>
+<div class="container-pages">
+    <h2 class="all-page-titles"> Create a user account </h2>
 
     <form action="/signup-user" method="post" enctype="multipart/form-data">
         {{> signup}}
-        <section class="radio-buttons login-signup-margin">
+        <section class="radio-buttons input-margin">
             <label>Diet:</label>
             <br>
             <input type="radio" id="all" name="diet" value="All" checked>
@@ -16,9 +16,9 @@
             <label for="vegan">Vegan</label>
         </section>
 
-        <hr class="separation-line-signup">
+        <hr class="separation-line">
 
-        <section class="login-signup-margin">
+        <section class="input-margin">
             <label>Allergies:</label>
             <br>
 
@@ -75,40 +75,42 @@
             </div>
         </section>
 
-        <hr class="separation-line-signup">
+        <hr class="separation-line">
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <label>Profile Picture:</label>
             <input type="file" name="photo">
         </div>
 
-        <hr class="separation-line-signup">
+        <hr class="separation-line">
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <label for="password-input"> Password:</label>
-            <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
+            <input class="border-inputs" type="password" name="password" id="password-input"
+                placeholder="e.g., ••••••••••••">
         </div>
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <label for="repeat-password-input">Repeat your password:</label>
-            <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+            <input class="border-inputs" type="password" name="repeatPassword" id="repeat-password-input"
+                placeholder="e.g., ••••••••••••">
         </div>
 
-        <hr class="separation-line-signup">
+        <hr class="separation-line">
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <img src="../../images/facebook.png" />
-            <input type="text" name="facebook" placeholder="https://www.facebook.com/[your name].[your surname]/">
+            <input class="border-inputs" type="text" name="facebook">
         </div>
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <img src="../../images/instagram.png" />
-            <input type="text" name="instagram" placeholder="">
+            <input class="border-inputs" type="text" name="instagram" placeholder="">
         </div>
 
-        <div class="login-signup-margin">
+        <div class="input-margin">
             <img src="../../images/twitter.png" />
-            <input type="text" name="twitter" placeholder="">
+            <input class="border-inputs" type="text" name="twitter" placeholder="">
         </div>
 
         {{#if errorMessage}}
@@ -118,10 +120,10 @@
         {{/if}}
 
         <br>
-        <button class="login-signup-button">Create a new account</button>
+        <button class="all-button">Create a new account</button>
     </form>
 
-    <p class="login-signup-margin">
+    <p class="input-margin">
         Already have an account?
         <a href="/login">Log in.</a>
     </p>

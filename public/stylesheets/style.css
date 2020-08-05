@@ -212,7 +212,7 @@ header {
 }
 
 /*--------------LOGIN & SIGNUP---------------*/
-.container-login-signup {
+.container-pages {
   text-align: center;
   margin: 3em 0;
   font-size: 13px;
@@ -226,25 +226,21 @@ header {
   margin: 0 1em 0 2em;
 }
 
-.login-signup-inputs {
+.border-inputs {
   border: 0;
   border-bottom: 1px solid #56494e;
 }
 
-.login-signup-inputs:focus {
-  border: 1px solid green !important;
-}
-
-.login-signup-margin {
+.input-margin {
   margin: 1em;
 }
 
-.login-signup-title {
+.all-page-titles {
   color: #e07a5f;
   font-size: 35px;
 }
 
-.login-signup-button {
+.all-button {
   background-color: #e07a5f;
   color: white;
   font-size: 13px;
@@ -254,7 +250,7 @@ header {
   transition: 0.5s;
 }
 
-.login-signup-button:hover {
+.all-button:hover {
   background-color: white;
   color: #e07a5f;
   font-size: 15px;
@@ -262,7 +258,7 @@ header {
 }
 
 /*SIGNUP USER*/
-.separation-line-signup {
+.separation-line {
   border: 1px solid #e07a5f;
   width: 75%;
 }
@@ -271,6 +267,11 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+/*CREATE RECIPE*/
+.create-recipe-margin-title {
+  margin-bottom: 1em;
 }
 
 /*----------------FULL RECIPES---------------*/

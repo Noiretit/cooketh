@@ -1,123 +1,161 @@
-<h2> Create a great recipe! </h2>
+<div class="container-pages">
 
-{{#if errorMessage}}
-<p class="error-message">
-    {{ errorMessage }}
-</p>
-{{/if}}
+    <h2 class="all-page-titles create-recipe-margin-title"> Create a great recipe! </h2>
 
-<form action="/recipe/new" method="post" enctype="multipart/form-data">
-    <div>
-        <label for="title">Recipe title:</label>
-        <input type="text" name="title" placeholder="Spanish Tortilla">
-    </div>
-    <div>
-        <label for="typeOfFood">Type of food:</label>
-        <input type="text" name="typeOfFood" placeholder="Thai">
-    </div>
+    {{#if errorMessage}}
+    <p class="error-message">
+        {{ errorMessage }}
+    </p>
+    {{/if}}
 
-    <section class="radio-buttons">
-        <div>
-            <span>Diet:</span>
-            <input type="radio" id="all" name="diet" value="All" checked>
-            <label for="all">All</label>
-
-            <input type="radio" id="vegetarian" name="diet" value="Vegetarian">
-            <label for="vegetarian">Vegetarian</label>
-
-            <input type="radio" id="vegan" name="diet" value="Vegan">
-            <label for="vegan">Vegan</label>
+    <form action="/recipe/new" method="post" enctype="multipart/form-data">
+        <div class="input-margin">
+            <label for="title">Recipe title:</label><br>
+            <input class="border-inputs" type="text" name="title" placeholder="Spanish Tortilla">
         </div>
-    </section>
 
-    <section>
+        <hr class="separation-line">
+
         <div>
-            <span>Allergies:</span>
-            <input type="checkbox" value="Eggs" name="allergies">
-            <label for="eggs">Eggs</label>
-
-            <input type="checkbox" value="Dairy" name="allergies">
-            <label for="dairy">Dairy</label>
-
-            <input type="checkbox" value="Peanuts" name="allergies">
-            <label for="peanuts">Peanuts</label>
-
-            <input type="checkbox" value="Tree nuts" name="allergies">
-            <label for="treenuts">Tree nuts</label>
-
-            <input type="checkbox" value="Fish" name="allergies">
-            <label for="fish">Fish</label>
-
-            <input type="checkbox" value="Shellfish" name="allergies">
-            <label for="shellfish">Shellfish</label>
-
-            <input type="checkbox" value="Wheat" name="allergies">
-            <label for="wheat">Wheat</label>
-
-            <input type="checkbox" value="Soy" name="allergies">
-            <label for="soy">Soy</label>
-
-            <input type="checkbox" value="Legumes" name="allergies">
-            <label for="legumes">Legumes</label>
-
-            <input type="checkbox" value="Gluten" name="allergies">
-            <label for="gluten">Gluten</label>
-
-            <input type="checkbox" value="Vegetables" name="allergies">
-            <label for="vegetables">Vegetables</label>
-
-            <input type="checkbox" value="Fruits" name="allergies">
-            <label for="fruits">Fruits</label>
+            <label for="typeOfFood">Type of food:</label><br>
+            <input class="border-inputs" type="text" name="typeOfFood" placeholder="Thai">
         </div>
-    </section>
 
-    <div>
-        <label for="serves">Number of serves:</label><br />
-        <select name="serves" id="serves">
+        <hr class="separation-line">
 
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
+        <section class="radio-buttons input-margin">
+            <div>
+                <span>Diet:</span><br>
+                <input type="radio" id="all" name="diet" value="All" checked>
+                <label for="all">All</label>
 
-        </select>
-    </div>
+                <input type="radio" id="vegetarian" name="diet" value="Vegetarian">
+                <label for="vegetarian">Vegetarian</label>
 
-    <div>
-        <label for="price">Price per serving:</label>
-        <input type="text" name="price" placeholder="10">
-    </div>
-    <div>
-        <label for="ingredients">Ingredients:</label>
-        <input type="text" name="ingredients" placeholder="10">
-    </div>
-    <div>
-        <label for="description">Description:</label>
-        <textarea name="description"></textarea>
-    </div>
+                <input type="radio" id="vegan" name="diet" value="Vegan">
+                <label for="vegan">Vegan</label>
+            </div>
+        </section>
 
-    <div>
-        <label for="pictures">Picture:</label>
-        <input type="file" name="photo">
-    </div>
+        <hr class="separation-line">
 
-    <button>Create a great recipe!</button>
-</form>
+        <section class="input-margin">
+            <label>Allergies:</label>
+            <br>
 
-<a href="/">Go back</a>
+            <div id="container-all-allergies">
+                <div class="all-allergies">
+                    <input type="checkbox" value="Eggs" name="allergies">
+                    <label for="eggs">Eggs</label> <img src="../../images/egg.png" />
+                </div>
+
+                <div class="all-allergies">
+                    <input type="checkbox" value="Dairy" name="allergies">
+                    <label for="dairy">Dairy</label> <img src="../../images/dairy.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Peanuts" name="allergies">
+                    <label for="peanuts">Peanuts</label> <img src="../../images/peanut.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Tree nuts" name="allergies">
+                    <label for="treenuts">Tree nuts</label> <img src="../../images/walnut.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fish" name="allergies">
+                    <label for="fish">Fish</label> <img src="../../images/fish.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Shellfish" name="allergies">
+                    <label for="shellfish">Shellfish</label> <img src="../../images/shellfish.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Wheat" name="allergies">
+                    <label for="wheat">Wheat</label> <img src="../../images/wheat.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Soy" name="allergies">
+                    <label for="soy">Soy</label> <img src="../../images/soy.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Legumes" name="allergies">
+                    <label for="legumes">Legumes</label> <img src="../../images/legumes.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Gluten" name="allergies">
+                    <label for="gluten">Gluten</label> <img src="../../images/gluten.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Vegetables" name="allergies">
+                    <label for="vegetables">Vegetables</label> <img src="../../images/vegetables.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fruits" name="allergies">
+                    <label for="fruits">Fruits</label> <img src="../../images/fruits.png" />
+                </div>
+            </div>
+        </section>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="serves">Number of serves:</label><br>
+
+            <select name="serves" id="serves">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+
+            </select>
+        </div>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="price">Price per serving:</label><br>
+            <input class="border-inputs" type="text" name="price" placeholder="10">€
+        </div>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="ingredients">Ingredients:</label><br>
+            <input class="border-inputs" type="text" name="ingredients" placeholder="10">
+        </div>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea name="description"></textarea>
+        </div>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="pictures">Picture:</label><br>
+            <input type="file" name="photo">
+        </div>
+
+        <br>
+        <button class="all-button">Create a great recipe!</button>
+    </form>
+
+</div>
