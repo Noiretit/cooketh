@@ -1,29 +1,33 @@
-<h1>All recipes</h1>
-<hr>
+<div class="container-pages">
+    <h2 class="all-page-titles">All recipes</h2>
+    <hr>
 
-<div class="container-recipes">
-    {{#each recipes}}
-    <div class="recipes">
+    <div class="container-recipes">
+        {{#each recipes}}
+        <div class="ideas-recipes">
 
-        <img class="img-recipe" src="{{this.imgPath}}">
-        <hr>
-        <div class="container-info">
-            <div class="info-recipe">
-                <p>{{this.title}}</p>
-                <p>Price: {{this.price}}€/serve</p>
-                <p>Type of food: {{this.typeOfFood}}</p>
-                <p>Description: {{this.description}}</p>
+            <img class="img-recipe" src="{{this.imgPath}}">
+            <hr>
+            <div>
+                <h2 class="info-recipe-title">{{this.title}}</h2>
+                <div class="info-recipe">
+                    <p>Price:<br> {{this.price}}€/serve</p>
+                    <p>Type of food:<br> {{this.typeOfFood}}</p>
+                    <p>Description:<br> {{this.description}}</p>
+                </div>
+                <div class="info-cooker">
+                    <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
+                    <p style="margin: 0;">Cooker:<br> {{this.chef.name}}</p>
+                    <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+                </div>
             </div>
-            <div class="info-cooker">
-                <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
-                <p>Cooker: {{this.chef.name}}</p>
-            </div>
+
+            <button class="allButtons" type="button"><a style="color: white;" href="/recipes/{{this.id}}">Book
+                    it!</a></button>
+
         </div>
-
-        <button type="button"><a href="/recipes/{{this.id}}">Book it!</a></button>
-
+        {{else}}
+        <p>There is no recipe yet</p>
+        {{/each}}
     </div>
-    {{else}}
-    <p>There is no recipe yet</p>
-    {{/each}}
 </div>

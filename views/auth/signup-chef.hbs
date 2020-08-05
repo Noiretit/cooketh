@@ -8,7 +8,8 @@
 
         <label for="mainCookSpecialty">Main cook specialty</label>
         <br>
-        <input id="mainCookSpecialty" type="text" name="mainCookSpecialty" placeholder="Indian, Thai, Italian...">
+        <input class="border-inputs" id="mainCookSpecialty" type="text" name="mainCookSpecialty"
+            placeholder="Indian, Thai, Italian...">
 
         <hr class="separation-line">
 
@@ -49,30 +50,32 @@
         <div class="input-margin">
             <label for="password"> Password:</label>
             <br>
-            <input type="password" name="password" id="password" placeholder="e.g., ••••••••••••">
+            <input class="border-inputs" type="password" name="password" id="password" placeholder="e.g., ••••••••••••">
         </div>
 
         <div class="input-margin">
             <label for="repeat-password-input">Repeat your password:</label>
             <br>
-            <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+            <input class="border-inputs" type="password" name="repeatPassword" id="repeat-password-input"
+                placeholder="e.g., ••••••••••••">
         </div>
 
         <hr class="separation-line">
 
         <div class="input-margin">
             <img src="../../images/facebook.png" />
-            <input type="text" name="facebook" placeholder="https://www.facebook.com/[your name].[your surname]/">
+            <input class="border-inputs" type="text" name="facebook"
+                placeholder="https://www.facebook.com/[your name].[your surname]/">
         </div>
 
         <div class="input-margin">
             <img src="../../images/instagram.png" />
-            <input type="text" name="instagram" placeholder="">
+            <input class="border-inputs" type="text" name="instagram" placeholder="">
         </div>
 
         <div class="input-margin">
             <img src="../../images/twitter.png" />
-            <input type="text" name="twitter" placeholder="">
+            <input class="border-inputs" type="text" name="twitter" placeholder="">
         </div>
 
         {{#if errorMessage}}
