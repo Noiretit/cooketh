@@ -11,18 +11,12 @@
         <p>Serves:<br> {{recipeinfo.serves}} guests</p>
         <p>Description:<br> {{recipeinfo.description}}</p>
         <p>Ingredients:<br> {{recipeinfo.ingredients}}</p>
-
-        <div class="idea-info">
-            <img class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
-            <p>Cooker: {{recipeinfo.chef.name}}</p>
-            <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
-        </div>
     </div>
 
     <div>
         <h2 class="all-page-titles info-recipe-margin">Book it!</h2>
         {{#if userIsLoggedIn}}
-        <form action="/new-booking" method="post">
+        <form class="info-recipe-form-margin" action="/new-booking" method="post">
             <div class="input-margin">
                 <label for="date">Select your date:</label><br>
                 <input class="border-inputs info-inputs" type="date" name="date">
@@ -74,5 +68,11 @@
         {{else}}
         <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
         {{/if}}
+    </div>
+
+    <div>
+        <img class="profile-pic" src={{recipeinfo.chef.picture}}>
+        <p class="font-size-one-recipe">Cooker:<br> {{recipeinfo.chef.name}}</p>
+        <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
     </div>
 </div>

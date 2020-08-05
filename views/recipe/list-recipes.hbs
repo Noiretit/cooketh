@@ -2,12 +2,12 @@
     <h2 class="all-page-titles">All recipes</h2>
     <hr>
 
-    <div class="idea-recipes">
+    <div class="container-recipes">
         {{#each recipes}}
-        <div class="recipes">
+        <div class="ideas-recipes">
 
             <img class="img-recipe" src="{{this.imgPath}}">
-            <hr>
+            <hr class="separation-line">
             <div class="container-info">
                 <div class="info-recipe">
                     <p>{{this.title}}</p>
@@ -16,12 +16,15 @@
                     <p>Description: {{this.description}}</p>
                 </div>
                 <div class="info-cooker">
+                    <h3 class="titles-homepage">Info cook</h3>
                     <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
-                    <p>Cooker: {{this.chef.name}}</p>
+                    <p style="margin-top: 1rem;">Cooker: {{this.chef.name}}</p>
+                    <a href="/profile-chef/{{this.chef._id}}">View profile</a>
                 </div>
             </div>
 
-            <button class="allButtons" type="button"><a style="color: white;" href="/recipes/{{this.id}}">Book
+            <button class="allButtons list-recipes-margin" type="button"><a style="color: white;"
+                    href="/recipes/{{this.id}}">Book
                     it!</a></button>
 
         </div>

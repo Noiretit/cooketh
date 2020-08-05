@@ -13,7 +13,8 @@ input {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Poiret One", cursive;
   font-weight: bold;
 }
@@ -64,7 +65,12 @@ header {
 
 /*HOME PAGE: section video-title*/
 #container-homepage {
-  max-height: 3600px;
+  max-height: 3800px;
+}
+
+.titles-homepage {
+  color: #e07a5f;
+  text-align: center;
 }
 
 #video-title {
@@ -194,6 +200,10 @@ header {
   justify-content: center;
 }
 
+.container-info {
+  margin: 1em;
+}
+
 .ideas-recipes {
   border: 1px solid;
   margin: 0.5em;
@@ -209,6 +219,19 @@ header {
 .idea-title {
   font-size: 20px;
   font-weight: bold;
+}
+
+.homepage-img-info-chef {
+  display: flex;
+  justify-content: center;
+}
+
+.homepage-info-chef {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  text-align: center;
 }
 
 /*--------------LOGIN & SIGNUP---------------*/
@@ -280,10 +303,6 @@ header {
   flex-wrap: wrap;
 }
 
-.container-info {
-  display: flex;
-}
-
 .recipes {
   width: 14.7em;
   border: 1px solid;
@@ -297,7 +316,14 @@ header {
 }
 
 .pic-cooker-list-recipe {
-  width: 100%;
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+.list-recipes-margin {
+  margin-bottom: .8em;
 }
 
 /*ONE RECIPE*/
@@ -312,6 +338,15 @@ header {
 
 .info-recipe-margin {
   margin: 1em 0;
+}
+
+.info-recipe-form-margin {
+  margin-bottom: 2em;
+}
+
+.font-size-one-recipe {
+  font-size: 15px;
+  margin-top: 1em;
 }
 
 /*-----------------MY BOOKINGS----------------*/
