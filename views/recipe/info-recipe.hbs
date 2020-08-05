@@ -11,11 +11,12 @@
         <p>Serves:<br> {{recipeinfo.serves}} guests</p>
         <p>Description:<br> {{recipeinfo.description}}</p>
         <p>Ingredients:<br> {{recipeinfo.ingredients}}</p>
-    </div>
-    <div class="info-cooker-one-recipe">
-        <img class="pic-cooker-list-recipe" src={{recipeinfo.chef.picture}}>
-        <p style="margin: 0;">Cooker:<br> {{recipeinfo.chef.name}}</p>
-        <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
+
+        <div class="idea-info">
+            <img class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
+            <p>Cooker: {{recipeinfo.chef.name}}</p>
+            <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
+        </div>
     </div>
 
     <div>

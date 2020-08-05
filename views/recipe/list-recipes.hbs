@@ -2,23 +2,22 @@
     <h2 class="all-page-titles">All recipes</h2>
     <hr>
 
-    <div class="container-recipes">
+    <div class="idea-recipes">
         {{#each recipes}}
-        <div class="ideas-recipes">
+        <div class="recipes">
 
             <img class="img-recipe" src="{{this.imgPath}}">
             <hr>
-            <div>
-                <h2 class="info-recipe-title">{{this.title}}</h2>
+            <div class="container-info">
                 <div class="info-recipe">
-                    <p>Price:<br> {{this.price}}€/serve</p>
-                    <p>Type of food:<br> {{this.typeOfFood}}</p>
-                    <p>Description:<br> {{this.description}}</p>
+                    <p>{{this.title}}</p>
+                    <p>Price: {{this.price}}€/serve</p>
+                    <p>Type of food: {{this.typeOfFood}}</p>
+                    <p>Description: {{this.description}}</p>
                 </div>
                 <div class="info-cooker">
                     <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
-                    <p style="margin: 0;">Cooker:<br> {{this.chef.name}}</p>
-                    <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+                    <p>Cooker: {{this.chef.name}}</p>
                 </div>
             </div>
 

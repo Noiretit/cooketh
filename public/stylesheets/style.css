@@ -67,11 +67,6 @@ header {
   max-height: 3600px;
 }
 
-.titles-homepage {
-  color: #e07a5f;
-  font-size: 30px;
-}
-
 #video-title {
   overflow: hidden;
 }
@@ -203,7 +198,6 @@ header {
   border: 1px solid;
   margin: 0.5em;
   padding: 0.5em;
-  position: relative;
 }
 
 .idea-info {
@@ -286,6 +280,10 @@ header {
   flex-wrap: wrap;
 }
 
+.container-info {
+  display: flex;
+}
+
 .recipes {
   width: 14.7em;
   border: 1px solid;
@@ -295,19 +293,11 @@ header {
 
 .img-recipe {
   width: 100%;
-}
-
-.info-cooker {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: absolute;
-  right: 1em;
-  bottom: 13em;
+  height: 26vh;
 }
 
 .pic-cooker-list-recipe {
-  width: 30%;
+  width: 100%;
 }
 
 /*ONE RECIPE*/
@@ -322,26 +312,6 @@ header {
 
 .info-recipe-margin {
   margin: 1em 0;
-}
-
-.info-recipe-title {
-  color: #e07a5f;
-  font-size: 25px;
-  text-align: left;
-  width: 65%;
-}
-
-.info-cooker-one-recipe {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  position: absolute;
-  right: 1em;
-  bottom: 17em;
-}
-
-.info-inputs {
-  width: 70%;
 }
 
 /*-----------------MY BOOKINGS----------------*/
