@@ -18,7 +18,6 @@
                 <p>Main specialty: {{thisChef.mainCookSpecialty}}</p>
                 <p>Working days: {{thisChef.workingDays}}</p>
                 <p>Description: {{thisChef.description}}</p>
-
                 Social media:<br>
                 {{#if thisChef.facebook}}
                 <a href="{{thisChef.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
@@ -33,8 +32,6 @@
             <hr>
             <a class="all-button mb-4" href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a>
         </div>
-
-
         <div id="chef-recipes">
             {{#each thisChef.recipes}}
             <div class="card img-hover-zoom">
@@ -47,9 +44,9 @@
                     {{#ifneq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guests</p> {{/ifneq}}
                 </div>
                 <hr>
-                <a class="moreButton mb-4" href="/recipes/{{this._id}}">See more</a>
+                <a style="align-self: center;" class="allButtons mb-4" href="/recipes/{{this._id}}">See more</a>
                 {{#if ../currentUserInfo.isAChef}}
-                <a class="moreButton" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
+                <a style="align-self: center;" class="allButtons" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
                 <br>
                 {{/if}}
             </div>
@@ -57,97 +54,3 @@
         </div>
     </div>
 </div>
-
-<!--<div class="container">
-    <div class="row profile">
-        <div class="col-md-3">
-            <div class="profile-sidebar">
-                <div class="profile-userpic">
-                    <img src="{{thisChef.picture}}" class="image-responsive" />
-                </div>
-                <div class="profile-userbuttons">
-                    <button type="button" class="btn btn-success btn-sm"><a
-                            href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a></button>
-                </div>
-                <div class="profile-usertitle">
-                    <div class="profile-usertitle-name">
-                        Cook's name: {{thisChef.name}}
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Main specialty: {{thisChef.mainCookSpecialty}}
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Working days: {{thisChef.workingDays}}
-                    </div>
-                    <div class="profile-usertitle-job">
-                        About the cook: {{thisChef.description}}
-                    </div>
-                    <div class="profile-usertitle-job">
-                        Social media:
-                        {{#if thisChef.facebook}}
-                        <a href="{{thisChef.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
-                        {{/if}}
-                        {{#if thisChef.instagram}}
-                        <a href="{{thisChef.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
-                        {{/if}}
-                        {{#if thisChef.twitter}}
-                        <a href="{{thisChef.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="profile-content">
-                
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<!-- <ul>
-    {{#if thisChef.picture}}
-    <img style="height: 400px" src="{{thisChef.picture}}">
-    {{else}}
-    <img src="https://static.thenounproject.com/png/1244141-200.png" />
-    <form action="/signup-chef" method="post" enctype="multipart/form-data">
-        <div>
-            <input type="file" name="photo">
-        </div>
-    </form>
-    {{/if}}
-    <li>Cook's name: {{thisChef.name}}</li>
-    <li>Main specialty: {{thisChef.mainCookSpecialty}}</li>
-    <li>Working days: {{thisChef.workingDays}}</li>
-    <li>Description: {{thisChef.description}}</li>
-
-    <li>Social media:<br>
-        {{#if thisChef.facebook}}
-        <a href="{{thisChef.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
-        {{/if}}
-        {{#if thisChef.instagram}}
-        <a href="{{thisChef.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
-        {{/if}}
-        {{#if thisChef.twitter}}
-        <a href="{{thisChef.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
-        {{/if}}
-    </li>
-    <button><a href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a></button>
-</ul>
-
-
-{{#each thisChef.recipes}}
-<div class="card">
-    <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
-    <div class="card-body">
-        <p class="card-text" {{this.typeOfFood}}></p>
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text">Description: {{this.description}}</p>
-    </div>
-</div>
-{{#if ../currentUserInfo.isAChef}}
-<button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
-<br>
-{{/if}}
-
-{{/each}} -->
