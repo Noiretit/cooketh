@@ -1,98 +1,114 @@
-<h2> Create a user account </h2>
+<div class="container-login-signup">
+    <h2 class="login-signup-title"> Create a user account </h2>
 
-{{#if errorMessage}}
-<p class="error-message">
-    {{ errorMessage }}
-</p>
-{{/if}}
+    <form action="/signup-user" method="post" enctype="multipart/form-data">
+        {{> signup}}
+        <section class="radio-buttons login-signup-margin">
+            <label>Diet:</label>
+            <br>
+            <input type="radio" id="all" name="diet" value="All" checked>
+            <label for="all">All</label>
 
-<form action="/signup-user" method="post" enctype="multipart/form-data">
-    {{> signup}}
-    <section class="radio-buttons">
-        <span>Diet:</span>
-        <input type="radio" id="all" name="diet" value="All" checked>
-        <label for="all">All</label>
+            <input type="radio" id="vegetarian" name="diet" value="Vegetarian">
+            <label for="vegetarian">Vegetarian</label>
 
-        <input type="radio" id="vegetarian" name="diet" value="Vegetarian">
-        <label for="vegetarian">Vegetarian</label>
+            <input type="radio" id="vegan" name="diet" value="Vegan">
+            <label for="vegan">Vegan</label>
+        </section>
 
-        <input type="radio" id="vegan" name="diet" value="Vegan">
-        <label for="vegan">Vegan</label>
-    </section>
+        <hr class="separation-line-signup">
 
-    <section>
-        <span>Allergies:</span>
-        <input type="checkbox" value="Eggs" name="allergies">
-        <label for="eggs">Eggs</label>
+        <section class="login-signup-margin">
+            <label>Allergies:</label>
+            <br>
+            <input type="checkbox" value="Eggs" name="allergies">
+            <label for="eggs">Eggs</label>
 
-        <input type="checkbox" value="Dairy" name="allergies">
-        <label for="dairy">Dairy</label>
+            <input type="checkbox" value="Dairy" name="allergies">
+            <label for="dairy">Dairy</label>
 
-        <input type="checkbox" value="Peanuts" name="allergies">
-        <label for="peanuts">Peanuts</label>
+            <input type="checkbox" value="Peanuts" name="allergies">
+            <label for="peanuts">Peanuts</label>
 
-        <input type="checkbox" value="Tree nuts" name="allergies">
-        <label for="treenuts">Tree nuts</label>
+            <input type="checkbox" value="Tree nuts" name="allergies">
+            <label for="treenuts">Tree nuts</label>
 
-        <input type="checkbox" value="Fish" name="allergies">
-        <label for="fish">Fish</label>
+            <input type="checkbox" value="Fish" name="allergies">
+            <label for="fish">Fish</label>
 
-        <input type="checkbox" value="Shellfish" name="allergies">
-        <label for="shellfish">Shellfish</label>
+            <input type="checkbox" value="Shellfish" name="allergies">
+            <label for="shellfish">Shellfish</label>
 
-        <input type="checkbox" value="Wheat" name="allergies">
-        <label for="wheat">Wheat</label>
+            <input type="checkbox" value="Wheat" name="allergies">
+            <label for="wheat">Wheat</label>
 
-        <input type="checkbox" value="Soy" name="allergies">
-        <label for="soy">Soy</label>
+            <input type="checkbox" value="Soy" name="allergies">
+            <label for="soy">Soy</label>
 
-        <input type="checkbox" value="Legumes" name="allergies">
-        <label for="legumes">Legumes</label>
+            <input type="checkbox" value="Legumes" name="allergies">
+            <label for="legumes">Legumes</label>
 
-        <input type="checkbox" value="Gluten" name="allergies">
-        <label for="gluten">Gluten</label>
+            <input type="checkbox" value="Gluten" name="allergies">
+            <label for="gluten">Gluten</label>
 
-        <input type="checkbox" value="Vegetables" name="allergies">
-        <label for="vegetables">Vegetables</label>
+            <input type="checkbox" value="Vegetables" name="allergies">
+            <label for="vegetables">Vegetables</label>
 
-        <input type="checkbox" value="Fruits" name="allergies">
-        <label for="fruits">Fruits</label>
-    </section>
+            <input type="checkbox" value="Fruits" name="allergies">
+            <label for="fruits">Fruits</label>
+        </section>
 
-    <div>
-        <label>Profile Picture:</label>
-        <input type="file" name="photo">
-    </div>
+        <hr class="separation-line-signup">
 
-    <div>
-        <label for="password-input"> Password:</label>
-        <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
-    </div>
-    <div>
-        <label for="repeat-password-input">Repeat your password:</label>
-        <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
-    </div>
+        <div class="login-signup-margin">
+            <label>Profile Picture:</label>
+            <input type="file" name="photo">
+        </div>
 
-    <div>
-        <img src="../../images/facebook.png" />
-        <input type="text" name="facebook" placeholder="https://www.facebook.com/[your name].[your surname]/">
-    </div>
-    <div>
-        <img src="../../images/instagram.png" />
-        <input type="text" name="instagram" placeholder="">
-    </div>
-    <div>
-        <img src="../../images/twitter.png" />
-        <input type="text" name="twitter" placeholder="">
-    </div>
+        <hr class="separation-line-signup">
 
-    <br>
-    <button>Create a new account</button>
-</form>
+        <div class="login-signup-margin">
+            <label for="password-input"> Password:</label>
+            <br>
+            <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
+        </div>
 
-<p>
-    Already have an account?
-    <a href="/login">Log in.</a>
-</p>
+        <hr class="separation-line-signup">
 
-<a href="/">Go back</a>
+        <div class="login-signup-margin">
+            <label for="repeat-password-input">Repeat your password:</label>
+            <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+        </div>
+
+        <hr class="separation-line-signup">
+
+        <div class="login-signup-margin">
+            <img src="../../images/facebook.png" />
+            <input type="text" name="facebook" placeholder="https://www.facebook.com/[your name].[your surname]/">
+        </div>
+
+        <div class="login-signup-margin">
+            <img src="../../images/instagram.png" />
+            <input type="text" name="instagram" placeholder="">
+        </div>
+
+        <div class="login-signup-margin">
+            <img src="../../images/twitter.png" />
+            <input type="text" name="twitter" placeholder="">
+        </div>
+
+        {{#if errorMessage}}
+        <p class="error-message">
+            {{ errorMessage }}
+        </p>
+        {{/if}}
+
+        <br>
+        <button class="login-signup-button">Create a new account</button>
+    </form>
+
+    <p class="login-signup-margin">
+        Already have an account?
+        <a href="/login">Log in.</a>
+    </p>
+</div>

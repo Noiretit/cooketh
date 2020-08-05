@@ -1,35 +1,40 @@
-<h2> Log In </h2>
+<div class="container-login-signup">
+  <h2 class="login-signup-margin login-signup-title"> Log In </h2>
 
-{{#if errorMessage}}
-<p class="error-message">
-  {{ errorMessage }}
-</p>
-{{/if}}
+  <form action="/login" method="post">
+    <div class="login-signup-margin">
+      <input type="checkbox" value="isAChef" name="isAChef" id="isAChef">
+      <label for="isAChef">I'm a cook</label>
+    </div>
 
-<form action="/login" method="post">
-  <input type="checkbox" value="isAChef" name="isAChef" id="isAChef">
-  <label for="isAChef">I'm a cook</label>
+    <div class="login-signup-margin login-input-position">
+      <label for="email-input"> Email </label>
+      <input class="login-inputs" type="email" name="email" id="email-input" placeholder="e.g., xena@warrior.company">
+    </div>
 
-  <div>
-    <label for="email-input"> Email </label>
-    <input type="email" name="email" id="email-input" placeholder="e.g., xena@warrior.company">
-  </div>
+    <div class="login-signup-margin login-input-position">
+      <label for="password-input"> Password </label>
+      <input class="login-inputs" type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
+    </div>
 
-  <div>
-    <label for="password-input"> Password </label>
-    <input type="password" name="password" id="password-input" placeholder="e.g., ••••••••••••">
-  </div>
+    <button class="login-signup-margin login-signup-button"> Log In </button>
+  </form>
 
-  <button> Log In </button>
-</form>
+  <p>
+    Don't have an account?
+  <p>
 
-<p>
-  Don't have an account?
-<p>
+    {{#if errorMessage}}
+  <p class=" error-message">
+    {{ errorMessage }}
+  </p>
+  {{/if}}
+
   <a href="/signup-chef">
     Sign up as a chef
   </a><br>
   <a href="/signup-user">
     Sign up as a user
   </a>
-</p>
+  </p>
+</div>

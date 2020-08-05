@@ -1,10 +1,87 @@
-<p>Welcome to {{title}}</p>
+<div id="container-homepage">
+    <section id="video-title">
+        <video id="main-video" preload="auto" loop muted playsinline="true" webkit-playsinline="true" autoplay>
+            <source src="https://anotherchef.com/assets/videos/header.mp4" type="video/mp4">
+        </video>
 
-<video id="main-video" preload="auto" loop muted playsinline="true" webkit-playsinline="true" autoplay>
-    <source src="https://anotherchef.com/assets/videos/header.mp4" type="video/mp4">
-</video>
+        <div id="container-title-catchy-phrase">
+            <h1 class="titles-homepage" id="main-title-homepage">Welcome to Cooketh</h1>
+            <p>Lazy to cook?</p>
+            <a id="button-find-cook" href="/recipes">Find a cook</a>
+        </div>
+    </section>
 
-<!--Si le user est co, on affiche son nom-->
-{{#if userIsLoggedIn}}
-<p>Hello, {{currentUserInfo.name}} </p>
-{{/if}}
+    <!--SECTION CONCEPT-->
+    <section id="concept">
+        <h2>What is the concept?</h2>
+
+        <p>Lazy to cook? Got a last-minute dinner at home and you are out of ideas?</p>
+        <p>This website gathers a community of
+            nearby cooks to cook for you anyday, anytime, any cooking style.</p>
+        <p>Just follow the process below to book your cook!</p>
+
+        <div id="container-concept" class="row">
+            <div class="concept">
+                <div class="decoration-concept">
+                    <div class="img-concept concept-recipe">
+                        <img class="resize-concept-img" src="./../images/recipe-book-big.png">
+                    </div>
+                </div>
+                <p>Find a recipe</p>
+            </div>
+            <div class="concept">
+                <div class="decoration-concept">
+                    <div class="img-concept concept-signup">
+                        <img class="resize-concept-img" src="./../images/sign-up.png">
+                    </div>
+                </div>
+                <P>Make a booking</P>
+            </div>
+            <div class="concept">
+                <div class="decoration-concept">
+                    <div class="img-concept concept-reserved">
+                        <img class="resize-concept-img" src="./../images/reserved-big.png">
+                    </div>
+                </div>
+                <p>Wait until it’s confirmed by the cook and…</p>
+            </div>
+            <div class="concept">
+                <div class="decoration-concept">
+                    <div class="img-concept concept-dinner">
+                        <img class="resize-concept-dinner" src="./../images/serving.png">
+                    </div>
+                </div>
+                <p>just relax, the food comes to you!</p>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION NEED SOME IDEAS-->
+    <section id="ideas">
+        <h2 class="titles-homepage">Need some ideas?</h2>
+
+        <div class="container-recipes">
+            {{#each recipes}}
+            <div class="ideas-recipes">
+                <p class="idea-title">{{this.title}}</p>
+                <img class="img-recipe" src="{{this.imgPath}}">
+                <hr>
+                <div class="container-info">
+                    <div class="idea-info">
+                        <p>Price: {{this.price}}€/serve</p>
+                        <p>Type of food: {{this.typeOfFood}}</p>
+                        <p>Description: {{this.description}}</p>
+                    </div>
+                    <div class="idea-info">
+                        <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
+                        <p>Cooker: {{this.chef.name}}</p>
+                    </div>
+                </div>
+
+                <button type="button"><a href="/recipes/{{this.id}}">Book it!</a></button>
+
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</div>

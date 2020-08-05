@@ -1,21 +1,246 @@
+/*GENERAL SETTINGS*/
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1,
+h2 {
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
 }
 
-#logo {
-  width: 9%;
+a:hover {
+  text-decoration: none;
 }
 
-/*HOME PAGE*/
-#main-video {
+header {
+  z-index: 1000;
+  position: fixed;
   width: 100%;
 }
 
-/*FULL RECIPES*/
+#logo {
+  width: 100px;
+}
+
+.navbar-brand {
+  width: 25%;
+}
+
+.nav-link {
+  font-size: 18px;
+}
+
+#navbarNavDropdown {
+  justify-content: flex-end;
+}
+
+/*HOME PAGE: section video-title*/
+#container-homepage {
+  max-height: 3600px;
+}
+
+#video-title {
+  overflow: hidden;
+}
+
+#main-video {
+  position: relative;
+  filter: brightness(0.4);
+  width: auto;
+  bottom: 15em;
+  right: 50em;
+  transform: scale(.6);
+}
+
+#container-title-catchy-phrase {
+  position: relative;
+  bottom: 43em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#main-title-homepage {
+  color: white;
+  font-size: 30px;
+  text-shadow: 0 0 2px;
+}
+
+#container-title-catchy-phrase p {
+  color: white;
+  font-size: 20px;
+}
+
+#button-find-cook {
+  background-color: #E07A5F;
+  color: white;
+  font-size: 13px;
+  padding: .4em .8em;
+  border: 1px solid #E07A5F;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+#button-find-cook:hover {
+  background-color: white;
+  color: #E07A5F;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/*HOMEPAGE: section concept*/
+#concept {
+  position: relative;
+  bottom: 30em;
+  text-align: center;
+}
+
+#container-concept {
+  justify-content: center;
+  margin: 0;
+}
+
+.concept {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 175px;
+}
+
+.decoration-concept {
+  display: flex;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  border: 1px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-concept {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: .5s;
+}
+
+.img-concept:hover {
+  width: 165px;
+  height: 165px;
+}
+
+.resize-concept-img {
+  width: 85px;
+}
+
+.resize-concept-dinner {
+  width: 100px;
+}
+
+.concept-recipe {
+  background-color: #E07A5F;
+}
+
+.concept-signup {
+  background-color: #56494E;
+}
+
+.concept-reserved {
+  background-color: #81B29A;
+}
+
+.concept-dinner {
+  background-color: #F2CC8F;
+}
+
+/*HOMEPAGE: section ideas*/
+#ideas {
+  position: relative;
+  bottom: 28em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ideas-recipes {
+  border: 1px solid;
+  margin: .5em;
+  padding: .5em;
+}
+
+.idea-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.idea-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*--------------LOGIN & SIGNUP---------------*/
+.container-login-signup {
+  text-align: center;
+  margin: 3em 0;
+  font-size: 13px;
+}
+
+.login-input-position {
+  text-align: right;
+}
+
+.login-inputs {
+  margin: 0 1em 0 2em;
+}
+
+.login-signup-inputs {
+  border: 0;
+  border-bottom: 1px solid #56494E;
+}
+
+.login-signup-inputs:focus {
+  border: 1px solid green !important;
+}
+
+.login-signup-margin {
+  margin: 1em;
+}
+
+.login-signup-title {
+  color: #E07A5F;
+  font-size: 35px;
+}
+
+.login-signup-button {
+  background-color: #E07A5F;
+  color: white;
+  font-size: 13px;
+  padding: .4em .8em;
+  border: 1px solid #E07A5F;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+.login-signup-button:hover {
+  background-color: white;
+  color: #E07A5F;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/*SIGNUP USER*/
+.separation-line-signup {
+  border: 1px solid #E07A5F;
+  width: 75%;
+}
+
+/*----------------FULL RECIPES---------------*/
 .container-recipes {
   display: flex;
   flex-wrap: wrap;
@@ -50,7 +275,42 @@ a {
   width: 50%;
 }
 
-/*MY BOOKINGS*/
+/*-----------------MY BOOKINGS----------------*/
 .img-recipe-bookings {
   width: 20%;
+}
+
+/*-----------------FOOTER---------------------*/
+footer {
+  background-color: #E07A5F;
+}
+
+#container-arrow-footer {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E07A5F;
+  bottom: .9em;
+  left: 9em;
+}
+
+#container-arrow-footer img {
+  width: 20px;
+}
+
+#container-footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 1.5em;
+}
+
+.footer-icons {
+  width: 35px;
+  margin: .5em;
 }
