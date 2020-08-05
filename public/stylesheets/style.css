@@ -263,6 +263,12 @@ header {
   width: 75%;
 }
 
+#container-all-allergies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /*----------------FULL RECIPES---------------*/
 .container-recipes {
   display: flex;
