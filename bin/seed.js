@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const Recipe = require('../models/recipe');
 
 const dbName = "cooketh";
@@ -107,4 +107,4 @@ const recipesList = [{
 
 Recipe.create(recipesList)
     .then(recipes => console.log(`${recipes.length} recipes created`))
-    .catch((err) => console.log(`Error while creating the recipes`, err))
+    .catch((err) => console.log(`Error while creating the recipes`, err))*/

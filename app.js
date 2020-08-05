@@ -16,7 +16,7 @@ const registerHelpers = require('./loaders/hbs')
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost/cooketh', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -57,8 +57,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //HBS helpers
 registerHelpers(hbs);
 
+//SESSION MIDDLEWARE
 app.use(session({
-  secret: "basic-auth-secret",
+  secret: process.env.SESSION_SECRET,
   cookie: {
     maxAge: 600000 //10 min
   },
