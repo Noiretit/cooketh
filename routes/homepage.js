@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
 
       randomRecipesArr.push(allRecipes[0], allRecipes[1], allRecipes[2])
 
-
       res.render('homepage.hbs', {
         recipes: randomRecipesArr
       });
