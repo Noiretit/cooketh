@@ -1,4 +1,111 @@
-<ul>
+<div class="container">
+    <div class="row">
+        <div class="card" id="chef-profile">
+            <div class="card-img-top">
+                {{#if thisChef.picture}}
+                <img class="profile-pic" src="{{thisChef.picture}}">
+                {{else}}
+                <img class="profile-pic" src="https://static.thenounproject.com/png/1244141-200.png" />
+                <form action="/signup-chef" method="post" enctype="multipart/form-data">
+                    <div>
+                        <input type="file" name="photo">
+                    </div>
+                </form>
+                {{/if}}
+            </div>
+            <div class="card-body">
+                <p>Cook's name: {{thisChef.name}}</p>
+                <p>Main specialty: {{thisChef.mainCookSpecialty}}</p>
+                <p>Working days: {{thisChef.workingDays}}</p>
+                <p>Description: {{thisChef.description}}</p>
+
+                Social media:<br>
+                {{#if thisChef.facebook}}
+                <a href="{{thisChef.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
+                {{/if}}
+                {{#if thisChef.instagram}}
+                <a href="{{thisChef.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
+                {{/if}}
+                {{#if thisChef.twitter}}
+                <a href="{{thisChef.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
+                {{/if}}
+            </div>
+            <hr>
+            <a class="moreButton mb-4" href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a>
+        </div>
+
+
+        <div id="chef-recipes">
+            {{#each thisChef.recipes}}
+            <div class="card img-hover-zoom">
+                <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text"><b>Type of food:</b> {{this.typeOfFood}}</p>
+                    <p class="card-text"><b>Price:</b> {{this.price}}/serving</p>
+                    {{#ifeq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guest</p> {{/ifeq}}
+                    {{#ifneq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guests</p> {{/ifneq}}
+                </div>
+                <hr>
+                <a class="moreButton mb-4" href="/recipes/{{this._id}}">See more</a>
+                {{#if ../currentUserInfo.isAChef}}
+                <a class="moreButton" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
+                <br>
+                {{/if}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<!--<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <div class="profile-userpic">
+                    <img src="{{thisChef.picture}}" class="image-responsive" />
+                </div>
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm"><a
+                            href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a></button>
+                </div>
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Cook's name: {{thisChef.name}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Main specialty: {{thisChef.mainCookSpecialty}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Working days: {{thisChef.workingDays}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        About the cook: {{thisChef.description}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Social media:
+                        {{#if thisChef.facebook}}
+                        <a href="{{thisChef.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
+                        {{/if}}
+                        {{#if thisChef.instagram}}
+                        <a href="{{thisChef.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
+                        {{/if}}
+                        {{#if thisChef.twitter}}
+                        <a href="{{thisChef.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="profile-content">
+                
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!-- <ul>
     {{#if thisChef.picture}}
     <img style="height: 400px" src="{{thisChef.picture}}">
     {{else}}
@@ -28,20 +135,19 @@
     <button><a href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a></button>
 </ul>
 
-<div class="card-deck">
-    {{#each thisChef.recipes}}
-    <div class="card">
-        <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
-        <div class="card-body">
-            <p class="card-text" {{this.typeOfFood}}></p>
-            <h5 class="card-title">{{this.title}}</h5>
-            <p class="card-text">Description: {{this.description}}</p>
-        </div>
-    </div>
-    {{#if ../currentUserInfo.isAChef}}
-    <button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
-    <br>
-    {{/if}}
 
-    {{/each}}
+{{#each thisChef.recipes}}
+<div class="card">
+    <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
+    <div class="card-body">
+        <p class="card-text" {{this.typeOfFood}}></p>
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">Description: {{this.description}}</p>
+    </div>
 </div>
+{{#if ../currentUserInfo.isAChef}}
+<button><a href="/recipes/{{this._id}}/edit">Edit this recipe</a></button>
+<br>
+{{/if}}
+
+{{/each}} -->
