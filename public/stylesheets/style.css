@@ -12,6 +12,10 @@ input {
   background-color: #faf8f0;
 }
 
+.navbarColor {
+  background-color: #e07a5f;
+}
+
 h1,
 h2,
 h3 {
@@ -80,15 +84,14 @@ header {
 #main-video {
   position: relative;
   filter: brightness(0.4);
-  width: auto;
   bottom: 15em;
-  right: 50em;
-  transform: scale(0.6);
+  right: 22rem;
+  height: 48rem;
 }
 
 #container-title-catchy-phrase {
   position: relative;
-  bottom: 43em;
+  bottom: 36em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,8 +128,9 @@ header {
 /*HOMEPAGE: section concept*/
 #concept {
   position: relative;
-  bottom: 30em;
+  bottom: 20em;
   text-align: center;
+  margin: 0 2rem;
 }
 
 #container-concept {
@@ -139,6 +143,7 @@ header {
   flex-direction: column;
   align-items: center;
   width: 175px;
+  margin: 1rem 3rem;
 }
 
 .decoration-concept {
@@ -191,9 +196,10 @@ header {
 }
 
 /*HOMEPAGE: section ideas*/
+
 #ideas {
   position: relative;
-  bottom: 28em;
+  bottom: 17em;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -37,9 +37,8 @@
 
 
     {{#each thisChef.recipes}}
-    <div class="card img-hover-zoom">
-
-        <img class="card-img-top" src="{{this.imgPath}}" alt="recipe-img">
+    <div class="card img-hover-zoom" style="width: 18rem;">
+        <img class="card-img-top" style="height: 14rem;" src="{{this.imgPath}}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{this.title}}</h5>
             <p class="card-text"><b>Type of food:</b> {{this.typeOfFood}}</p>
@@ -47,13 +46,13 @@
             {{#ifeq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guest</p> {{/ifeq}}
             {{#ifneq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guests</p> {{/ifneq}}
         </div>
-        <hr>
-        <a class="allButtons" href="/recipes/{{this._id}}">See more</a>
-        <hr>
+        <hr style="align-self: center;" class="separation-line">
+        <a class="allButtons mb-3" href="/recipes/{{this._id}}">See more</a>
+
         {{#if ../currentUserInfo.isAChef}}
+        <hr style="align-self: center;" class="separation-line">
         <a class="allButtons mb-4" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
         {{/if}}
-
     </div>
     {{/each}}
 </div>

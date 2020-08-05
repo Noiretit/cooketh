@@ -1,0 +1,74 @@
+<h2> Sign up as a chef </h2>
+
+{{#if errorMessage}}
+<p class="error-message">
+    {{ errorMessage }}
+</p>
+{{/if}}
+
+<form action="/signup-chef" method="post" enctype="multipart/form-data">
+    {{> signup}}
+    <label for="mainCookSpecialty">Main cook specialty</label>
+    <input id="mainCookSpecialty" type="text" name="mainCookSpecialty" placeholder="Indian, Thai, Italian">
+
+    <section>
+        <span>Working days:</span>
+        <input type="checkbox" value="Monday" name="workingDays">
+        <label for="monday">Monday</label>
+
+        <input type="checkbox" value="Tuesday" name="workingDays">
+        <label for="tuesday">Tuesday</label>
+
+        <input type="checkbox" value="Wednesday" name="workingDays">
+        <label for="wednesday">Wednesday</label>
+
+        <input type="checkbox" value="Thursday" name="workingDays">
+        <label for="thursday">Thursday</label>
+
+        <input type="checkbox" value="Friday" name="workingDays">
+        <label for="friday">Friday</label>
+
+        <input type="checkbox" value="Saturday" name="workingDays">
+        <label for="saturday">Saturday</label>
+
+        <input type="checkbox" value="Sunday" name="workingDays">
+        <label for="sunday">Sunday</label>
+    </section>
+
+    <div>
+        <label>Profile Picture:</label>
+        <input type="file" name="photo">
+    </div>
+
+    <div>
+        <label for="password"> Password:</label>
+        <input type="password" name="password" id="password" placeholder="e.g., ••••••••••••">
+    </div>
+    <div>
+        <label for="repeat-password-input">Repeat your password:</label>
+        <input type="password" name="repeatPassword" id="repeat-password-input" placeholder="e.g., ••••••••••••">
+    </div>
+
+    <div>
+        <img src="../../images/facebook.png" />
+        <input type="text" name="facebook" placeholder="https://www.facebook.com/[your name].[your surname]/">
+    </div>
+    <div>
+        <img src="../../images/instagram.png" />
+        <input type="text" name="instagram" placeholder="">
+    </div>
+    <div>
+        <img src="../../images/twitter.png" />
+        <input type="text" name="twitter" placeholder="">
+    </div>
+
+    <br>
+    <button>Create a new account</button>
+</form>
+
+<p>
+    Already have an account?
+    <a href="/login">Log in.</a>
+</p>
+
+<a href="/">Go back</a>

@@ -27,7 +27,7 @@
                         <img class="resize-concept-img" src="./../images/recipe-book-big.png">
                     </div>
                 </div>
-                <p>Find a recipe</p>
+                <p>Find a recipe.</p>
             </div>
             <div class="concept">
                 <div class="decoration-concept">
@@ -35,7 +35,7 @@
                         <img class="resize-concept-img" src="./../images/sign-up.png">
                     </div>
                 </div>
-                <P>Make a booking</P>
+                <P>Make a booking.</P>
             </div>
             <div class="concept">
                 <div class="decoration-concept">
@@ -54,37 +54,29 @@
                 <p>just relax, the food comes to you!</p>
             </div>
         </div>
+        <hr class="separation-line">
     </section>
 
     <!--SECTION NEED SOME IDEAS-->
     <section id="ideas">
         <h2 class="titles-homepage">Need some ideas?</h2>
 
-        <div class="container-recipes">
+        <div style="
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+">
             {{#each recipes}}
-            <div class="ideas-recipes">
-                <p class="idea-title">{{this.title}}</p>
-                <img class="img-recipe" src="{{this.imgPath}}">
-                <hr class="separation-line">
-                <div class="container-info">
-                    <div class="idea-info">
-                        <p>Price: {{this.price}}€/serve</p>
-                        <p>Type of food: {{this.typeOfFood}}</p>
-                        <p>Description: {{this.description}}</p>
-                    </div>
-                    <h3 class="titles-homepage">Info cook</h3>
-                    <div class="homepage-img-info-chef" style="display: flex;">
-                        <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
-                        <div class="homepage-info-chef">
-                            <p>Cooker:<br> {{this.chef.name}}</p>
-                            <a href="/profile-chef/{{this.chef._id}}">View profile</a>
-                        </div>
-                    </div>
+            <div class="card img-hover-zoom" style="width: 18rem;">
+                <img class="card-img-top" style="height: 14rem;" src="{{this.imgPath}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text"><b>Price:</b> {{this.price}}€/serving</p>
+                    <p class="card-text"><b>Type of food:</b> {{this.typeOfFood}}</p>
+                    <p class="card-text"><b>Description:</b> {{this.description}}</p>
+                    <hr class="separation-line">
+                    <a class="allButtons mb-3" href="/recipes/{{this._id}}">See more</a>
                 </div>
-
-                <a class="allButtons" href="/recipes/{{this.id}}" style="color: white;">Book
-                    it!</a>
-
             </div>
             {{/each}}
         </div>

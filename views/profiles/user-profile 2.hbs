@@ -1,0 +1,24 @@
+<ul>
+    {{#if thisUser.picture}}
+    <img style="height: 400px" src="{{thisUser.picture}}">
+    {{else}}
+    <img src="https://static.thenounproject.com/png/1244141-200.png" />
+    {{/if}}
+    <li>Name: {{thisUser.name}}</li>
+    <li>Diet: {{thisUser.diet}}</li>
+    <li>Allergies: {{thisUser.allergies}}</li>
+    <li>Age: {{thisUser.age}}</li>
+    <li>Description: {{thisUser.description}}</li>
+    <li>Social media:<br>
+        {{#if thisUser.facebook}}
+        <a href="{{thisUser.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
+        {{/if}}
+        {{#if thisUser.instagram}}
+        <a href="{{thisUser.instagram}}" target="_blank"><img src="../../images/instagram.png" /></a>
+        {{/if}}
+        {{#if thisUser.twitter}}
+        <a href="{{thisUser.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
+        {{/if}}
+    </li>
+    <button><a href="/profile-user/edit">Edit your profile</a></button>
+</ul>
