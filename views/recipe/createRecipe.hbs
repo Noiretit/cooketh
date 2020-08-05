@@ -2,12 +2,6 @@
 
     <h2 class="all-page-titles create-recipe-margin-title"> Create a great recipe! </h2>
 
-    {{#if errorMessage}}
-    <p class="error-message">
-        {{ errorMessage }}
-    </p>
-    {{/if}}
-
     <form action="/recipe/new" method="post" enctype="multipart/form-data">
         <div class="input-margin">
             <label for="title">Recipe title:</label><br>
@@ -25,7 +19,7 @@
 
         <section class="radio-buttons input-margin">
             <div>
-                <span>Diet:</span><br>
+                <label>Diet:</label><br>
                 <input type="radio" id="all" name="diet" value="All" checked>
                 <label for="all">All</label>
 
@@ -154,8 +148,14 @@
             <input type="file" name="photo">
         </div>
 
+        {{#if errorMessage}}
+        <p class="error-message">
+            {{ errorMessage }}
+        </p>
+        {{/if}}
+
         <br>
-        <button class="all-button">Create a great recipe!</button>
+        <button class="allButtons">Create a great recipe!</button>
     </form>
 
 </div>
