@@ -1,102 +1,149 @@
-<h2>Editing {{thisRecipe.title}} recipe</h2>
+<div class="container-pages">
+    <h2 class="all-page-titles edit-recipe-title">Editing {{thisRecipe.title}} recipe</h2>
 
-<form method="post" action="/recipes/{{thisRecipe._id}}/edit">
-    <label for="title">Recipe title:</label>
-    <input type="text" name="title" id="title" value="{{thisRecipe.title}}">
-    <br>
-    <label for="typeOfFood">Type of food:</label>
-    <input type="text" name="typeOfFood" value="{{thisRecipe.typeOfFood}}">
-    <br>
-    <section class="radio-buttons">
-        <span>Diet:</span>
-        <input type="radio" id="all" name="diet" value="All" {{#ifeq thisRecipe.diet "All"}} checked {{/ifeq}}>
-        <label for="all">All</label>
+    <form method="post" action="/recipes/{{thisRecipe._id}}/edit">
+        <div class="input-margin">
+            <label for="title">Recipe title:</label><br>
+            <input class="border-inputs" type="text" name="title" id="title" value="{{thisRecipe.title}}">
+        </div>
 
-        <input type="radio" id="vegetarian" name="diet" value="Vegetarian" {{#ifeq thisRecipe.diet "Vegetarian"}}
-            checked {{/ifeq}}>
-        <label for="vegetarian">Vegetarian</label>
+        <hr class="separation-line">
 
-        <input type="radio" id="vegan" name="diet" value="Vegan" {{#ifeq thisRecipe.diet "Vegan"}} checked {{/ifeq}}>
-        <label for="vegan">Vegan</label>
-    </section>
-    <br>
-    <section>
-        <span>Allergies:</span>
-        <input type="checkbox" value="Eggs" name="allergies" {{#if allergies.Eggs}} checked {{/if}}>
-        <label for="eggs">Eggs</label>
+        <div>
+            <label for="typeOfFood">Type of food:</label><br>
+            <input class="border-inputs" type="text" name="typeOfFood" value="{{thisRecipe.typeOfFood}}">
+        </div>
 
-        <input type="checkbox" value="Dairy" name="allergies" {{#if allergies.Dairy}} checked {{/if}}>
-        <label for="dairy">Dairy</label>
+        <hr class="separation-line">
 
-        <input type="checkbox" value="Peanuts" name="allergies" {{#if allergies.Peanuts}} checked {{/if}}>
-        <label for="peanuts">Peanuts</label>
+        <section class="radio-buttons input-margin">
+            <div>
+                <label>Diet:</label><br>
+                <input type="radio" id="all" name="diet" value="All" {{#ifeq thisRecipe.diet "All"}} checked {{/ifeq}}>
+                <label for="all">All</label>
 
-        <input type="checkbox" value="Tree nuts" name="allergies" {{#if allergies.[Tree nuts]}} checked {{/if}}>
-        <label for="treenuts">Tree nuts</label>
+                <input type="radio" id="vegetarian" name="diet" value="Vegetarian"
+                    {{#ifeq thisRecipe.diet "Vegetarian"}} checked {{/ifeq}}>
+                <label for="vegetarian">Vegetarian</label>
 
-        <input type="checkbox" value="Fish" name="allergies" {{#if allergies.Fish}} checked {{/if}}>
-        <label for="fish">Fish</label>
+                <input type="radio" id="vegan" name="diet" value="Vegan" {{#ifeq thisRecipe.diet "Vegan"}} checked
+                    {{/ifeq}}>
+                <label for="vegan">Vegan</label>
+            </div>
+        </section>
 
-        <input type="checkbox" value="Shellfish" name="allergies" {{#if allergies.Shellfish}} checked {{/if}}>
-        <label for="shellfish">Shellfish</label>
+        <hr class="separation-line">
 
-        <input type="checkbox" value="Wheat" name="allergies" {{#if allergies.Wheat}} checked {{/if}}>
-        <label for="wheat">Wheat</label>
+        <section class="input-margin">
+            <label>Allergies:</label><br>
 
-        <input type="checkbox" value="Soy" name="allergies" {{#if allergies.Soy}} checked {{/if}}>
-        <label for="soy">Soy</label>
+            <div id="container-all-allergies">
+                <div class="all-allergies">
+                    <input type="checkbox" value="Eggs" name="allergies" {{#if allergies.Eggs}} checked {{/if}}>
+                    <label for="eggs">Eggs</label> <img src="../../images/egg.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Dairy" name="allergies" {{#if allergies.Dairy}} checked {{/if}}>
+                    <label for="dairy">Dairy</label> <img src="../../images/dairy.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Peanuts" name="allergies" {{#if allergies.Peanuts}} checked {{/if}}>
+                    <label for="peanuts">Peanuts</label> <img src="../../images/peanut.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Tree nuts" name="allergies" {{#if allergies.[Tree nuts]}} checked
+                        {{/if}}>
+                    <label for="treenuts">Tree nuts</label> <img src="../../images/walnut.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fish" name="allergies" {{#if allergies.Fish}} checked {{/if}}>
+                    <label for="fish">Fish</label> <img src="../../images/fish.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Shellfish" name="allergies" {{#if allergies.Shellfish}} checked
+                        {{/if}}>
+                    <label for="shellfish">Shellfish</label> <img src="../../images/shellfish.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Wheat" name="allergies" {{#if allergies.Wheat}} checked {{/if}}>
+                    <label for="wheat">Wheat</label> <img src="../../images/wheat.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Soy" name="allergies" {{#if allergies.Soy}} checked {{/if}}>
+                    <label for="soy">Soy</label> <img src="../../images/soy.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Legumes" name="allergies" {{#if allergies.Legumes}} checked {{/if}}>
+                    <label for="legumes">Legumes</label> <img src="../../images/legumes.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Gluten" name="allergies" {{#if allergies.Gluten}} checked {{/if}}>
+                    <label for="gluten">Gluten</label> <img src="../../images/gluten.png" /><br>
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Vegetables" name="allergies" {{#if allergies.Vegetables}} checked
+                        {{/if}}>
+                    <label for="vegetables">Vegetables</label> <img src="../../images/vegetables.png" />
+                </div>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fruits" name="allergies" {{#if allergies.Fruits}} checked {{/if}}>
+                    <label for="fruits">Fruits</label> <img src="../../images/fruits.png" />
+                </div>
+            </div>
+        </section>
 
-        <input type="checkbox" value="Legumes" name="allergies" {{#if allergies.Legumes}} checked {{/if}}>
-        <label for="legumes">Legumes</label>
+        <hr class="separation-line">
 
-        <input type="checkbox" value="Gluten" name="allergies" {{#if allergies.Gluten}} checked {{/if}}>
-        <label for="gluten">Gluten</label>
+        <label for="serves">Number of serves:</label><br />
+        <select name="serves" id="serves">
 
-        <input type="checkbox" value="Vegetables" name="allergies" {{#if allergies.Vegetables}} checked {{/if}}>
-        <label for="vegetables">Vegetables</label>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+        </select>
 
-        <input type="checkbox" value="Fruits" name="allergies" {{#if allergies.Fruits}} checked {{/if}}>
-        <label for="fruits">Fruits</label>
-    </section>
-    <br>
-    <label for="serves">Number of serves:</label><br />
-    <select name="serves" id="serves">
+        <hr class="separation-line">
 
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-    </select>
-    <br>
-    <label for="price">Price per serving:</label>
-    <input type="text" name="price" value="{{thisRecipe.price}}">
-    <br>
-    <label for="ingredients">Ingredients:</label>
-    <input type="text" name="ingredients" value="{{thisRecipe.ingredients}}">
-    <br>
-    <label for="description">Description:</label>
-    <input type="text" name="description" value="{{thisRecipe.description}}"></input>
-    <br>
-    <label for="pictures">Picture:</label>
-    <input type="file" name="photo" value="{{thisRecipe.imgPath}}">
-    <!--INPUT TO GET CHEF'S ID-->
-    <input type="text" name="chefId" style="display: none;" value={{thisRecipe.chef.id}}>
-    <br>
-    <button type="submit">Save changes</button>
-</form>
+        <label for="price">Price per serving:</label><br>
+        <input class="border-inputs" type="text" name="price" value="{{thisRecipe.price}}">
+
+        <hr class="separation-line">
+
+        <label for="ingredients">Ingredients:</label><br>
+        <input class="border-inputs" type="text" name="ingredients" value="{{thisRecipe.ingredients}}">
+
+        <hr class="separation-line">
+
+        <label for="description">Description:</label><br>
+        <input class="border-inputs" type="text" name="description" value="{{thisRecipe.description}}"></input>
+
+        <hr class="separation-line">
+
+        <div>
+            <label for="pictures">Picture:</label><br>
+            <input type="file" name="photo" value="{{thisRecipe.imgPath}}">
+            <!--INPUT TO GET CHEF'S ID-->
+            <input type="text" name="chefId" style="display: none;" value={{thisRecipe.chef.id}}>
+        </div>
+
+        <br>
+        <button class="allButtons" type="submit">Save changes</button>
+    </form>
+</div>
