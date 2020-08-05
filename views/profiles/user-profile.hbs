@@ -1,15 +1,15 @@
-<ul>
-    {{#if thisUser.picture}}
-    <img style="height: 400px" src="{{thisUser.picture}}">
+<div style="text-align:center" class="container mb-3">{{#if thisUser.picture}}
+    <img class="profile-pic" src="{{thisUser.picture}}">
     {{else}}
-    <img src="https://static.thenounproject.com/png/1244141-200.png" />
+    <img style="" class="profile-pic" src="https://static.thenounproject.com/png/1244141-200.png" />
     {{/if}}
-    <li>Name: {{thisUser.name}}</li>
-    <li>Diet: {{thisUser.diet}}</li>
-    <li>Allergies: {{thisUser.allergies}}</li>
-    <li>Age: {{thisUser.age}}</li>
-    <li>Description: {{thisUser.description}}</li>
-    <li>Social media:<br>
+    <p class="mt-3"><a class="allButtons" href="/profile-user/edit">Edit your profile</a></p>
+    <p><b>Name</b><br>{{thisUser.name}}</p>
+    <p><b>Diet</b><br>{{thisUser.diet}}</p>
+    <p><b>Allergies</b><br>{{thisUser.allergies}}</p>
+    <p><b>Age</b><br>{{thisUser.age}}</p>
+    <p><b>Description</b><br>{{thisUser.description}}</p>
+    <p><b>Social media</b><br>
         {{#if thisUser.facebook}}
         <a href="{{thisUser.facebook}}" target="_blank"><img src="../../images/facebook.png" /></a>
         {{/if}}
@@ -19,6 +19,6 @@
         {{#if thisUser.twitter}}
         <a href="{{thisUser.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
         {{/if}}
-    </li>
-    <button><a href="/profile-user/edit">Edit your profile</a></button>
-</ul>
+    </p>
+
+</div>
