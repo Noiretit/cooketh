@@ -1,42 +1,35 @@
-<button type="button"><a href="/recipes">Back</a></button>
+<div class="container-pages">
 
-<hr>
+    <h2 class="all-page-titles">{{recipeinfo.title}}</h2>
 
-<div class="container-recipe-info">
-
-    <div class="container-info-info-recipe">
+    <div class="ideas-recipes">
         <img class="img-info-recipe" src="{{recipeinfo.imgPath}}" alt="{{recipeinfo.title}}" />
-        <p><u>Diet:</u> {{recipeinfo.diet}}</p>
-        <p><u>Type of cuisine:</u> {{recipeinfo.typeOfFood}}</p>
-        <p><u>Allergies:</u> {{recipeinfo.allergies}}</p>
-        <p><u>{{recipeinfo.price}}/serving</u></p>
-        <p><u>Serves {{recipeinfo.serves}} guests</u></p>
-        <h2>{{recipeinfo.title}}</h2>
-        <p><u>Description:</u> {{recipeinfo.description}}</p>
-        <p><u>Ingredients:</u> {{recipeinfo.ingredients}}</p>
+        <p>Diet:<br> {{recipeinfo.diet}}</p>
+        <p>Type of cuisine:<br> {{recipeinfo.typeOfFood}}</p>
+        <p>Allergies:<br> {{recipeinfo.allergies}}</p>
+        <p>{{recipeinfo.price}}/serving</p>
+        <p>Serves:<br> {{recipeinfo.serves}} guests</p>
+        <p>Description:<br> {{recipeinfo.description}}</p>
+        <p>Ingredients:<br> {{recipeinfo.ingredients}}</p>
     </div>
 
-    <div class="info-cooker-and-book-form">
-        <img style="height: 400px" class="pic-cooker-info-recipe" src={{recipeinfo.chef.picture}}>
-        <p>Cooker: {{recipeinfo.chef.name}}</p>
-        <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
-
-        <h1>Book it!</h1>
+    <div>
+        <h2 class="all-page-titles info-recipe-margin">Book it!</h2>
         {{#if userIsLoggedIn}}
-        <form action="/new-booking" method="post">
-            <div>
-                <label for="date">Select your date:</label>
-                <input type="date" name="date">
+        <form class="info-recipe-form-margin" action="/new-booking" method="post">
+            <div class="input-margin">
+                <label for="date">Select your date:</label><br>
+                <input class="border-inputs info-inputs" type="date" name="date">
             </div>
-            <div>
-                <label for="hour">Select your time:</label>
-                <input type="time" name="hour" value="13:30"><small>From 9am to 10pm</small>
+            <div class="input-margin">
+                <label for="hour">Select your time:</label><br>
+                <input class="border-inputs info-inputs" type="time" name="hour" value="13:30">
             </div>
-            <div>
-                <label for="address">Your address:</label>
-                <input type="text" name="address">
+            <div class="input-margin">
+                <label for="address">Your address:</label><br>
+                <input class="border-inputs info-inputs" type="text" name="address">
             </div>
-            <div>
+            <div class="input-margin">
                 <label for="numberOfDishes">Number of serves:</label><br />
                 <select name="numberOfDishes" id="serves">
                     <option value="1">1</option>
@@ -70,10 +63,16 @@
                 <input type="text" name="idOfRecipe" value={{recipeinfo._id}}>
             </div>
             <br>
-            <button type="submit">Request your chef</button>
+            <button class="allButtons" type="submit">Request your chef</button>
         </form>
         {{else}}
         <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
         {{/if}}
+    </div>
+
+    <div>
+        <img class="profile-pic" src={{recipeinfo.chef.picture}}>
+        <p class="font-size-one-recipe">Cooker:<br> {{recipeinfo.chef.name}}</p>
+        <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
     </div>
 </div>

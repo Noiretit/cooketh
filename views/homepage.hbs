@@ -13,7 +13,7 @@
 
     <!--SECTION CONCEPT-->
     <section id="concept">
-        <h2>What is the concept?</h2>
+        <h2 class="titles-homepage">What is the concept?</h2>
 
         <p>Lazy to cook? Got a last-minute dinner at home and you are out of ideas?</p>
         <p>This website gathers a community of
@@ -65,20 +65,25 @@
             <div class="ideas-recipes">
                 <p class="idea-title">{{this.title}}</p>
                 <img class="img-recipe" src="{{this.imgPath}}">
-                <hr>
+                <hr class="separation-line">
                 <div class="container-info">
                     <div class="idea-info">
                         <p>Price: {{this.price}}€/serve</p>
                         <p>Type of food: {{this.typeOfFood}}</p>
                         <p>Description: {{this.description}}</p>
                     </div>
-                    <div class="idea-info">
+                    <h3 class="titles-homepage">Info cook</h3>
+                    <div class="homepage-img-info-chef" style="display: flex;">
                         <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
-                        <p>Cooker: {{this.chef.name}}</p>
+                        <div class="homepage-info-chef">
+                            <p>Cooker:<br> {{this.chef.name}}</p>
+                            <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+                        </div>
                     </div>
                 </div>
 
-                <button type="button"><a href="/recipes/{{this.id}}">Book it!</a></button>
+                <a class="allButtons" href="/recipes/{{this.id}}" style="color: white;">Book
+                    it!</a>
 
             </div>
             {{/each}}
