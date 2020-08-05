@@ -8,6 +8,10 @@ a {
   color: #00b7ff;
 }
 
+input {
+  background-color: #faf8f0;
+}
+
 h1,
 h2 {
   font-family: "Poiret One", cursive;
