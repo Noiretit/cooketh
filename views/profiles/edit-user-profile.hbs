@@ -1,91 +1,139 @@
-<h2>Editing "{{thisUser.name}}" profile</h2>
+<div class="container-pages">
+    <h2>Editing "{{thisUser.name}}" profile</h2>
 
-<form method="post" action="/profile-user/edit">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" value="{{thisUser.name}}"></input><br>
+    <form method="post" action="/profile-user/edit">
+        <div>
+            <label for="name">Name:</label>
+            <input class="border-inputs input-margin" type="text" name="name" id="name"
+                value="{{thisUser.name}}"></input>
+        </div>
+        <div>
+            <label for="email">Email address:</label>
+            <input class="border-inputs input-margin" type="text" name="email" id="email"
+                value="{{thisUser.email}}"></input>
+        </div>
+        <div>
+            <label for="phoneNumber">Phone number:</label>
+            <input class="border-inputs input-margin" type="text" name="phoneNumber" id="phoneNumber"
+                value="{{thisUser.phoneNumber}}"></input>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <input class="border-inputs input-margin" type="text" name="address" id="address"
+                value="{{thisUser.address}}"></input><br>
+        </div>
+        <div>
+            <label for="age">Age</label>
+            <input class="border-inputs input-margin" type="text" name="age" id="age" value="{{thisUser.age}}"></input>
+        </div>
 
-    <label for="email">Email address:</label>
-    <input type="text" name="email" id="email" value="{{thisUser.email}}"></input><br>
+        <section class="radio-buttons input-margin">
+            <span>Diet:</span>
+            <input type="radio" id="all" name="diet" value="All" {{#ifeq thisUser.diet "All"}} checked {{/ifeq}}>
+            <label for="all">All</label>
 
-    <label for="phoneNumber">Phone number:</label>
-    <input type="text" name="phoneNumber" id="phoneNumber" value="{{thisUser.phoneNumber}}"></input>
+            <input type="radio" id="vegetarian" name="diet" value="Vegetarian" {{#ifeq thisUser.diet "Vegetarian"}}
+                checked {{/ifeq}}>
+            <label for="vegetarian">Vegetarian</label>
 
-    <label for="">Address</label>
-    <input type="text" name="address" id="address" value="{{thisUser.address}}"></input>
+            <input type="radio" id="vegan" name="diet" value="Vegan" {{#ifeq thisUser.diet "Vegan"}} checked {{/ifeq}}>
+            <label for="vegan">Vegan</label>
+        </section>
 
-    <label for="">Age</label>
-    <input type="text" name="age" id="age" value="{{thisUser.age}}"></input>
+        <hr class="separation-line">
 
-    <section class="radio-buttons">
-        <span>Diet:</span>
-        <input type="radio" id="all" name="diet" value="All" {{#ifeq thisUser.diet "All"}} checked {{/ifeq}}>
-        <label for="all">All</label>
+        <section class="input-margin">
+            <span>Allergies:</span>
+            <br>
+            <div id="container-all-allergies">
 
-        <input type="radio" id="vegetarian" name="diet" value="Vegetarian" {{#ifeq thisUser.diet "Vegetarian"}} checked
-            {{/ifeq}}>
-        <label for="vegetarian">Vegetarian</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Eggs" name="allergies" {{#if allergies.Eggs}} checked {{/if}}>
+                    <label for="eggs">Eggs</label> <img src="../../images/egg.png" />
+                </div>
 
-        <input type="radio" id="vegan" name="diet" value="Vegan" {{#ifeq thisUser.diet "Vegan"}} checked {{/ifeq}}>
-        <label for="vegan">Vegan</label>
-    </section>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Dairy" name="allergies" {{#if allergies.Dairy}} checked {{/if}}>
+                    <label for="dairy">Dairy</label> <img src="../../images/dairy.png" /><br>
+                </div>
 
-    <section>
-        <span>Allergies:</span>
-        <input type="checkbox" value="Eggs" name="allergies" {{#if allergies.Eggs}} checked {{/if}}>
-        <label for="eggs">Eggs</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Peanuts" name="allergies" {{#if allergies.Peanuts}} checked {{/if}}>
+                    <label for="peanuts">Peanuts</label> <img src="../../images/peanut.png" />
+                </div>
 
-        <input type="checkbox" value="Dairy" name="allergies" {{#if allergies.Dairy}} checked {{/if}}>
-        <label for="dairy">Dairy</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Tree nuts" name="allergies" {{#if allergies.[Tree nuts]}} checked
+                        {{/if}}>
+                    <label for="treenuts">Tree nuts</label> <img src="../../images/walnut.png" /><br>
+                </div>
 
-        <input type="checkbox" value="Peanuts" name="allergies" {{#if allergies.Peanuts}} checked {{/if}}>
-        <label for="peanuts">Peanuts</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fish" name="allergies" {{#if allergies.Fish}} checked {{/if}}>
+                    <label for="fish">Fish</label> <img src="../../images/fish.png" />
+                </div>
 
-        <input type="checkbox" value="Tree nuts" name="allergies" {{#if allergies.[Tree nuts]}} checked {{/if}}>
-        <label for="treenuts">Tree nuts</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Shellfish" name="allergies" {{#if allergies.Shellfish}} checked
+                        {{/if}}>
+                    <label for="shellfish">Shellfish</label> <img src="../../images/shellfish.png" /><br>
+                </div>
 
-        <input type="checkbox" value="Fish" name="allergies" {{#if allergies.Fish}} checked {{/if}}>
-        <label for="fish">Fish</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Wheat" name="allergies" {{#if allergies.Wheat}} checked {{/if}}>
+                    <label for="wheat">Wheat</label> <img src="../../images/wheat.png" />
+                </div>
 
-        <input type="checkbox" value="Shellfish" name="allergies" {{#if allergies.Shellfish}} checked {{/if}}>
-        <label for="shellfish">Shellfish</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Soy" name="allergies" {{#if allergies.Soy}} checked {{/if}}>
+                    <label for="soy">Soy</label> <img src="../../images/soy.png" /><br>
+                </div>
 
-        <input type="checkbox" value="Wheat" name="allergies" {{#if allergies.Wheat}} checked {{/if}}>
-        <label for="wheat">Wheat</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Legumes" name="allergies" {{#if allergies.Legumes}} checked {{/if}}>
+                    <label for="legumes">Legumes</label> <img src="../../images/legumes.png" />
+                </div>
 
-        <input type="checkbox" value="Soy" name="allergies" {{#if allergies.Soy}} checked {{/if}}>
-        <label for="soy">Soy</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Gluten" name="allergies" {{#if allergies.Gluten}} checked {{/if}}>
+                    <label for="gluten">Gluten</label> <img src="../../images/gluten.png" /><br>
+                </div>
 
-        <input type="checkbox" value="Legumes" name="allergies" {{#if allergies.Legumes}} checked {{/if}}>
-        <label for="legumes">Legumes</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Vegetables" name="allergies" {{#if allergies.Vegetables}} checked
+                        {{/if}}>
+                    <label for="vegetables">Vegetables</label> <img src="../../images/vegetables.png" />
+                </div>
 
-        <input type="checkbox" value="Gluten" name="allergies" {{#if allergies.Gluten}} checked {{/if}}>
-        <label for="gluten">Gluten</label>
+                <div class="all-allergies">
+                    <input type="checkbox" value="Fruits" name="allergies" {{#if allergies.Fruits}} checked {{/if}}>
+                    <label for="fruits">Fruits</label> <img src="../../images/fruits.png" />
+                </div>
+            </div>
+        </section>
 
-        <input type="checkbox" value="Vegetables" name="allergies" {{#if allergies.Vegetables}} checked {{/if}}>
-        <label for="vegetables">Vegetables</label>
+        <hr class="separation-line">
 
-        <input type="checkbox" value="Fruits" name="allergies" {{#if allergies.Fruits}} checked {{/if}}>
-        <label for="fruits">Fruits</label>
-    </section>
-    <div>
-        <label for="description">Description:</label>
-        <input type="text" name="description" value="{{thisUser.description}}"></input>
-    </div>
-    <div>
-        <label>Profile Picture:</label>
-        <input type="file" name="photo" value="{{thisUser.picture}}">
-    </div>
-    <div>
-        <img src="../../images/facebook.png" />
-        <input type="text" name="facebook" placeholder="" value="{{thisUser.facebook}}">
-    </div>
-    <div>
-        <img src="../../images/instagram.png" />
-        <input type="text" name="instagram" placeholder="" value="{{thisUser.instagram}}">
-    </div>
-    <div>
-        <img src="../../images/twitter.png" />
-        <input type="text" name="twitter" placeholder="" value="{{thisUser.twitter}}">
-    </div>
-    <button type="submit">Save changes</button>
-</form>
+        <div class="input-margin">
+            <label for="description">Description:</label>
+            <input class="border-inputs" type="text" name="description" value="{{thisUser.description}}"></input>
+        </div>
+        <div class="input-margin">
+            <label>Profile Picture:</label>
+            <input type="file" name="photo" value="{{thisUser.picture}}">
+        </div>
+        <div>
+            <img src="../../images/facebook.png" />
+            <input class="border-inputs" type="text" name="facebook" value="{{thisUser.facebook}}">
+        </div>
+        <div>
+            <img src="../../images/instagram.png" />
+            <input class="border-inputs" type="text" name="instagram" value="{{thisUser.instagram}}">
+        </div>
+        <div>
+            <img src="../../images/twitter.png" />
+            <input class="border-inputs" type="text" name="twitter" value="{{thisUser.twitter}}">
+        </div>
+        <button class="allButtons mt-3" type="submit">Save changes</button>
+    </form>
+</div>
