@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/user');
-const Chef = require('../models/chef')
+const Chef = require('../models/chef');
 const Recipe = require('../models/recipe');
 const Booking = require('../models/booking');
 const uploadCloud = require('../config/cloudinary.js');
