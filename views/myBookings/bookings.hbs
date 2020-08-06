@@ -13,11 +13,13 @@
         <p>Created at:<br> {{this.createdAt}} </p>
         <p>Address:<br> {{this.address}} </p>
         {{#if ../currentUserInfo.isAChef}}
+        {{#ifeq this.status 'accepted'}}
         <p>Client's phone number:<br> {{this.customer.phoneNumber}} </p>
         <p>Client's email:<br> {{this.customer.email}} </p>
         {{else if ../currentUserInfo.isAUser}}
         <p>Chef's phone number:<br> {{this.chef.phoneNumber}} </p>
         <p>Chef's email:<br> {{this.chef.email}} </p>
+        {{/ifeq}}
         {{/if}}
         <p>Date:<br> {{this.date}} </p>
         <p>Hour:<br> {{this.hour}} </p>
