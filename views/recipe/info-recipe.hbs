@@ -13,6 +13,7 @@
         <p>Ingredients:<br> {{recipeinfo.ingredients}}</p>
     </div>
 
+    {{#unless currentUserInfo.isAChef}}
     <div>
         <h2 class="all-page-titles info-recipe-margin">Book it!</h2>
         {{#if userIsLoggedIn}}
@@ -70,10 +71,12 @@
         <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
         {{/if}}
     </div>
+    {{/unless}}
 
     <div>
         <img class="profile-pic" src={{recipeinfo.chef.picture}}>
         <p class="font-size-one-recipe">Cooker:<br> {{recipeinfo.chef.name}}</p>
         <a href="/profile-chef/{{recipeinfo.chef._id}}">View profile</a>
     </div>
+
 </div>
