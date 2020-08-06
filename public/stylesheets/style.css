@@ -90,13 +90,14 @@ header {
 #main-video {
   position: relative;
   filter: brightness(0.4);
-  bottom: 15em;
-  height: 50rem;
+  right: 50em;
+  bottom: 8em;
+  height: 47rem;
 }
 
 #container-title-catchy-phrase {
   position: relative;
-  bottom: 36em;
+  bottom: 33em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -133,7 +134,7 @@ header {
 /*HOMEPAGE: section concept*/
 #concept {
   position: relative;
-  bottom: 20em;
+  bottom: 14em;
   text-align: center;
   margin: 0 2rem;
 }
