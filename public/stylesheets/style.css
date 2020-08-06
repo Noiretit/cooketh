@@ -73,6 +73,17 @@ header {
   font-weight: bold;
 }
 
+.generalButton {
+  background-color: #e07a5f;
+  color: white !important;
+  font-size: 13px;
+  border: 1px solid #e07a5f;
+  border-radius: 5px;
+  align-self: center;
+  padding: 9px 6px;
+  margin-bottom: 2rem;
+}
+
 /*HOME PAGE: section video-title*/
 #container-homepage {
   max-height: 3800px;
@@ -253,18 +264,6 @@ header {
   font-size: 13px;
 }
 
-#isAChef {
-  background-color: #e07a5f;
-  color: white;
-  font-size: 13px;
-  padding: 0.4em 0.8em;
-  border: 1px solid #e07a5f;
-  border-radius: 5px;
-  align-self: center;
-  padding: 9px 6px;
-  margin-bottom: 2rem;
-}
-
 .login-inputs {
   margin: 0 1em 0 2em;
 }
@@ -318,6 +317,24 @@ header {
 }
 
 /*----------------FULL RECIPES---------------*/
+.info-chef-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.recipes-chef-info-cont {
+  width: 9rem;
+  padding-top: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+.pic-cooker-list-recipe {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-left: 2.5rem;
+}
+
 .container-recipes {
   display: flex;
   flex-wrap: wrap;
@@ -335,15 +352,20 @@ header {
   height: 26vh;
 }
 
-.pic-cooker-list-recipe {
-  width: 7em;
-  height: 7em;
-  border-radius: 50%;
-  border: 2px solid;
-}
 
 .list-recipes-margin {
   margin-bottom: .8em;
+}
+
+#bookIt {
+  background-color: #e07a5f;
+  color: white !important;
+  font-size: 1rem;
+  border: 1px solid #e07a5f;
+  border-radius: 5px;
+  align-self: center;
+  padding: 0.5rem 1.3rem;
+  margin-bottom: 2rem;
 }
 
 /*ONE RECIPE*/
@@ -402,8 +424,8 @@ header {
 }
 
 .profile-pic {
-  width: 16rem;
-  height: 16rem;
+  width: 12rem;
+  height: 12rem;
   border-radius: 150px;
   border: 2px solid;
   margin-top: 1rem;

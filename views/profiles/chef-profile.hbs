@@ -35,8 +35,9 @@
             </p>
             {{/if3eq}}
         </div>
-        <hr>
+
         {{#ifeq thisChef.id currentUserInfo._id}}
+        <hr style="align-self: center;" class="separation-line">
         <a class="allButtons mb-4" href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a>
         {{/ifeq}}
     </div>

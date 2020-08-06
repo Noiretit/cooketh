@@ -1,3 +1,36 @@
+<h2 style="text-align: center; margin-top: 2rem" class="all-page-titles">All recipes</h2>
+<div class="cocinitas">
+
+    {{#each recipes}}
+    <div class="card img-hover-zoom" style="width: 18rem;">
+        <img class="card-img-top" style="height: 14rem;" src="{{this.imgPath}}" alt="Card image cap">
+        <hr style="align-self: center;" class="separation-line">
+        <div class="card-body" style="padding-top: 0; font-size: 0.7rem">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text"><b>Price:</b> {{this.price}}€/serving</p>
+            {{#ifeq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guest</p> {{/ifeq}}
+            {{#ifneq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guests</p> {{/ifneq}}
+            <p class="card-text"><b>Type: </b>{{this.typeOfFood}}</p>
+            <p class="card-text"><b>Description: </b>{{this.description}}</p>
+        </div>
+        <hr style="align-self: center;" class="separation-line">
+        <div class="info-chef-container">
+            <div>
+                <img class="pic-cooker-list-recipe" src={{this.chef.picture}}>
+            </div>
+            <div class="recipes-chef-info-cont">
+                <p style="font-size: 0.8rem"><b>Cooker</b>: {{this.chef.name}}</p>
+                <a class="allButtons" style="background-color: #81B29A; border:#81B29A"
+                    href="/profile-chef/{{this.chef._id}}">View profile</a>
+            </div>
+        </div>
+        <hr style="align-self: center;" class="separation-line">
+        <a id="bookIt" href="/recipes/{{this.id}}">Book it!</a>
+    </div>
+    {{/each}}
+</div>
+
+<!--
 <div class="container-pages">
     <h2 class="all-page-titles">All recipes</h2>
     <hr>
@@ -23,9 +56,7 @@
                 </div>
             </div>
 
-            <button class="allButtons list-recipes-margin" type="button"><a style="color: white;"
-                    href="/recipes/{{this.id}}">Book
-                    it!</a></button>
+            <button class="allButtons list-recipes-margin" type="button"></button>
 
         </div>
         {{else}}
@@ -33,3 +64,4 @@
         {{/each}}
     </div>
 </div>
+-->

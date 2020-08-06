@@ -119,10 +119,19 @@ router.post('/recipes/:id/edit', uploadCloud.single('photo'), (req, res, next) =
                 imgPath: picture,
                 chefId: body.chefId
             }
-            return Recipe.findByIdAndUpdate(recipeId, updatedRecipe)
+            return Recipe.updateOne({
+                _id: recipeId
+            }, updatedRecipe, {
+                new: true
+            })
         })
-        .then(() => {
-            res.redirect(`/profile-chef/${updatedRecipe.chefId}`)
+        .then((recipe) => {
+            const {
+                chefId
+            } = req.body
+
+            console.log(recipe)
+            res.redirect(`/profile-chef/${chefId}`)
         })
         .catch((err) => {
             console.log('Error while updating a recipe (recipes.js line 98)')
