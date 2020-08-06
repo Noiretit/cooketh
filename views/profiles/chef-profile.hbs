@@ -16,7 +16,11 @@
             <p><b>Cook's name:</b> {{thisChef.name}}</p>
             <p><b>Main specialty</b>: {{thisChef.mainCookSpecialty}}</p>
             <p><b>Working days</b>: {{thisChef.workingDays}}</p>
+            {{#if thisChef.description}}
             <p><b>Description</b>: {{thisChef.description}}</p>
+            {{/if}}
+
+            {{#if3eq thisChef.facebook thisChef.instagram thisChef.twitter}}
             <p><b>Social media</b>:
                 <br>
                 {{#if thisChef.facebook}}
@@ -29,6 +33,7 @@
                 <a href="{{thisChef.twitter}}" target="_blank"><img src="../../images/twitter.png" /></a>
                 {{/if}}
             </p>
+            {{/if3eq}}
         </div>
 
         {{#ifeq thisChef.id currentUserInfo._id}}
