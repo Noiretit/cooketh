@@ -13,6 +13,7 @@
             {{/if}}
         </div>
         <div class="card-body">
+            <p>{{thisChef.id}}</p>
             <p><b>Cook's name:</b> {{thisChef.name}}</p>
             <p><b>Main specialty</b>: {{thisChef.mainCookSpecialty}}</p>
             <p><b>Working days</b>: {{thisChef.workingDays}}</p>
@@ -31,7 +32,9 @@
             </p>
         </div>
         <hr>
+        {{#ifeq thisChef.id currentUserInfo._id}}
         <a class="allButtons mb-4" href="/profile-chef/{{thisChef._id}}/edit">Edit your profile</a>
+        {{/ifeq}}
     </div>
 
 
