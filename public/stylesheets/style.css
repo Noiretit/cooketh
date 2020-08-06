@@ -16,6 +16,10 @@ input {
   background-color: #e07a5f;
 }
 
+.navbar-toggler {
+  background-color: #E89C87;
+}
+
 h1,
 h2,
 h3 {
@@ -85,8 +89,7 @@ header {
   position: relative;
   filter: brightness(0.4);
   bottom: 15em;
-  right: 22rem;
-  height: 48rem;
+  height: 50rem;
 }
 
 #container-title-catchy-phrase {
@@ -199,7 +202,7 @@ header {
 
 #ideas {
   position: relative;
-  bottom: 17em;
+  bottom: 12em;
   display: flex;
   flex-direction: column;
   align-items: center;
