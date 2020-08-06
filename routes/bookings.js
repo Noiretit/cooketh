@@ -17,7 +17,6 @@ router.get('/bookings', (req, res, next) => {
         .populate('customer')
         .populate('recipe')
         .then((allBookings) => {
-            console.log(allBookings[0].chef.isAChef)
             let arrOfCorrespondingObj = [];
             for (var i = 0; i < allBookings.length; i++) {
                 if (allBookings[i].customer._id.equals(userId) || allBookings[i].chef._id.equals(userId)) {
@@ -64,7 +63,8 @@ router.post('/confirm-booking', (req, res, next) => {
     const idOfBooking = req.body.idOfBooking;
 
     Booking.findByIdAndUpdate(idOfBooking, {
-        status: 'accepted'
+        status: 'accepted',
+        isAccepted: true
     }, {
         new: true
     }, (err, theBooking) => {
