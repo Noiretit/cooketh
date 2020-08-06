@@ -44,10 +44,10 @@
             <a class="dropdown-item" href="/signup-chef">As a chef</a>
           </div>
         </li>
-        {{/unless}}
         <li class="nav-item">
           <a class="nav-link" href="/faq">FAQ</a>
         </li>
+        {{/unless}}
         {{#if currentUserInfo.isAChef}}
         <li class="nav-item">
           <a href="/recipe/new" class="nav-link">Create a new recipe</a>
@@ -59,6 +59,9 @@
           <a href="/profile-chef/{{currentUserInfo._id}}" class="nav-link">My profile</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+        </li>
+        <li class="nav-item">
           <a href="/logout" class="nav-link">Log-out</a>
         </li>
         {{else if currentUserInfo.isAUser}}
@@ -67,6 +70,9 @@
         </li>
         <li class="nav-item">
           <a href="/profile-user/{{id}}" class="nav-link">My profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
         </li>
         <li class="nav-item">
           <a href="/logout" class="nav-link">Log-out</a>

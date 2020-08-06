@@ -250,8 +250,16 @@ header {
   font-size: 13px;
 }
 
-.login-input-position {
-  text-align: right;
+#isAChef {
+  background-color: #e07a5f;
+  color: white;
+  font-size: 13px;
+  padding: 0.4em 0.8em;
+  border: 1px solid #e07a5f;
+  border-radius: 5px;
+  align-self: center;
+  padding: 9px 6px;
+  margin-bottom: 2rem;
 }
 
 .login-inputs {
