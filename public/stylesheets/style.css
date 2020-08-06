@@ -22,9 +22,11 @@ input {
 
 h1,
 h2,
-h3 {
+h3,
+h5 {
   font-family: "Poiret One", cursive;
   font-weight: bold;
+  color: #e07a5f;
 }
 
 a:hover {
@@ -372,9 +374,6 @@ header {
 }
 
 /*CHEF PROFILE*/
-
-
-
 .cocinitas {
   display: flex;
   flex-wrap: wrap;
@@ -468,6 +467,39 @@ header {
 /*EDIT RECIPE*/
 .edit-recipe-title {
   font-size: 30px;
+}
+
+/*FAQ PAGE*/
+#container-accordion {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+#accordion {
+  background: rgba(230, 219, 178, .9);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+#accordion section p {
+  background: rgba(150, 150, 150, .2);
+  border-radius: 15px;
+  padding: 20px;
+  display: none;
+  text-align: center;
+  color: #e07a5f;
+}
+
+#accordion section a {
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+#accordion section:target p {
+  display: block;
 }
 
 /*-----------------FOOTER---------------------*/
