@@ -6,6 +6,13 @@ function registerHelpers(hbsModule) {
         return options.inverse(this);
     });
 
+    hbsModule.registerHelper('if3eq', function (a, b, c, options) {
+        if (a || b || c) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     hbsModule.registerHelper('ifneq', function (a, b, options) {
         if (a !== b) {
             return options.fn(this);
