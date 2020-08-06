@@ -53,10 +53,8 @@
         <a class="allButtons mb-3" href="/recipes/{{this._id}}">See more</a>
 
         {{#if ../currentUserInfo.isAChef}}
-        {{#ifeq ../currentUserInfo.isAChef thisChef._id}}
         <hr style="align-self: center;" class="separation-line">
         <a class="allButtons mb-4" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
-        {{/ifeq}}
         {{/if}}
     </div>
     {{/each}}
