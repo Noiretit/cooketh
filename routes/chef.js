@@ -13,6 +13,7 @@ router.get('/profile-chef/:id', (req, res, next) => {
     const chefId = req.params.id;
     Chef.findById(chefId)
         .populate('recipes')
+        .populate('chef')
         .then(thisChefDB => {
             console.log(thisChefDB)
             res.render('profiles/chef-profile.hbs', {

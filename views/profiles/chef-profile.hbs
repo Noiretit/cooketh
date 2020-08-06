@@ -13,7 +13,6 @@
             {{/if}}
         </div>
         <div class="card-body">
-            <p>{{thisChef.id}}</p>
             <p><b>Cook's name:</b> {{thisChef.name}}</p>
             <p><b>Main specialty</b>: {{thisChef.mainCookSpecialty}}</p>
             <p><b>Working days</b>: {{thisChef.workingDays}}</p>
@@ -41,6 +40,7 @@
 
     {{#each thisChef.recipes}}
     <div class="card img-hover-zoom" style="width: 18rem;">
+
         <img class="card-img-top" style="height: 14rem;" src="{{this.imgPath}}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{this.title}}</h5>
@@ -53,7 +53,7 @@
         <a class="allButtons mb-3" href="/recipes/{{this._id}}">See more</a>
 
         {{#if ../currentUserInfo.isAChef}}
-        {{#ifeq ../currentUserInfo.isAChef thisChef._id}}
+        {{#ifeq ../thisChef.id ../currentUserInfo._id}}
         <hr style="align-self: center;" class="separation-line">
         <a class="allButtons mb-4" href="/recipes/{{this._id}}/edit">Edit this recipe</a>
         {{/ifeq}}
