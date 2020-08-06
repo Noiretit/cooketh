@@ -1,7 +1,7 @@
 <div class="container-pages">
     <h2>Editing "{{thisChef.name}}" profile</h2>
 
-    <form method="post" action="/profile-chef/{{thisChef._id}}">
+    <form method="post" action="/profile-chef/{{thisChef._id}}" enctype="multipart/form-data">
         <div>
             <label for="name">Name:</label>
             <input class="border-inputs input-margin" type="text" name="name" id="name"

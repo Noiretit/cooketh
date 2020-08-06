@@ -1,7 +1,7 @@
 <div class="container-pages">
     <h2 class="all-page-titles edit-recipe-title">Editing {{thisRecipe.title}} recipe</h2>
 
-    <form method="post" action="/recipes/{{thisRecipe._id}}/edit">
+    <form method="post" action="/recipes/{{thisRecipe._id}}/edit" enctype="multipart/form-data">
         <div class="input-margin">
             <label for="title">Recipe title:</label><br>
             <input class="border-inputs" type="text" name="title" id="title" value="{{thisRecipe.title}}">

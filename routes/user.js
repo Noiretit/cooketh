@@ -58,21 +58,32 @@ router.get('/profile-user/edit', (req, res, next) => {
 
 router.post('/profile-user/edit', uploadCloud.single('photo'), (req, res, next) => {
     const body = req.body;
-    const updatedUser = {
-        name: body.name,
-        email: body.email,
-        phoneNumber: body.phoneNumber,
-        address: body.address,
-        age: body.age,
-        diet: body.diet,
-        allergies: body.allergies,
-        description: body.description,
-        facebook: body.facebook,
-        instagram: body.instagram,
-        twitter: body.twitter
-    }
+    //También se modifica el form
+    let previousUserImg;
 
-    User.findByIdAndUpdate(req.session.currentUser._id, updatedUser)
+    User.findById(req.session.currentUser._id)
+        .then(userProfile => {
+            //Guarda la picture de la DB en una variable
+            previousUserImg = userProfile.picture;
+            //Si al editar no se sube picture nueva, se añade la antigua
+            const picture = req.file ? req.file.path : previousUserImg;
+            const updatedUser = {
+                name: body.name,
+                email: body.email,
+                phoneNumber: body.phoneNumber,
+                address: body.address,
+                age: body.age,
+                diet: body.diet,
+                allergies: body.allergies,
+                description: body.description,
+                //La nueva picture será la variable picture de linea 69
+                picture: picture,
+                facebook: body.facebook,
+                instagram: body.instagram,
+                twitter: body.twitter
+            }
+            return User.findByIdAndUpdate(req.session.currentUser._id, updatedUser)
+        })
         .then(() => {
             res.redirect('/profile-user')
         })

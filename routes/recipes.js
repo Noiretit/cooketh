@@ -96,23 +96,31 @@ router.get('/recipes/:id/edit', (req, res, next) => {
         })
 });
 
-router.post('/recipes/:id/edit', (req, res, next) => {
+router.post('/recipes/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
     const recipeId = req.params.id;
     const body = req.body;
-    const updatedRecipe = {
-        title: body.title,
-        typeOfFood: body.typeOfFood,
-        diet: body.diet,
-        allergies: body.allergies,
-        serves: body.serves,
-        price: body.price,
-        ingredients: body.ingredients,
-        description: body.description,
-        photo: body.photo,
-        chefId: body.chefId
-    };
 
-    Recipe.findByIdAndUpdate(recipeId, updatedRecipe)
+    let previousRecipeImg;
+
+    Recipe.findById(recipeId)
+        .then(thisRecipe => {
+            previousRecipeImg = thisRecipe.imgPath;
+            const picture = req.file ? req.file.path : previousRecipeImg
+
+            const updatedRecipe = {
+                title: body.title,
+                typeOfFood: body.typeOfFood,
+                diet: body.diet,
+                allergies: body.allergies,
+                serves: body.serves,
+                price: body.price,
+                ingredients: body.ingredients,
+                description: body.description,
+                imgPath: picture,
+                chefId: body.chefId
+            }
+            return Recipe.findByIdAndUpdate(recipeId, updatedRecipe)
+        })
         .then(() => {
             res.redirect(`/profile-chef/${updatedRecipe.chefId}`)
         })

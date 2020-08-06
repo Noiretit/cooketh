@@ -1,7 +1,7 @@
 <div class="container-pages">
     <h2>Editing "{{thisUser.name}}" profile</h2>
 
-    <form method="post" action="/profile-user/edit">
+    <form method="post" action="/profile-user/edit" enctype="multipart/form-data">
         <div>
             <label for="name">Name:</label>
             <input class="border-inputs input-margin" type="text" name="name" id="name"

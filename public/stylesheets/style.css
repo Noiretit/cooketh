@@ -475,6 +475,13 @@ footer {
   background-color: #e07a5f;
 }
 
+#parent-container-arrow {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: -2rem;
+}
+
 #container-arrow-footer {
   position: relative;
   width: 30px;
@@ -485,7 +492,6 @@ footer {
   align-items: center;
   background-color: #e07a5f;
   bottom: 0.9em;
-  left: 9em;
 }
 
 #container-arrow-footer img {

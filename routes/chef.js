@@ -64,21 +64,30 @@ router.get('/profile-chef/:id/edit', (req, res, next) => {
 router.post('/profile-chef/:id', uploadCloud.single('photo'), (req, res, next) => {
     const chefId = req.params.id;
     const body = req.body;
-    const updatedChef = {
-        name: body.name,
-        email: body.email,
-        phoneNumber: body.phoneNumber,
-        address: body.address,
-        age: body.age,
-        mainCookSpecialty: body.mainCookSpecialty,
-        workingDays: body.workingDays,
-        description: body.description,
-        facebook: body.facebook,
-        instagram: body.instagram,
-        twitter: body.twitter
-    }
 
-    Chef.findByIdAndUpdate(req.session.currentUser._id, updatedChef)
+    let previousChefImg;
+
+    Chef.findById(req.session.currentUser._id)
+        .then(chefProfile => {
+            previousChefImg = chefProfile.picture;
+            const picture = req.file ? req.file.path : previousChefImg;
+
+            const updatedChef = {
+                name: body.name,
+                email: body.email,
+                phoneNumber: body.phoneNumber,
+                address: body.address,
+                age: body.age,
+                mainCookSpecialty: body.mainCookSpecialty,
+                workingDays: body.workingDays,
+                description: body.description,
+                picture: picture,
+                facebook: body.facebook,
+                instagram: body.instagram,
+                twitter: body.twitter
+            }
+            return Chef.findByIdAndUpdate(req.session.currentUser._id, updatedChef)
+        })
         .then(() => {
             res.redirect(`/profile-chef/${chefId}`)
         })
