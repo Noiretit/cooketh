@@ -64,7 +64,6 @@ router.post('/confirm-booking', (req, res, next) => {
 
     Booking.findByIdAndUpdate(idOfBooking, {
         status: 'accepted',
-        isAccepted: true
     }, {
         new: true
     }, (err, theBooking) => {
