@@ -317,6 +317,25 @@ header {
 }
 
 /*----------------FULL RECIPES---------------*/
+.info-chef-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.recipes-chef-info-cont {
+  width: 9rem;
+  padding-top: 0.5rem;
+  margin-right: 1.5rem;
+}
+
+.pic-cooker-list-recipe {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin-left: 2.5rem;
+}
+
 .container-recipes {
   display: flex;
   flex-wrap: wrap;
@@ -334,12 +353,6 @@ header {
   height: 26vh;
 }
 
-.pic-cooker-list-recipe {
-  width: 7em;
-  height: 7em;
-  border-radius: 50%;
-  border: 2px solid;
-}
 
 .list-recipes-margin {
   margin-bottom: .8em;
