@@ -1,13 +1,16 @@
 <div class="container-pages">
     <h2 class="all-page-titles">My Bookings</h2>
     <hr>
-
+    <!--SMALL SCREENS-->
+    <h3 class="accepted-pending-title-my-bookings-small-screen">Accepted Bookings:</h3>
     {{#each bookings}}
-    <div class="ideas-recipes">
+    {{#ifeq this.status "accepted"}}
+    <div class="ideas-recipes my-bookings-small-screen">
+
         <h2 class="all-page-titles">{{this.recipe.title}}</h2>
         <img class="img-recipe-bookings" src={{this.recipe.imgPath}} />
 
-        <hr class="separation-line">
+        <hr class="separation-line my-bookings-separation-line">
 
         <p>Booked by:<br> {{this.customer.name}} </p>
         <p>Created at:<br> {{this.createdAt}} </p>
@@ -27,7 +30,7 @@
         <p>Status:<br> {{this.status}} </p>
         <p>Cooked by:<br> {{this.chef.name}} </p>
 
-        <form class="input-margin" action="/delete-booking" method="post">
+        <form class="input-margin-my-bookings-big-screen" action="/delete-booking" method="post">
             <!--Input to get the ID of the booking-->
             <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
             <button class="allButtons" id="cancel-button-bookings" type="submit" style="cursor: pointer;">Cancel
@@ -36,16 +39,201 @@
 
         {{#if ../currentUserInfo.isAChef}}
         {{#ifeq this.status 'pending'}}
-        <form class="input-margin" action="/confirm-booking" method="post">
+        <form class="input-margin-my-bookings-big-screen" action="/confirm-booking" method="post">
             <!--Input to get the ID of the booking-->
             <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
             <button class="allButtons" id="confirm-button-bookings" type="submit" style="cursor: pointer;">Confirm
                 booking</button>
         </form>
         {{/ifeq}}
+
         {{/if}}
     </div>
     <br>
+    {{/ifeq}}
+    {{/each}}
 
+    <h3 class="accepted-pending-title-my-bookings-small-screen">Pending Bookings:</h3>
+    {{#each bookings}}
+    {{#ifeq this.status "pending"}}
+    <div class="ideas-recipes my-bookings-big-screen">
+        <div id="container-img-recipe-big-screen">
+            <img class="img-recipe-bookings" src={{this.recipe.imgPath}} />
+        </div>
+        <span class="my-bookings-separation-line-big-screen"></span>
+        <div id="container-booking-chef-info">
+            <div id="container-booking-info-big-screen">
+                <h2 class="my-bookings-titles">{{this.recipe.title}}</h2>
+                <p><strong>Booked by:</strong> {{this.customer.name}} </p>
+                <p><strong>Created at:</strong> {{this.createdAt}} </p>
+                <p><strong>Address:</strong> {{this.address}} </p>
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'accepted'}}
+                <p><strong>Client's phone number:</strong> {{this.customer.phoneNumber}} </p>
+                <p><strong>Client's email:</strong> {{this.customer.email}} </p>
+                {{else if ../currentUserInfo.isAUser}}
+                <p><strong>Chef's phone number:</strong> {{this.chef.phoneNumber}} </p>
+                <p><strong>Chef's email:</strong> {{this.chef.email}} </p>
+                {{/ifeq}}
+                {{/if}}
+                <p><strong>Date:</strong> {{this.date}} </p>
+                <p><strong>Hour:</strong> {{this.hour}} </p>
+                <p><strong>Number of dishes:</strong> {{this.numberOfDishes}} </p>
+                <p><strong>Status:</strong> {{this.status}} </p>
+            </div>
+
+            <span class="my-bookings-separation-line-big-screen"></span>
+
+            <div id="container-chef-info-my-booking">
+                <p class="input-margin"><strong>Cooked by:</strong> {{this.chef.name}} </p>
+                <img class="img-chef-bookings" src={{this.chef.picture}}>
+                <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+
+                <form class="input-margin" action="/delete-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="cancel-button-bookings" type="submit" style="cursor: pointer;">Cancel
+                        booking</button>
+                </form>
+
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'pending'}}
+                <form class="input-margin" action="/confirm-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="confirm-button-bookings" type="submit"
+                        style="cursor: pointer;">Confirm
+                        booking</button>
+                </form>
+                {{/ifeq}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <br>
+    {{/ifeq}}
+    {{/each}}
+
+    <!--BIG SCREENS-->
+    <h3 class="accepted-pending-title-my-bookings">Accepted Bookings:</h3>
+    {{#each bookings}}
+    {{#ifeq this.status "accepted"}}
+    <div class="ideas-recipes my-bookings-big-screen">
+        <div id="container-img-recipe-big-screen">
+            <img class="img-recipe-bookings" src={{this.recipe.imgPath}} />
+        </div>
+        <span class="my-bookings-separation-line-big-screen"></span>
+        <div id="container-booking-chef-info">
+            <div id="container-booking-info-big-screen">
+                <h2 class="my-bookings-titles">{{this.recipe.title}}</h2>
+                <p><strong>Booked by:</strong> {{this.customer.name}} </p>
+                <p><strong>Created at:</strong> {{this.createdAt}} </p>
+                <p><strong>Address:</strong> {{this.address}} </p>
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'accepted'}}
+                <p><strong>Client's phone number:</strong> {{this.customer.phoneNumber}} </p>
+                <p><strong>Client's email:</strong> {{this.customer.email}} </p>
+                {{else if ../currentUserInfo.isAUser}}
+                <p><strong>Chef's phone number:</strong> {{this.chef.phoneNumber}} </p>
+                <p><strong>Chef's email:</strong> {{this.chef.email}} </p>
+                {{/ifeq}}
+                {{/if}}
+                <p><strong>Date:</strong> {{this.date}} </p>
+                <p><strong>Hour:</strong> {{this.hour}} </p>
+                <p><strong>Number of dishes:</strong> {{this.numberOfDishes}} </p>
+                <p><strong>Status:</strong> {{this.status}} </p>
+            </div>
+
+            <span class="my-bookings-separation-line-big-screen"></span>
+
+            <div id="container-chef-info-my-booking">
+                <p class="input-margin"><strong>Cooked by:</strong> {{this.chef.name}} </p>
+                <img class="img-chef-bookings" src={{this.chef.picture}}>
+                <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+
+                <form class="input-margin" action="/delete-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="cancel-button-bookings" type="submit" style="cursor: pointer;">Cancel
+                        booking</button>
+                </form>
+
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'pending'}}
+                <form class="input-margin" action="/confirm-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="confirm-button-bookings" type="submit"
+                        style="cursor: pointer;">Confirm
+                        booking</button>
+                </form>
+                {{/ifeq}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <br>
+    {{/ifeq}}
+    {{/each}}
+
+    <h3 class="accepted-pending-title-my-bookings">Pending bookings:</h3>
+    {{#each bookings}}
+    {{#ifeq this.status "pending"}}
+    <div class="ideas-recipes my-bookings-big-screen">
+        <div id="container-img-recipe-big-screen">
+            <img class="img-recipe-bookings" src={{this.recipe.imgPath}} />
+        </div>
+        <span class="my-bookings-separation-line-big-screen"></span>
+        <div id="container-booking-chef-info">
+            <div id="container-booking-info-big-screen">
+                <h2 class="my-bookings-titles">{{this.recipe.title}}</h2>
+                <p><strong>Booked by:</strong> {{this.customer.name}} </p>
+                <p><strong>Created at:</strong> {{this.createdAt}} </p>
+                <p><strong>Address:</strong> {{this.address}} </p>
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'accepted'}}
+                <p><strong>Client's phone number:</strong> {{this.customer.phoneNumber}} </p>
+                <p><strong>Client's email:</strong> {{this.customer.email}} </p>
+                {{else if ../currentUserInfo.isAUser}}
+                <p><strong>Chef's phone number:</strong> {{this.chef.phoneNumber}} </p>
+                <p><strong>Chef's email:</strong> {{this.chef.email}} </p>
+                {{/ifeq}}
+                {{/if}}
+                <p><strong>Date:</strong> {{this.date}} </p>
+                <p><strong>Hour:</strong> {{this.hour}} </p>
+                <p><strong>Number of dishes:</strong> {{this.numberOfDishes}} </p>
+                <p><strong>Status:</strong> {{this.status}} </p>
+            </div>
+
+            <span class="my-bookings-separation-line-big-screen"></span>
+
+            <div id="container-chef-info-my-booking">
+                <p class="input-margin"><strong>Cooked by:</strong> {{this.chef.name}} </p>
+                <img class="img-chef-bookings" src={{this.chef.picture}}>
+                <a href="/profile-chef/{{this.chef._id}}">View profile</a>
+
+                <form class="input-margin" action="/delete-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="cancel-button-bookings" type="submit" style="cursor: pointer;">Cancel
+                        booking</button>
+                </form>
+
+                {{#if ../currentUserInfo.isAChef}}
+                {{#ifeq this.status 'pending'}}
+                <form class="input-margin" action="/confirm-booking" method="post">
+                    <!--Input to get the ID of the booking-->
+                    <input type="text" name="idOfBooking" value={{this._id}} style="display: none;">
+                    <button class="allButtons" id="confirm-button-bookings" type="submit"
+                        style="cursor: pointer;">Confirm
+                        booking</button>
+                </form>
+                {{/ifeq}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <br>
+    {{/ifeq}}
     {{/each}}
 </div>

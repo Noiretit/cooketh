@@ -370,8 +370,16 @@ header {
 }
 
 /*-----------------MY BOOKINGS----------------*/
+.accepted-pending-title-my-bookings {
+  display: none;
+}
+
 .img-recipe-bookings {
   width: 100%;
+}
+
+.my-bookings-big-screen {
+  display: none;
 }
 
 /*CHEF PROFILE*/
