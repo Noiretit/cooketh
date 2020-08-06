@@ -1,5 +1,89 @@
 @media screen and (min-width: 980px) {
+
+    /*Homepage*/
     #main-video {
         right: 0;
+    }
+
+    /*Create/Edit user profile*/
+    .section-allergies {
+        width: 37%;
+        margin: auto;
+    }
+
+    /*My Bookings*/
+    .accepted-pending-title-my-bookings {
+        display: block;
+    }
+
+    .accepted-pending-title-my-bookings-small-screen {
+        display: none;
+    }
+
+    .my-bookings-small-screen {
+        display: none;
+    }
+
+    .my-bookings-big-screen {
+        display: flex;
+        width: 60%;
+        margin: auto;
+        text-align: initial;
+        align-items: center;
+    }
+
+    .my-bookings-titles {
+        font-size: 30px;
+    }
+
+    .my-bookings-big-screen p {
+        margin: 0;
+    }
+
+    #container-booking-chef-info {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #container-booking-info-big-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #container-chef-info-my-booking {
+        margin-right: 2em;
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .my-bookings-separation-line-big-screen {
+        border: 1px solid #e07a5f;
+        margin: 0 2em 0 2em;
+        height: 219px;
+    }
+
+    .input-margin-my-bookings-big-screen {
+        margin: .5em;
+    }
+
+    #container-img-recipe-big-screen {
+        display: flex;
+        height: 200px;
+        width: 390px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 1.5em;
+    }
+
+    .img-chef-bookings {
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        margin-top: 1em;
     }
 }
