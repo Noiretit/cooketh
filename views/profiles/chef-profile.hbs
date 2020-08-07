@@ -15,7 +15,8 @@
         <div class="card-body">
             <p><b>Cook's name:</b> {{thisChef.name}}</p>
             <p><b>Main specialty</b>: {{thisChef.mainCookSpecialty}}</p>
-            <p><b>Working days</b>: {{thisChef.workingDays}}</p>
+            <p><b>Working days</b>: {{#each thisChef.workingDays}}{{#if @last }}{{this}}{{else}}{{this}},
+                {{/if}}{{/each}}</p>
             {{#if thisChef.description}}
             <p><b>Description</b>: {{thisChef.description}}</p>
             {{/if}}
