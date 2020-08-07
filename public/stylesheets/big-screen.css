@@ -5,6 +5,22 @@
         right: 0;
     }
 
+    #container-title-catchy-phrase {
+        bottom: 34em;
+    }
+
+    #main-title-homepage {
+        font-size: 70px;
+    }
+
+    #container-title-catchy-phrase p {
+        font-size: 40px;
+    }
+
+    #button-find-cook {
+        font-size: 20px;
+    }
+
     /*Create/Edit user profile*/
     .section-allergies {
         width: 37%;

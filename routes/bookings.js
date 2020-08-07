@@ -23,7 +23,6 @@ router.get('/bookings', (req, res, next) => {
                     arrOfCorrespondingObj.push(allBookings[i])
                 }
             }
-
             res.render('myBookings/bookings.hbs', {
                 bookings: arrOfCorrespondingObj
             });
