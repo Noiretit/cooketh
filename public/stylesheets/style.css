@@ -1,4 +1,5 @@
 /*GENERAL SETTINGS*/
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: #faf8f0;
@@ -10,6 +11,7 @@ a {
 
 input {
   background-color: #faf8f0;
+  text-align: center;
 }
 
 .navbarColor {
@@ -17,7 +19,11 @@ input {
 }
 
 .navbar-toggler {
-  background-color: #E89C87;
+  background-color: #e89c87;
+}
+
+.navbar-nav {
+  margin-right: 6rem;
 }
 
 h1,
@@ -40,11 +46,12 @@ header {
 }
 
 #logo {
-  width: 100px;
+  width: 8rem;
 }
 
 .navbar-brand {
   width: 25%;
+  text-align: center;
 }
 
 .nav-link {
@@ -233,34 +240,16 @@ header {
   padding: 0.5em;
 }
 
-.idea-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.idea-title {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.homepage-img-info-chef {
-  display: flex;
-  justify-content: center;
-}
-
-.homepage-info-chef {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  text-align: center;
-}
-
 /*--------------LOGIN & SIGNUP---------------*/
 .container-pages {
   text-align: center;
   margin: 3em 0;
+  font-size: 13px;
+}
+
+#login-container {
+  margin: 4rem 0 1rem 0;
+  text-align: center;
   font-size: 13px;
 }
 
@@ -340,21 +329,13 @@ header {
   flex-wrap: wrap;
 }
 
-.recipes {
-  width: 14.7em;
-  border: 1px solid;
-  margin: 0.5em;
-  padding: 0.5em;
-}
-
 .img-recipe {
   width: 100%;
   height: 26vh;
 }
 
-
 .list-recipes-margin {
-  margin-bottom: .8em;
+  margin-bottom: 0.8em;
 }
 
 #bookIt {
@@ -369,8 +350,11 @@ header {
 }
 
 /*ONE RECIPE*/
-.container-recipe-info {
+
+#one-recipe-container {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .img-info-recipe {
@@ -384,6 +368,10 @@ header {
 
 .info-recipe-form-margin {
   margin-bottom: 2em;
+}
+
+.info-recipe-form-margin input {
+  background-color: white;
 }
 
 .font-size-one-recipe {
@@ -433,17 +421,6 @@ header {
   justify-content: center;
 }
 
-.position-chef {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-#test {
-  display: flex;
-  flex-direction: column;
-}
-
 .profile-pic {
   width: 12rem;
   height: 12rem;
@@ -469,15 +446,8 @@ header {
 }
 
 .card-img-top {
-  width: 18rem;
+  width: 17.9rem;
   text-align: center;
-}
-
-.recipes-position {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .img-hover-zoom {
@@ -530,13 +500,16 @@ header {
 }
 
 #accordion {
+  background: rgba(239, 184, 169, 0.1);
+  /*
   background: rgba(230, 219, 178, .9);
+  */
   border-radius: 15px;
   padding: 20px;
 }
 
 #accordion section p {
-  background: rgba(150, 150, 150, .2);
+  background: rgba(150, 150, 150, 0.2);
   border-radius: 15px;
   padding: 20px;
   display: none;
