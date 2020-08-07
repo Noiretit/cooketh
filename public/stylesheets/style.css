@@ -23,7 +23,6 @@ input {
 
 .navbarColor {
   background-color: #e07a5f;
-  height: 72px;
 }
 
 .navbar-toggler {
@@ -125,10 +124,6 @@ header {
 .titles-homepage {
   color: #e07a5f;
   text-align: center;
-}
-
-.navbar-menu {
-  align-items: center;
 }
 
 .img-profile-connected {

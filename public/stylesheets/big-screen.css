@@ -21,6 +21,10 @@
         font-size: 17px;
     }
 
+    .navbar-menu {
+        align-items: center;
+    }
+
     /*Create/Edit user profile*/
     .section-allergies {
         width: 37%;
