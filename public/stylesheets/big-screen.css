@@ -10,15 +10,15 @@
     }
 
     #main-title-homepage {
-        font-size: 70px;
+        font-size: 30px;
     }
 
     #container-title-catchy-phrase p {
-        font-size: 40px;
+        font-size: 20px;
     }
 
     #button-find-cook {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     /*Create/Edit user profile*/
@@ -28,6 +28,7 @@
     }
 
     /*My Bookings*/
+
     .accepted-pending-title-my-bookings {
         display: block;
     }

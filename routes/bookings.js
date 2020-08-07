@@ -8,6 +8,8 @@ const Chef = require('./../models/chef');
 const Booking = require('./../models/booking');
 const Recipe = require('./../models/recipe');
 
+
+
 //ROUTER BOOKINGS USER OR CHEF
 router.get('/bookings', (req, res, next) => {
     const userId = req.session.currentUser._id;
@@ -28,8 +30,8 @@ router.get('/bookings', (req, res, next) => {
             });
         })
         .catch((err) => {
-            console.log('Failed loading the bookings');
-            res.render('/');
+            console.log('Failed loading the bookings', err);
+            res.redirect('/bookings');
         })
 });
 
