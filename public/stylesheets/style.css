@@ -416,7 +416,7 @@ header {
   margin-top: 1em;
 }
 
-#cant-book {
+.cant-book {
   margin-bottom: 1rem;
   padding: 1rem;
 }
