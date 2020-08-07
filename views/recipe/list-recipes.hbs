@@ -3,7 +3,7 @@
 
     {{#each recipes}}
     <div class="card img-hover-zoom" style="width: 18rem;">
-        <img class="card-img-top" style="height: 14rem;" src="{{this.imgPath}}" alt="Card image cap">
+        <img class="card-img-top" style="height: 16rem;" src="{{this.imgPath}}" alt="Card image cap">
         <hr style="align-self: center;" class="separation-line">
         <div class="card-body" style="padding-top: 0; font-size: 0.7rem">
             <h5 class="card-title">{{this.title}}</h5>
@@ -20,8 +20,7 @@
             </div>
             <div class="recipes-chef-info-cont">
                 <p style="font-size: 0.8rem"><b>Cooker</b>: {{this.chef.name}}</p>
-                <a class="allButtons" style="background-color: #81B29A; border:#81B29A"
-                    href="/profile-chef/{{this.chef._id}}">View profile</a>
+                <a class="allGreenButtons" href="/profile-chef/{{this.chef._id}}">View profile</a>
             </div>
         </div>
         <hr style="align-self: center;" class="separation-line">

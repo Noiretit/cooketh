@@ -80,6 +80,24 @@ header {
   font-weight: bold;
 }
 
+.allGreenButtons {
+  background-color: #9AC1AE;
+  color: white;
+  font-size: 13px;
+  padding: 0.4em 0.8em;
+  border: 1px solid #9AC1AE;
+  border-radius: 5px;
+  transition: 0.5s;
+  align-self: center;
+}
+
+.allGreenButtons:hover {
+  background-color: white;
+  color: #9AC1AE;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .generalButton {
   background-color: #e07a5f;
   color: white !important;
@@ -182,6 +200,7 @@ header {
   border: 1px solid;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1em;
 }
 
 .img-concept {
@@ -534,6 +553,11 @@ header {
 /*-----------------FOOTER---------------------*/
 footer {
   background-color: #e07a5f;
+}
+
+#master-container-footer {
+  position: absolute;
+  width: 100%;
 }
 
 #parent-container-arrow {

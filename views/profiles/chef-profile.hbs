@@ -56,7 +56,7 @@
             {{#ifneq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{this.serves}} guests</p> {{/ifneq}}
         </div>
         <hr style="align-self: center;" class="separation-line">
-        <a class="allButtons mb-3" href="/recipes/{{this._id}}">See more</a>
+        <a class="allGreenButtons mb-3" href="/recipes/{{this._id}}">See more</a>
 
         {{#if ../currentUserInfo.isAChef}}
         {{#ifeq ../thisChef.id ../currentUserInfo._id}}
