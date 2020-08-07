@@ -7,7 +7,8 @@
         <hr style="align-self: center;" class="separation-line">
         <div class="card-body" style="padding-top: 0; font-size: 0.7rem">
             <p class="card-text"><b>Diet:</b> {{recipeinfo.diet}}</p>
-            <p class="card-text"><b>Allergies:</b> {{recipeinfo.allergies}}</p>
+            <p class="card-text"><b>Allergies:</b> {{#each recipeinfo.allergies}}{{#if @last}}{{this}}{{else}}{{this}},
+                {{/if}}{{/each}}</p>
             <p class="card-text"><b>Type of cuisine: </b>{{recipeinfo.typeOfFood}}</p>
             <p class="card-text"><b>Price:</b> {{recipeinfo.price}}€/serving</p>
             {{#ifeq this.serves "1"}} <p class="card-text"><b>Serves:</b> {{recipeinfo.serves}} guest</p> {{/ifeq}}
