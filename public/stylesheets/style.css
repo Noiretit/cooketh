@@ -157,6 +157,10 @@ header {
   margin: 0 2rem;
 }
 
+.concept-p {
+  margin-top: 0.4rem;
+}
+
 #container-concept {
   justify-content: center;
   margin: 0;
