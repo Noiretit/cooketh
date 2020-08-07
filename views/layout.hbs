@@ -33,7 +33,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav navbar-menu">
         <li class="nav-item">
           <a style="color: white;" class="nav-link" href="/recipes">Find a cook!<span
               class="sr-only">(current)</span></a>
@@ -61,30 +61,35 @@
           <a style="color: white;" href="/recipe/new" class="nav-link">Create a new recipe</a>
         </li>
         <li class="nav-item">
-          <a style="color: white;" href="/bookings" class="nav-link">My bookings</a>
-        </li>
-        <li class="nav-item">
-          <a style="color: white;" href="/profile-chef/{{currentUserInfo._id}}" class="nav-link">My
-            profile</a>
-        </li>
-        <li class="nav-item">
           <a style="color: white;" class="nav-link" href="/faq">FAQ</a>
         </li>
-        <li class="nav-item">
-          <a style="color: white;" href="/logout" class="nav-link">Log-out</a>
+
+        <li class="nav-item dropdown">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="img-profile-connected" src={{currentUserInfo.picture}} />
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a style="color: #e07a5f" class="dropdown-item" href="/bookings">My Bookings</a>
+            <a style="color: #e07a5f" class="dropdown-item" href="/profile-chef/{{currentUserInfo._id}}">My Profile</a>
+            <a style="color: #e07a5f" class="dropdown-item" href="/logout">Log-out</a>
+          </div>
         </li>
+
         {{else if currentUserInfo.isAUser}}
         <li class="nav-item">
-          <a style="color: white;" href="/bookings" class="nav-link">My bookings</a>
-        </li>
-        <li class="nav-item">
-          <a style="color: white;" href="/profile-user/{{id}}" class="nav-link">My profile</a>
-        </li>
-        <li class="nav-item">
           <a style="color: white;" class="nav-link" href="/faq">FAQ</a>
         </li>
-        <li class="nav-item">
-          <a href="/logout" style="color: white;" class="nav-link">Log-out</a>
+        <li class="nav-item dropdown">
+          <a style="color: white;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="img-profile-connected" src={{currentUserInfo.picture}} />
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a style="color: #e07a5f" class="dropdown-item" href="/bookings">My Bookings</a>
+            <a style="color: #e07a5f" class="dropdown-item" href="/profile-user/{{id}}">My Profile</a>
+            <a style="color: #e07a5f" class="dropdown-item" href="/logout">Log-out</a>
+          </div>
         </li>
         {{/if}}
       </ul>

@@ -119,6 +119,17 @@ header {
   text-align: center;
 }
 
+.navbar-menu {
+  align-items: center;
+}
+
+.img-profile-connected {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
 #video-title {
   overflow: hidden;
 }
