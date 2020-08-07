@@ -116,6 +116,10 @@ header {
   margin-bottom: 2rem;
 }
 
+.error-message {
+  color: red;
+}
+
 /*HOME PAGE: section video-title*/
 #container-homepage {
   max-height: 3800px;
@@ -461,6 +465,7 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .profile-pic {
