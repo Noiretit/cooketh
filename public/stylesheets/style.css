@@ -182,9 +182,13 @@ header {
 /*HOMEPAGE: section concept*/
 #concept {
   position: relative;
-  bottom: 14em;
+  bottom: 18em;
   text-align: center;
   margin: 0 2rem;
+}
+
+.concept-p {
+  margin-top: 0.4rem;
 }
 
 #container-concept {
