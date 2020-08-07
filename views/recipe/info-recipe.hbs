@@ -84,7 +84,9 @@
                 <button class="allButtons" type="submit">Request your chef</button>
             </form>
             {{else}}
-            <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
+            <div id="cant-book">
+                <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
+            </div>
             {{/if}}
         </div>
     </div>

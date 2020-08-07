@@ -1,5 +1,12 @@
 /*GENERAL SETTINGS*/
 
+.text-more {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: #faf8f0;
@@ -412,6 +419,11 @@ header {
 .font-size-one-recipe {
   font-size: 15px;
   margin-top: 1em;
+}
+
+#cant-book {
+  margin-bottom: 1rem;
+  padding: 1rem;
 }
 
 /*-----------------MY BOOKINGS----------------*/
