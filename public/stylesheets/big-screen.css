@@ -99,6 +99,7 @@
         align-items: center;
         justify-content: center;
         margin: 0 0 0 1.5em;
+        overflow: hidden;
     }
 
     .img-chef-bookings {

@@ -33,7 +33,13 @@
             <hr style="align-self: center;" class="separation-line">
 
             <h2 class="all-page-titles info-recipe-margin">Book it!</h2>
+
             {{#if userIsLoggedIn}}
+            {{#isTrue currentUserInfo.isAChef}}
+            <p>You can't book a recipe as a chef.</p>
+            <p>Create a user account to do so.</p>
+            {{/isTrue}}
+            {{#isTrue currentUserInfo.isAUser}}
             <form class="info-recipe-form-margin" action="/new-booking" method="post">
                 <div class="input-margin">
                     <label for="date">Select your date:</label><br>
@@ -84,10 +90,12 @@
                 <br>
                 <button class="allButtons" type="submit">Request your chef</button>
             </form>
+            {{/isTrue}}
             {{else}}
-            <div id="cant-book">
+            <div class="cant-book">
                 <p>In order to book this recipe, you need to <a href="/login">Login</a></p>
             </div>
+
             {{/if}}
         </div>
     </div>

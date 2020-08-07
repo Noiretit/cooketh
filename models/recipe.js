@@ -41,6 +41,10 @@ const recipeSchema = new Schema({
     chef: {
         type: Schema.Types.ObjectId,
         ref: 'Chef'
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }
 }, {
     timestamps: true

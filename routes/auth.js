@@ -31,6 +31,7 @@ router.get('/recipes/:id', (req, res, next) => {
     const recipeId = req.params.id;
     Recipe.findById(recipeId)
         .populate('chef')
+        .populate('user')
         .then(oneRecipe => {
             console.log(oneRecipe)
             res.render('recipe/info-recipe', {
